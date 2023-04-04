@@ -34,9 +34,9 @@ int main()
         thread t_changeSong(&DisplayPlaylist::playNextSong, &playlist);
         thread t_monitorException(&DisplayPlaylist::checkForException, &playlist);
 
-        t_monitorException.detach();
-        t_changeSong.join();
         t_displayData.join();
+        t_changeSong.join();
+        t_monitorException.detach();
         exit(0);
     } catch (const exception &error) {
         cout << "\n => ERROR: " << error.what() << endl
@@ -49,9 +49,9 @@ int main()
 void push_songs_into_playlist(DisplayPlaylist &playlist)
 {
     try {
-        Song song1("Daku", chrono::seconds(2), "/thumbnails/daku.jpeg");
-        Song song2("Shape of You", chrono::seconds(4), "/thumbnails/shape_of_you.jpeg");
-        Song song3("Dandelion", chrono::seconds(3), "/thumbnails/dandelion.jpeg");
+        Song song1("Daku", chrono::seconds(1), "/thumbnails/daku.jpeg");
+        Song song2("Shape of You", chrono::seconds(1), "/thumbnails/shape_of_you.jpeg");
+        Song song3("Dandelion", chrono::seconds(1), "/thumbnails/dandelion.jpeg");
 
         playlist.pushSongIntoPlaylist(song1);
         playlist.pushSongIntoPlaylist(song2);

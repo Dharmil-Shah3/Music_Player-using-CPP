@@ -22,14 +22,18 @@ void DisplayPlaylist::pushSongIntoPlaylist(const Song &song){
 void DisplayPlaylist::displaySongDetails()
 {
     try {
+        if(playlist.empty()){
+            cout << "\n\n => NO SONGS IN PLAYLIST <=\n" << endl;
+            return;
+        }
         while(playlist.size()>1 || songPlaying)
         {
-            unique_lock<mutex> uniqueLock;
-            while (!songPlaying) // wait until the song starts playing
-            {
-                uniqueLock = unique_lock<mutex>(_lock_);
+            unique_lock<mutex> uniqueLock(_lock_);
+            while (!songPlaying){ // wait until the song starts playing
                 songCondition.wait(uniqueLock);
             }
+            if(!uniqueLock.owns_lock())
+                uniqueLock = unique_lock<mutex>(_lock_);
 
 //            Custom exception throwing test
 //            if(playlist.size() == 3)
@@ -41,17 +45,17 @@ void DisplayPlaylist::displaySongDetails()
             auto songStartTime = chrono::system_clock::now();
 
             printf("\n\n  ===== LALIFY MUSIC PLAYER =====\n");
-            cout << "\n\tSong   : " << playlist.front().getName() << endl;
+            printf("\n\tSong   : %s\n", playlist.front().getName().c_str());
             cout << "\n\tLength : " << setfill('0') << setw(2) << (songLength.count()/60)
                  << ":" << setw(2) << (songLength.count()%60) << endl;
 
 
             auto currentTime = chrono::system_clock::now();
-            while(currentTime < (songStartTime + songLength))
-            {
+            while(currentTime < (songStartTime + songLength)){ // wait until the duration of the song is completed
                 currentTime = chrono::system_clock::now();
             }
-
+            // unlock after the song is played and notify the pop thread.
+            uniqueLock.unlock();
             songPlaying = false;
             songCondition.notify_one();
         }
@@ -76,14 +80,16 @@ void DisplayPlaylist::playNextSong()
     try {
         while(!playlist.empty())
         {
-            unique_lock<mutex> uniqueLock;
-            while (songPlaying)
-            {
-                uniqueLock = unique_lock<mutex>(_lock_);
+            unique_lock<mutex> uniqueLock(_lock_);
+            while (songPlaying){
                 songCondition.wait(uniqueLock);
             }
+            if(!uniqueLock.owns_lock())
+                uniqueLock = unique_lock<mutex>(_lock_);
+
             playlist.pop();
             songPlaying = true;
+            uniqueLock.unlock();
             songCondition.notify_one();
         }
     }
@@ -104,14 +110,13 @@ void DisplayPlaylist::playNextSong()
 void DisplayPlaylist::checkForException()
 {
     try {
-        unique_lock<mutex> uinqueLock(_lock_);
-        errorRaised.wait(uinqueLock);
+        unique_lock<mutex> uniqueLock(_lock_);
+        errorRaised.wait(uniqueLock);
         songPlaying = false;
-        cout << "\n => ERROR: an exception occurred during execution, terminating the program." << endl;
+        printf("\n => ERROR: an exception occurred during execution, terminating the program.");
     } catch (const exception &error) {
         cout << "\n => ERROR: " << error.what() << endl
              << "\t : in " << __PRETTY_FUNCTION__ << endl;
     }
-    //std::terminate();
     exit(1);
 }
