@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['what_13',['what',['../structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881',1,'SongError::ErrorMessage']]]
+  ['name_14',['name',['../classSong.html#ac9a7a376f0428cf9d13574b4f014049a',1,'Song']]]
 ];

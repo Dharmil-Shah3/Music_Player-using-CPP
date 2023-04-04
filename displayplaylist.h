@@ -29,6 +29,9 @@ public:
     /** @brief DisplayPlaylist is a default constructor. */
     DisplayPlaylist();
 
+    /** @brief ~DisplayPlaylist is a destructor. */
+    ~DisplayPlaylist();
+
     /**
      * @brief displaySongDetails continouslly desplays the song details that is being played.
      * It waits if the songPlaying flag is false.
@@ -68,6 +71,17 @@ private:
 
     /** @brief songPlaying is the boolean that indicates either any song is being played or not. */
     bool songPlaying;
+
+    /**
+     * @brief errorMessage is used to store error message if any exception occurs during the execution.
+     * It is used as a flag for terminating the error thread properly.
+     * Error thread wakes up from the sleep under 2 situations.
+     * 1) if any exception has occured during execution.
+     * 2) if execution is completed, and its time to complete the execution of all threads, so that they don't stuck in infinate sleep/wait.
+     * So, using this data member, error thread can determine if there is any error or not.
+     * If there is any error, then print the error message stored inside this variable, and terminate the program.
+     */
+    std::string errorMessage;
 
     /**
      * @brief _lock_ is the mutex lock,

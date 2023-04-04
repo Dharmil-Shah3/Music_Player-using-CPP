@@ -30,12 +30,12 @@ int main()
 
         push_songs_into_playlist(playlist);
 
-        thread t_displayData(&DisplayPlaylist::displaySongDetails, &playlist);
         thread t_changeSong(&DisplayPlaylist::playNextSong, &playlist);
+        thread t_displayData(&DisplayPlaylist::displaySongDetails, &playlist);
         thread t_monitorException(&DisplayPlaylist::checkForException, &playlist);
 
-        t_displayData.join();
         t_changeSong.join();
+        t_displayData.join();
         t_monitorException.detach();
         exit(0);
     } catch (const exception &error) {

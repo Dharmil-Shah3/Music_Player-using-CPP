@@ -9,12 +9,17 @@ DisplayPlaylist::DisplayPlaylist(){
     this->songPlaying = true;
 }
 
+DisplayPlaylist::~DisplayPlaylist(){
+    // it makes sure to wake the error thread before destroying the object,
+    // to save error thread from infinate waiting.
+    this->errorRaised.notify_all();
+}
+
 void DisplayPlaylist::pushSongIntoPlaylist(const Song &song){
     try {
         playlist.push(song);
     } catch (const exception &error) {
-        cout << "\n => ERROR: " << error.what() << endl
-             << "\t : in -> " << __PRETTY_FUNCTION__ << endl;
+        errorMessage = "\n => ERROR: "+string(error.what()) + "\n\t : in -> "+__PRETTY_FUNCTION__+"\n";
         errorRaised.notify_one();
     }
 }
@@ -32,12 +37,9 @@ void DisplayPlaylist::displaySongDetails()
             while (!songPlaying){ // wait until the song starts playing
                 songCondition.wait(uniqueLock);
             }
-            if(!uniqueLock.owns_lock())
-                uniqueLock = unique_lock<mutex>(_lock_);
 
 //            Custom exception throwing test
-//            if(playlist.size() == 3)
-//                throw ErrorCode::NO_INTERNET_CONNECTION;
+//            throw ErrorCode::NO_INTERNET_CONNECTION;
 
             system("clear");
 
@@ -59,17 +61,12 @@ void DisplayPlaylist::displaySongDetails()
         cout<<"\n\n => Playlist Ended <=\n\n";
     }
     catch(const ErrorCode &error) {
-        cout << "\n => ERROR: " << ErrorMessage::what(error) << endl
-             << "\t : in -> " << __PRETTY_FUNCTION__ << endl;
-        errorRaised.notify_one();
-        return;
+        errorMessage = "\n => ERROR: "+ErrorMessage::what(error) + "\n\t : in -> "+__PRETTY_FUNCTION__+"\n";
     }
     catch (const exception &error) {
-        cout << "\n => ERROR: " << error.what() << endl
-             << "\t : in -> " << __PRETTY_FUNCTION__ << endl;
-        errorRaised.notify_one();
-        return;
+        errorMessage = "\n => ERROR: "+string(error.what()) + "\n\t : in -> "+__PRETTY_FUNCTION__+"\n";
     }
+    errorRaised.notify_one();
 }
 
 void DisplayPlaylist::playNextSong()
@@ -78,12 +75,9 @@ void DisplayPlaylist::playNextSong()
         while(!playlist.empty())
         {
             unique_lock<mutex> uniqueLock(_lock_);
-            while (songPlaying){
+            while (songPlaying){ // wait until the song is playing
                 songCondition.wait(uniqueLock);
             }
-            if(!uniqueLock.owns_lock())
-                uniqueLock = unique_lock<mutex>(_lock_);
-
             playlist.pop();
             songPlaying = true;
             uniqueLock.unlock();
@@ -91,29 +85,31 @@ void DisplayPlaylist::playNextSong()
         }
     }
     catch (const ErrorCode &error){
-        cout << "\n => ERROR: " << ErrorMessage::what(error) << endl
-             << "\t : in -> " << __PRETTY_FUNCTION__ << endl;
-        errorRaised.notify_one();
-        return;
+        errorMessage = "\n => ERROR: "+ErrorMessage::what(error) + "\n\t : in -> "+__PRETTY_FUNCTION__+"\n";
     }
     catch (const exception &error){
-        cout << "\n => ERROR: " << error.what() << endl
-             << "\t : in -> " << __PRETTY_FUNCTION__ << endl;
-        errorRaised.notify_one();
-        return;
+        errorMessage = "\n => ERROR: "+string(error.what()) + "\n\t : in -> "+__PRETTY_FUNCTION__+"\n";
     }
+    errorRaised.notify_one();
 }
 
 void DisplayPlaylist::checkForException()
 {
     try {
-        unique_lock<mutex> uniqueLock(_lock_);
-        errorRaised.wait(uniqueLock);
+        // tempErrorLock is used instead of global _lock_ with unique_lock,
+        // to maintain the proper sequence of the program.
+        mutex tempErrorLock;
+        unique_lock<mutex> uniqueLock(tempErrorLock);
+        errorRaised.wait(uniqueLock, [&](){ return !errorMessage.empty(); });
         songPlaying = false;
-        printf("\n => ERROR: an exception occurred during execution, terminating the program.");
+
+        // to understand below condition, see the documentation of errorMessage variable.
+        if(!errorMessage.empty()){
+            cout << this->errorMessage;
+            exit(1);
+        }
     } catch (const exception &error) {
         cout << "\n => ERROR: " << error.what() << endl
              << "\t : in " << __PRETTY_FUNCTION__ << endl;
     }
-    exit(1);
 }

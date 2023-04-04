@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['getduration_5',['getDuration',['../classSong.html#a06bc75addc1c9bdcb7f8534b5a231d5c',1,'Song']]],
-  ['getid_6',['getId',['../classSong.html#adcceab18a1a5803c46a329184a9ae233',1,'Song']]],
-  ['getname_7',['getName',['../classSong.html#a60a38ab26b8ba27999f2e3b35899aefc',1,'Song']]],
-  ['getthumbnailpath_8',['getThumbnailPath',['../classSong.html#a324aa846fa7d58ee73ff4a0ad6f523cd',1,'Song']]]
+  ['errorcode_5',['ErrorCode',['../namespaceSongError.html#a026b317783780136da3f4dced3e21b58',1,'SongError']]],
+  ['errormessage_6',['errorMessage',['../classDisplayPlaylist.html#a15abd2ca3cd2aef468219dc7bd6e503c',1,'DisplayPlaylist']]],
+  ['errormessage_7',['ErrorMessage',['../structSongError_1_1ErrorMessage.html',1,'SongError']]],
+  ['errorraised_8',['errorRaised',['../classDisplayPlaylist.html#a7f48c666e192e446990e87663f877c1c',1,'DisplayPlaylist']]]
 ];

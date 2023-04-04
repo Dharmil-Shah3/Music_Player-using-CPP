@@ -1,10 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "cdegpsw~",
+  0: "_cdeginpstw~",
   1: "des",
   2: "s",
   3: "cdgpsw~",
-  4: "e"
+  4: "_deinpst",
+  5: "e"
 };
 
 var indexSectionNames =
@@ -13,7 +14,8 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "functions",
-  4: "enums"
+  4: "variables",
+  5: "enums"
 };
 
 var indexSectionLabels =
@@ -22,6 +24,7 @@ var indexSectionLabels =
   1: "Classes",
   2: "Namespaces",
   3: "Functions",
-  4: "Enumerations"
+  4: "Variables",
+  5: "Enumerations"
 };
 

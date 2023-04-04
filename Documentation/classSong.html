@@ -84,6 +84,8 @@ $(document).ready(function(){initNavTree('classSong.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classSong-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Song Class Reference</div>  </div>
@@ -102,7 +104,7 @@ Collaboration diagram for Song:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aebeaf90ab839d74c311219f76a668f23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#aebeaf90ab839d74c311219f76a668f23">Song</a> (const std::string &amp;name, const std::chrono::seconds &amp;duration, const std::string &amp;thumbnailPath)</td></tr>
+<tr class="memitem:aebeaf90ab839d74c311219f76a668f23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#aebeaf90ab839d74c311219f76a668f23">Song</a> (const std::string &amp;<a class="el" href="classSong.html#ac9a7a376f0428cf9d13574b4f014049a">name</a>, const std::chrono::seconds &amp;<a class="el" href="classSong.html#a09a59cc18cc7b7a9140d5784cf554419">duration</a>, const std::string &amp;<a class="el" href="classSong.html#aceb9f5d2fda79388d466f61ec4d1e78a">thumbnailPath</a>)</td></tr>
 <tr class="memdesc:aebeaf90ab839d74c311219f76a668f23"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> is the parameterised constructor.  <a href="classSong.html#aebeaf90ab839d74c311219f76a668f23">More...</a><br /></td></tr>
 <tr class="separator:aebeaf90ab839d74c311219f76a668f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0749c3367e8de89e27458c248377027b"><td class="memItemLeft" align="right" valign="top"><a id="a0749c3367e8de89e27458c248377027b"></a>
@@ -121,6 +123,32 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06bc75addc1c9bdcb7f8534b5a231d5c"><td class="memItemLeft" align="right" valign="top">std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#a06bc75addc1c9bdcb7f8534b5a231d5c">getDuration</a> () const</td></tr>
 <tr class="memdesc:a06bc75addc1c9bdcb7f8534b5a231d5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">getDuration returns the duration of the time in chrono::seconds.  <a href="classSong.html#a06bc75addc1c9bdcb7f8534b5a231d5c">More...</a><br /></td></tr>
 <tr class="separator:a06bc75addc1c9bdcb7f8534b5a231d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a35181f7067485c7c155af9cec75bd741"><td class="memItemLeft" align="right" valign="top"><a id="a35181f7067485c7c155af9cec75bd741"></a>
+unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#a35181f7067485c7c155af9cec75bd741">id</a></td></tr>
+<tr class="memdesc:a35181f7067485c7c155af9cec75bd741"><td class="mdescLeft">&#160;</td><td class="mdescRight">id is the unique id of the song. <br /></td></tr>
+<tr class="separator:a35181f7067485c7c155af9cec75bd741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9a7a376f0428cf9d13574b4f014049a"><td class="memItemLeft" align="right" valign="top"><a id="ac9a7a376f0428cf9d13574b4f014049a"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#ac9a7a376f0428cf9d13574b4f014049a">name</a></td></tr>
+<tr class="memdesc:ac9a7a376f0428cf9d13574b4f014049a"><td class="mdescLeft">&#160;</td><td class="mdescRight">name of the song. <br /></td></tr>
+<tr class="separator:ac9a7a376f0428cf9d13574b4f014049a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a59cc18cc7b7a9140d5784cf554419"><td class="memItemLeft" align="right" valign="top"><a id="a09a59cc18cc7b7a9140d5784cf554419"></a>
+std::chrono::seconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#a09a59cc18cc7b7a9140d5784cf554419">duration</a></td></tr>
+<tr class="memdesc:a09a59cc18cc7b7a9140d5784cf554419"><td class="mdescLeft">&#160;</td><td class="mdescRight">duration of the song in form of chrono::seconds. <br /></td></tr>
+<tr class="separator:a09a59cc18cc7b7a9140d5784cf554419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb9f5d2fda79388d466f61ec4d1e78a"><td class="memItemLeft" align="right" valign="top"><a id="aceb9f5d2fda79388d466f61ec4d1e78a"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#aceb9f5d2fda79388d466f61ec4d1e78a">thumbnailPath</a></td></tr>
+<tr class="memdesc:aceb9f5d2fda79388d466f61ec4d1e78a"><td class="mdescLeft">&#160;</td><td class="mdescRight">thumbnailPath is the path of the thumbnail image of the song. <br /></td></tr>
+<tr class="separator:aceb9f5d2fda79388d466f61ec4d1e78a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a793d726379e14f72c4f1554fc70d9a39"><td class="memItemLeft" align="right" valign="top"><a id="a793d726379e14f72c4f1554fc70d9a39"></a>
+static unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSong.html#a793d726379e14f72c4f1554fc70d9a39">totalSongs</a> = 0</td></tr>
+<tr class="memdesc:a793d726379e14f72c4f1554fc70d9a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">totalSongs is a static attribute used to allocate dynamic id to the songs in the constructor. <br /></td></tr>
+<tr class="separator:a793d726379e14f72c4f1554fc70d9a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> class represents a song, and contains song related attributes and methods. </p>
