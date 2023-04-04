@@ -42,18 +42,15 @@ void DisplayPlaylist::displaySongDetails()
             system("clear");
 
             chrono::seconds songLength = playlist.front().getDuration();
-            auto songStartTime = chrono::system_clock::now();
 
             printf("\n\n  ===== LALIFY MUSIC PLAYER =====\n");
             printf("\n\tSong   : %s\n", playlist.front().getName().c_str());
             cout << "\n\tLength : " << setfill('0') << setw(2) << (songLength.count()/60)
                  << ":" << setw(2) << (songLength.count()%60) << endl;
 
+            // wait/sleep until the duration of the song is completed
+            this_thread::sleep_for(songLength);
 
-            auto currentTime = chrono::system_clock::now();
-            while(currentTime < (songStartTime + songLength)){ // wait until the duration of the song is completed
-                currentTime = chrono::system_clock::now();
-            }
             // unlock after the song is played and notify the pop thread.
             uniqueLock.unlock();
             songPlaying = false;
