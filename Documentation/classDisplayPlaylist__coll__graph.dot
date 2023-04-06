@@ -1,7 +1,0 @@
-digraph "DisplayPlaylist"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="{DisplayPlaylist\n|- songPlaying\l- errorMessage\l- _lock_\l- songCondition\l- errorRaised\l- playlist\l|+ DisplayPlaylist()\l+ ~DisplayPlaylist()\l+ displaySongDetails()\l+ playNextSong()\l+ checkForException()\l+ pushSongIntoPlaylist()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="The DisplayData class."];
-}

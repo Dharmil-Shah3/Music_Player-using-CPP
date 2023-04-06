@@ -7,17 +7,17 @@
 /**
  * @brief The Song class represents a song, and contains song related attributes and methods.
  *
- * The Song class contains song attributes such as
- *  1) unique id of the song (auto-generated)
- *  2) Name of the song
- *  3) Duration of the songs (in chrono seconds)
- *  4) thubnail's path of the song
+ * The Song class contains song attributes such as\n
+ *  1) unique id of the song (auto-generated)\n
+ *  2) Name of the song\n
+ *  3) Duration of the songs (in chrono seconds)\n
+ *  4) thubnail's path of the song\n\n
  *
- * In addition, it has also a static attribute named totalSongs.
- * totalSongs is used to provide the auto-generated id's to each object of the Song class.
- * initially it's zero(0), but it's value is being incremented in the constructor of Song class.
+ * In addition, it has also a static attribute named totalSongs.\n
+ * totalSongs is used to provide the auto-generated id's to each object of the Song class.\n
+ * initially it's zero(0), but it's value is being incremented in the constructor of Song class.\n\n
  *
- * It also provides the getter methods to get all value of the all the attributes listed above except totalSongs,
+ * It also provides the getter methods to get all attribute's value listed above, except totalSongs,\n
  * since all the attributes are private.
  */
 class Song
@@ -96,9 +96,9 @@ namespace SongError
 
     /**
      * @brief The ErrorMessage struct contains error messages of elements of ErrorCode enum.
-     * This is an abstact structure that has a static method what(),
-     * which takes ErrorCode element as an argument,
-     * and returns the related error message.
+     * This is an abstact structure that has a static method what(),\n
+     * which takes ErrorCode element as an argument,\n
+     * and returns the related error message.\n
      */
     struct ErrorMessage
     {
