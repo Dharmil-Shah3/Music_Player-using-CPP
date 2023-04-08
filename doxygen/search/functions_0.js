@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['checkforexception_46',['checkForException',['../classDisplayPlaylist.html#a4cf6305e02ef84650f5439a1afc3d2b8',1,'DisplayPlaylist']]]
+  ['disableconsoleoutput_0',['disableConsoleOutput',['../classLogger.html#a199b998031d189d3ddba7f7990972360',1,'Logger']]],
+  ['disablefileoutput_1',['disableFileOutput',['../classLogger.html#a8aea89458ae5f830897ce33ba1acbbeb',1,'Logger']]],
+  ['displayplaylist_2',['DisplayPlaylist',['../classDisplayPlaylist.html#afbda174f468b7318741f2b257ccfc6a9',1,'DisplayPlaylist']]]
 ];

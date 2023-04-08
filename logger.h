@@ -30,8 +30,20 @@ class Logger
 {
 public:
 
+    /** @brief enables the console log output. */
+    void static enableConsoleOutput();
+
+    /** @brief logs will not be shown in the console. */
+    void static disableConsoleOutput();
+
+    /*******************************************************//**
+     * @brief whether logs are displaying on the console or not.
+     * @return value of boolean consoleOutput flag.
+     **********************************************************/
+    bool static isConsoleOutputEnabled();
+
     /**********************************************************************************//**
-     * @brief enables the file output.
+     * @brief enables the file log output.
      * @param sets the log file name if provided. Ohterwise default value is already there.
      *************************************************************************************/
     void static enableFileOutput(const std::string &filename="");
@@ -42,10 +54,10 @@ public:
      ***************************************/
     void static disableFileOutput();
 
-    /********************************************************************//**
-     * @brief used to know whether the flag saveLogsIntoFile are true or not.
-     * @return value of static member saveLogsIntoFile.
-     ***********************************************************************/
+    /*************************************************************//**
+     * @brief used to know whether the flag fileOutput is true or not.
+     * @return value of static member fileOutput.
+     ****************************************************************/
     bool static isFileOutputEnabled();
 
     /***************************************************************************//**
@@ -75,7 +87,7 @@ public:
     template <typename... Args>
     static void log(const LogPriority &logPriority, const char *message, const Args... args)
     {
-        if(logPriority >= Logger::priority)
+        if(consoleOutput == true && logPriority >= Logger::priority)
         {
             std::string logType;
             switch (logPriority) {
@@ -110,7 +122,7 @@ public:
             printf("\n");
             display_lock.unlock();
 
-            // write logs into file
+            // write logs into file, if enabled
             if(fileOutput)
             {
                 write_lock.lock();
@@ -135,6 +147,9 @@ public:
 
 private:
 
+    /** @brief used to determine whether to display logs into console or not (default = true). */
+    bool static consoleOutput;
+
     /** @brief used to determine whether to write logs into file or not (default = false). */
     bool static fileOutput;
 
@@ -150,12 +165,12 @@ private:
     /** @brief display_lock used to prevent race condition while displaying logs. */
     static std::mutex display_lock;
 
-    /************************************************************************************************************************************************//**
+    /*********************************************************************************************************//**
      * @brief priority variable is used to compare with priority of the log message to be displayed.
      * Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.\n
      * If the priority of the log message is lesser that this variable, then that log message will not be displayed.\n
      * Default value is LogPriority::Debug.
-     ***************************************************************************************************************************************************/
+     ************************************************************************************************************/
     static LogPriority priority;
 
     /** @brief make_this_class_abstract is just declared to make this class abstract. */

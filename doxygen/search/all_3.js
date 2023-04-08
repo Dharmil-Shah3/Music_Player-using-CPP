@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['errorcode_6',['ErrorCode',['../namespaceSongError.html#a026b317783780136da3f4dced3e21b58',1,'SongError']]],
-  ['errormessage_7',['errorMessage',['../classDisplayPlaylist.html#a15abd2ca3cd2aef468219dc7bd6e503c',1,'DisplayPlaylist']]],
-  ['errormessage_8',['ErrorMessage',['../structSongError_1_1ErrorMessage.html',1,'SongError']]],
-  ['errorraised_9',['errorRaised',['../classDisplayPlaylist.html#a7f48c666e192e446990e87663f877c1c',1,'DisplayPlaylist']]],
-  ['executioncomplete_10',['executionComplete',['../classDisplayPlaylist.html#a56ffcad8db2241b89b18914061915a52',1,'DisplayPlaylist']]]
+  ['enableconsoleoutput_0',['enableConsoleOutput',['../classLogger.html#ad4419b938c11ca8b784f40e82dffc796',1,'Logger']]],
+  ['enablefileoutput_1',['enableFileOutput',['../classLogger.html#a354726b8407c9640e5a33e97bb2df9d8',1,'Logger']]],
+  ['error_2',['Error',['../logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f',1,'logger.h']]],
+  ['errorcode_3',['ErrorCode',['../namespaceSongError.html#a026b317783780136da3f4dced3e21b58',1,'SongError']]],
+  ['errormessage_4',['errorMessage',['../classDisplayPlaylist.html#a15abd2ca3cd2aef468219dc7bd6e503c',1,'DisplayPlaylist']]],
+  ['errormessage_5',['ErrorMessage',['../structSongError_1_1ErrorMessage.html',1,'SongError']]],
+  ['errorraised_6',['errorRaised',['../classDisplayPlaylist.html#a7f48c666e192e446990e87663f877c1c',1,'DisplayPlaylist']]],
+  ['executioncomplete_7',['executionComplete',['../classDisplayPlaylist.html#a56ffcad8db2241b89b18914061915a52',1,'DisplayPlaylist']]]
 ];

@@ -27,6 +27,7 @@ void push_songs_into_playlist(DisplayPlaylist &playlist);
 int main()
 {
     try {
+        Logger::disableConsoleOutput();
         Logger::enableFileOutput();
         Logger::setPriority(Trace);
         Logger::log(Trace, "Execution started -> %s", __PRETTY_FUNCTION__);

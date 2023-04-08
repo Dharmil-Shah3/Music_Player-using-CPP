@@ -1,0 +1,5 @@
+<map id="DisplayPlaylist::playPlaylist" name="DisplayPlaylist::playPlaylist">
+<area shape="rect" id="node1" title="displaySongDetails continouslly desplays the song details that is being played. It waits if the songP..." alt="" coords="5,35,208,60"/>
+<area shape="rect" id="node2" href="$classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="300,5,395,31"/>
+<area shape="rect" id="node3" href="$structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="256,55,439,95"/>
+</map>

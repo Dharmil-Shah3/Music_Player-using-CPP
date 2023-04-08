@@ -1,0 +1,214 @@
+\hypertarget{classSong}{}\doxysection{Song Class Reference}
+\label{classSong}\index{Song@{Song}}
+
+
+The \doxylink{classSong}{Song} class represents a song, and contains song related attributes and methods.  
+
+
+
+
+{\ttfamily \#include $<$song.\+h$>$}
+
+
+
+Collaboration diagram for Song\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{classSong__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSong_aebeaf90ab839d74c311219f76a668f23}{Song}} (const std\+::string \&\mbox{\hyperlink{classSong_ac9a7a376f0428cf9d13574b4f014049a}{name}}, const std\+::chrono\+::seconds \&\mbox{\hyperlink{classSong_a09a59cc18cc7b7a9140d5784cf554419}{duration}}, const std\+::string \&\mbox{\hyperlink{classSong_aceb9f5d2fda79388d466f61ec4d1e78a}{thumbnail\+Path}})
+\begin{DoxyCompactList}\small\item\em \doxylink{classSong}{Song} is the parameterised constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSong_a0749c3367e8de89e27458c248377027b}{$\sim$\+Song}} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\+Song destructor. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classSong_adcceab18a1a5803c46a329184a9ae233}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em get\+Id returns the unique id of the song. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSong_a60a38ab26b8ba27999f2e3b35899aefc}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em get\+Name returns the name of the song. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSong_a324aa846fa7d58ee73ff4a0ad6f523cd}{get\+Thumbnail\+Path}} () const
+\begin{DoxyCompactList}\small\item\em get\+Thumbnail\+Path returns the path of the song\textquotesingle{}s thumbnail. \end{DoxyCompactList}\item 
+std\+::chrono\+::seconds \mbox{\hyperlink{classSong_a06bc75addc1c9bdcb7f8534b5a231d5c}{get\+Duration}} () const
+\begin{DoxyCompactList}\small\item\em get\+Duration returns the duration of the time in chrono\+::seconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{classSong_a35181f7067485c7c155af9cec75bd741}{id}}
+\begin{DoxyCompactList}\small\item\em id is the unique id of the song. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSong_ac9a7a376f0428cf9d13574b4f014049a}{name}}
+\begin{DoxyCompactList}\small\item\em name of the song. \end{DoxyCompactList}\item 
+std\+::chrono\+::seconds \mbox{\hyperlink{classSong_a09a59cc18cc7b7a9140d5784cf554419}{duration}}
+\begin{DoxyCompactList}\small\item\em duration of the song in form of chrono\+::seconds. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classSong_aceb9f5d2fda79388d466f61ec4d1e78a}{thumbnail\+Path}}
+\begin{DoxyCompactList}\small\item\em thumbnail\+Path is the path of the thumbnail image of the song. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int \mbox{\hyperlink{classSong_a793d726379e14f72c4f1554fc70d9a39}{total\+Songs}} = 0
+\begin{DoxyCompactList}\small\item\em total\+Songs is a static attribute used to allocate dynamic id to the songs in the constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classSong}{Song} class represents a song, and contains song related attributes and methods. 
+
+The \doxylink{classSong}{Song} class contains song attributes such as~\newline
+ 1) unique id of the song (auto-\/generated)~\newline
+ 2) Name of the song~\newline
+ 3) Duration of the songs (in chrono seconds)~\newline
+ 4) thubnail\textquotesingle{}s path of the song~\newline
+~\newline
+ In addition, it has also a static attribute named total\+Songs.~\newline
+total\+Songs is used to provide the auto-\/generated id\textquotesingle{}s to each object of the \doxylink{classSong}{Song} class.~\newline
+initially it\textquotesingle{}s zero(0), but it\textquotesingle{}s value is being incremented in the constructor of \doxylink{classSong}{Song} class.~\newline
+~\newline
+ It also provides the getter methods to get all attribute\textquotesingle{}s value listed above, except total\+Songs,~\newline
+since all the attributes are private. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classSong_aebeaf90ab839d74c311219f76a668f23}\label{classSong_aebeaf90ab839d74c311219f76a668f23} 
+\index{Song@{Song}!Song@{Song}}
+\index{Song@{Song}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{Song()}{Song()}}
+{\footnotesize\ttfamily Song\+::\+Song (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::chrono\+::seconds \&}]{duration,  }\item[{const std\+::string \&}]{thumbnail\+Path }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classSong}{Song} is the parameterised constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & of the song. \\
+\hline
+{\em duration} & of the song in seconds. \\
+\hline
+{\em thumbnail\+Path} & is the path of song thumbnail. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classSong_a0749c3367e8de89e27458c248377027b}\label{classSong_a0749c3367e8de89e27458c248377027b} 
+\index{Song@{Song}!````~Song@{$\sim$Song}}
+\index{````~Song@{$\sim$Song}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{$\sim$Song()}{~Song()}}
+{\footnotesize\ttfamily Song\+::$\sim$\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+$\sim$\+Song destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classSong_a06bc75addc1c9bdcb7f8534b5a231d5c}\label{classSong_a06bc75addc1c9bdcb7f8534b5a231d5c} 
+\index{Song@{Song}!getDuration@{getDuration}}
+\index{getDuration@{getDuration}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{getDuration()}{getDuration()}}
+{\footnotesize\ttfamily chrono\+::seconds Song\+::get\+Duration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Duration returns the duration of the time in chrono\+::seconds. 
+
+\begin{DoxyReturn}{Returns}
+duration of the song. 
+\end{DoxyReturn}
+\Hypertarget{classSong_adcceab18a1a5803c46a329184a9ae233}\label{classSong_adcceab18a1a5803c46a329184a9ae233} 
+\index{Song@{Song}!getId@{getId}}
+\index{getId@{getId}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily unsigned int Song\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Id returns the unique id of the song. 
+
+\begin{DoxyReturn}{Returns}
+id of the song. 
+\end{DoxyReturn}
+\Hypertarget{classSong_a60a38ab26b8ba27999f2e3b35899aefc}\label{classSong_a60a38ab26b8ba27999f2e3b35899aefc} 
+\index{Song@{Song}!getName@{getName}}
+\index{getName@{getName}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily string Song\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Name returns the name of the song. 
+
+\begin{DoxyReturn}{Returns}
+name of the song. 
+\end{DoxyReturn}
+\Hypertarget{classSong_a324aa846fa7d58ee73ff4a0ad6f523cd}\label{classSong_a324aa846fa7d58ee73ff4a0ad6f523cd} 
+\index{Song@{Song}!getThumbnailPath@{getThumbnailPath}}
+\index{getThumbnailPath@{getThumbnailPath}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{getThumbnailPath()}{getThumbnailPath()}}
+{\footnotesize\ttfamily string Song\+::get\+Thumbnail\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Thumbnail\+Path returns the path of the song\textquotesingle{}s thumbnail. 
+
+\begin{DoxyReturn}{Returns}
+thumbnail\+Path of the song. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classSong_a09a59cc18cc7b7a9140d5784cf554419}\label{classSong_a09a59cc18cc7b7a9140d5784cf554419} 
+\index{Song@{Song}!duration@{duration}}
+\index{duration@{duration}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily std\+::chrono\+::seconds Song\+::duration\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+duration of the song in form of chrono\+::seconds. 
+
+\Hypertarget{classSong_a35181f7067485c7c155af9cec75bd741}\label{classSong_a35181f7067485c7c155af9cec75bd741} 
+\index{Song@{Song}!id@{id}}
+\index{id@{id}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily unsigned int Song\+::id\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+id is the unique id of the song. 
+
+\Hypertarget{classSong_ac9a7a376f0428cf9d13574b4f014049a}\label{classSong_ac9a7a376f0428cf9d13574b4f014049a} 
+\index{Song@{Song}!name@{name}}
+\index{name@{name}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Song\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+name of the song. 
+
+\Hypertarget{classSong_aceb9f5d2fda79388d466f61ec4d1e78a}\label{classSong_aceb9f5d2fda79388d466f61ec4d1e78a} 
+\index{Song@{Song}!thumbnailPath@{thumbnailPath}}
+\index{thumbnailPath@{thumbnailPath}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{thumbnailPath}{thumbnailPath}}
+{\footnotesize\ttfamily std\+::string Song\+::thumbnail\+Path\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+thumbnail\+Path is the path of the thumbnail image of the song. 
+
+\Hypertarget{classSong_a793d726379e14f72c4f1554fc70d9a39}\label{classSong_a793d726379e14f72c4f1554fc70d9a39} 
+\index{Song@{Song}!totalSongs@{totalSongs}}
+\index{totalSongs@{totalSongs}!Song@{Song}}
+\doxysubsubsection{\texorpdfstring{totalSongs}{totalSongs}}
+{\footnotesize\ttfamily unsigned int Song\+::total\+Songs = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+total\+Songs is a static attribute used to allocate dynamic id to the songs in the constructor. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{song_8h}{song.\+h}}\item 
+\mbox{\hyperlink{song_8cpp}{song.\+cpp}}\end{DoxyCompactItemize}

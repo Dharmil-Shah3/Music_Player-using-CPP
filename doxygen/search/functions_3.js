@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['issavingintofile_53',['isSavingIntoFile',['../classLogger.html#a7b49dbe18c85a221959d9926fc1a5a9f',1,'Logger']]]
+  ['isconsoleoutputenabled_0',['isConsoleOutputEnabled',['../classLogger.html#a282f5ca050c07220817bd50742d96eea',1,'Logger']]],
+  ['isfileoutputenabled_1',['isFileOutputEnabled',['../classLogger.html#abfe9ff5af856623b4d0f949b6e7bad5a',1,'Logger']]]
 ];

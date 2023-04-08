@@ -1,0 +1,292 @@
+\hypertarget{classDisplayPlaylist}{}\doxysection{Display\+Playlist Class Reference}
+\label{classDisplayPlaylist}\index{DisplayPlaylist@{DisplayPlaylist}}
+
+
+The Display\+Data class.  
+
+
+
+
+{\ttfamily \#include $<$displayplaylist.\+h$>$}
+
+
+
+Collaboration diagram for Display\+Playlist\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{classDisplayPlaylist__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9}{Display\+Playlist}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classDisplayPlaylist}{Display\+Playlist} is a default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b}{$\sim$\+Display\+Playlist}} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\+Display\+Playlist is a destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplayPlaylist_a1dc52601d46d80980323159174e02835}{play\+Playlist}} ()
+\begin{DoxyCompactList}\small\item\em display\+Song\+Details continouslly desplays the song details that is being played. It waits if the song\+Playing flag is false.~\newline
+It goes into waiting queue until someone wakes him up.~\newline
+It waits on the song\+Condition variable with the unique\+\_\+lock using {\itshape lock} attribut of the class.~\newline
+After song finishes its duration, it will set song\+Playing flag to false and notify the waiting thread on song\+Condition variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{play\+Next\+Song}} ()
+\begin{DoxyCompactList}\small\item\em play\+Next\+Song pops the first song from the playlist. This function executes until the queue is not empty.~\newline
+Inside loop, it waits if the song\+Playing flag is true.~\newline
+It waits on the song\+Condition variable with the uniqie\+\_\+lock and {\itshape lock} mutex of the class.~\newline
+It wakes up after someone notify on the song\+Condition variable.~\newline
+After waking up, it pops the song from the playlist, and sets the song\+Playing flag to true.~\newline
+And it notifies on the song\+Playing variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4}{monitor\+Exception}} (int \&return\+Value)
+\begin{DoxyCompactList}\small\item\em monitor\+Exception is used to check/monitor any exception during execution. This method appies unique\+\_\+lock on {\itshape lock} mutex, and then goes into waiting using error\+Raised condition variable.~\newline
+It wakes from the sleep once anyone notify on the error\+Raised condition variable.~\newline
+After waking up, it displays the error message if any and terminates program.~\newline
+\end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c}{push\+Song\+Into\+Playlist}} (const \mbox{\hyperlink{classSong}{Song}} \&song)
+\begin{DoxyCompactList}\small\item\em push\+Song\+Into\+Playlist method pushes the \doxylink{classSong}{Song} object into the playlist (queue). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e}{song\+Playing}}
+\begin{DoxyCompactList}\small\item\em song\+Playing is the boolean that indicates either any song is being played or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52}{execution\+Complete}}
+\begin{DoxyCompactList}\small\item\em execution\+Complete flag indicates if all songs are completed or not. This flag is specially used into monitor\+Exception method. If its true, then error thread can end it\textquotesingle{}s waiting to complete execution. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classDisplayPlaylist_a15abd2ca3cd2aef468219dc7bd6e503c}{error\+Message}}
+\begin{DoxyCompactList}\small\item\em error\+Message is used to store error message if any exception occurs during the execution. It is used as a flag for terminating the error thread properly.~\newline
+Error thread wakes up from the sleep under 2 situations.~\newline
+1) if any exception has occured during execution.~\newline
+2) if execution is completed, and its time to complete the execution of all threads, so that they don\textquotesingle{}t stuck in infinate sleep/wait.~\newline
+So, using this data member, error thread can determine if there is any error or not.~\newline
+If there is any error, then print the error message stored inside this variable, and terminate the program.~\newline
+\end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classDisplayPlaylist_a5aa85b02817c47c3a3ebf3f4ebe6a17f}{\+\_\+lock\+\_\+}}
+\begin{DoxyCompactList}\small\item\em {\itshape lock} is the mutex lock,~\newline
+which is used with the unique\+\_\+lock and condition\+\_\+vatiable to make thread wait and awake them. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classDisplayPlaylist_aa4d5ed56b6210fa0ad04e1810cf5fbcd}{song\+Condition}}
+\begin{DoxyCompactList}\small\item\em song\+Condition is the condition variable to synchronize the display and pop thread. \end{DoxyCompactList}\item 
+std\+::condition\+\_\+variable \mbox{\hyperlink{classDisplayPlaylist_a7f48c666e192e446990e87663f877c1c}{error\+Raised}}
+\begin{DoxyCompactList}\small\item\em used to send error monitoring thread into waiting, and wake error thread back from the sleep. \end{DoxyCompactList}\item 
+std\+::queue$<$ \mbox{\hyperlink{classSong}{Song}} $>$ \mbox{\hyperlink{classDisplayPlaylist_a561db62d82d28048884b3811646c5647}{playlist}}
+\begin{DoxyCompactList}\small\item\em playlist represents the song playlist which holds the songs to be played. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Display\+Data class. 
+
+Objective of the class is to display the details continously of the song currently being played.~\newline
+It maintains a queue of type \doxylink{classSong}{Song} class named \char`\"{}playlist\char`\"{}.~\newline
+Objects of class \doxylink{classSong}{Song} are pushed into that queue.~\newline
+~\newline
+ display\+Song\+Details() takes care of the display operation.~\newline
+~\newline
+ \doxylink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{play\+Next\+Song()} pops the first song from the playlis(queue) after it is played successfully.~\newline
+~\newline
+ check\+For\+Exception() waits until any exception is raised or occured, and prints the exception and returns value 1. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9}\label{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9} 
+\index{DisplayPlaylist@{DisplayPlaylist}!DisplayPlaylist@{DisplayPlaylist}}
+\index{DisplayPlaylist@{DisplayPlaylist}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{DisplayPlaylist()}{DisplayPlaylist()}}
+{\footnotesize\ttfamily Display\+Playlist\+::\+Display\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{classDisplayPlaylist}{Display\+Playlist} is a default constructor. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b}\label{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b} 
+\index{DisplayPlaylist@{DisplayPlaylist}!````~DisplayPlaylist@{$\sim$DisplayPlaylist}}
+\index{````~DisplayPlaylist@{$\sim$DisplayPlaylist}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{$\sim$DisplayPlaylist()}{~DisplayPlaylist()}}
+{\footnotesize\ttfamily Display\+Playlist\+::$\sim$\+Display\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+$\sim$\+Display\+Playlist is a destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4}\label{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4} 
+\index{DisplayPlaylist@{DisplayPlaylist}!monitorException@{monitorException}}
+\index{monitorException@{monitorException}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{monitorException()}{monitorException()}}
+{\footnotesize\ttfamily void Display\+Playlist\+::monitor\+Exception (\begin{DoxyParamCaption}\item[{int \&}]{return\+Value }\end{DoxyParamCaption})}
+
+
+
+monitor\+Exception is used to check/monitor any exception during execution. This method appies unique\+\_\+lock on {\itshape lock} mutex, and then goes into waiting using error\+Raised condition variable.~\newline
+It wakes from the sleep once anyone notify on the error\+Raised condition variable.~\newline
+After waking up, it displays the error message if any and terminates program.~\newline
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}\label{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99} 
+\index{DisplayPlaylist@{DisplayPlaylist}!playNextSong@{playNextSong}}
+\index{playNextSong@{playNextSong}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{playNextSong()}{playNextSong()}}
+{\footnotesize\ttfamily void Display\+Playlist\+::play\+Next\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+play\+Next\+Song pops the first song from the playlist. This function executes until the queue is not empty.~\newline
+Inside loop, it waits if the song\+Playing flag is true.~\newline
+It waits on the song\+Condition variable with the uniqie\+\_\+lock and {\itshape lock} mutex of the class.~\newline
+It wakes up after someone notify on the song\+Condition variable.~\newline
+After waking up, it pops the song from the playlist, and sets the song\+Playing flag to true.~\newline
+And it notifies on the song\+Playing variable. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classDisplayPlaylist_a1dc52601d46d80980323159174e02835}\label{classDisplayPlaylist_a1dc52601d46d80980323159174e02835} 
+\index{DisplayPlaylist@{DisplayPlaylist}!playPlaylist@{playPlaylist}}
+\index{playPlaylist@{playPlaylist}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{playPlaylist()}{playPlaylist()}}
+{\footnotesize\ttfamily void Display\+Playlist\+::play\+Playlist (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+display\+Song\+Details continouslly desplays the song details that is being played. It waits if the song\+Playing flag is false.~\newline
+It goes into waiting queue until someone wakes him up.~\newline
+It waits on the song\+Condition variable with the unique\+\_\+lock using {\itshape lock} attribut of the class.~\newline
+After song finishes its duration, it will set song\+Playing flag to false and notify the waiting thread on song\+Condition variable. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDisplayPlaylist_a1dc52601d46d80980323159174e02835_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c}\label{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c} 
+\index{DisplayPlaylist@{DisplayPlaylist}!pushSongIntoPlaylist@{pushSongIntoPlaylist}}
+\index{pushSongIntoPlaylist@{pushSongIntoPlaylist}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{pushSongIntoPlaylist()}{pushSongIntoPlaylist()}}
+{\footnotesize\ttfamily void Display\+Playlist\+::push\+Song\+Into\+Playlist (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classSong}{Song}} \&}]{song }\end{DoxyParamCaption})}
+
+
+
+push\+Song\+Into\+Playlist method pushes the \doxylink{classSong}{Song} object into the playlist (queue). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em song} & is the objecet of the \doxylink{classSong}{Song}, that needs to be pushed into the playlist. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDisplayPlaylist_a5aa85b02817c47c3a3ebf3f4ebe6a17f}\label{classDisplayPlaylist_a5aa85b02817c47c3a3ebf3f4ebe6a17f} 
+\index{DisplayPlaylist@{DisplayPlaylist}!\_lock\_@{\_lock\_}}
+\index{\_lock\_@{\_lock\_}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{\_lock\_}{\_lock\_}}
+{\footnotesize\ttfamily std\+::mutex Display\+Playlist\+::\+\_\+lock\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\itshape lock} is the mutex lock,~\newline
+which is used with the unique\+\_\+lock and condition\+\_\+vatiable to make thread wait and awake them. 
+
+\Hypertarget{classDisplayPlaylist_a15abd2ca3cd2aef468219dc7bd6e503c}\label{classDisplayPlaylist_a15abd2ca3cd2aef468219dc7bd6e503c} 
+\index{DisplayPlaylist@{DisplayPlaylist}!errorMessage@{errorMessage}}
+\index{errorMessage@{errorMessage}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{errorMessage}{errorMessage}}
+{\footnotesize\ttfamily std\+::string Display\+Playlist\+::error\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+error\+Message is used to store error message if any exception occurs during the execution. It is used as a flag for terminating the error thread properly.~\newline
+Error thread wakes up from the sleep under 2 situations.~\newline
+1) if any exception has occured during execution.~\newline
+2) if execution is completed, and its time to complete the execution of all threads, so that they don\textquotesingle{}t stuck in infinate sleep/wait.~\newline
+So, using this data member, error thread can determine if there is any error or not.~\newline
+If there is any error, then print the error message stored inside this variable, and terminate the program.~\newline
+
+
+\Hypertarget{classDisplayPlaylist_a7f48c666e192e446990e87663f877c1c}\label{classDisplayPlaylist_a7f48c666e192e446990e87663f877c1c} 
+\index{DisplayPlaylist@{DisplayPlaylist}!errorRaised@{errorRaised}}
+\index{errorRaised@{errorRaised}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{errorRaised}{errorRaised}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable Display\+Playlist\+::error\+Raised\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+used to send error monitoring thread into waiting, and wake error thread back from the sleep. 
+
+\Hypertarget{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52}\label{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52} 
+\index{DisplayPlaylist@{DisplayPlaylist}!executionComplete@{executionComplete}}
+\index{executionComplete@{executionComplete}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{executionComplete}{executionComplete}}
+{\footnotesize\ttfamily bool Display\+Playlist\+::execution\+Complete\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+execution\+Complete flag indicates if all songs are completed or not. This flag is specially used into monitor\+Exception method. If its true, then error thread can end it\textquotesingle{}s waiting to complete execution. 
+
+\Hypertarget{classDisplayPlaylist_a561db62d82d28048884b3811646c5647}\label{classDisplayPlaylist_a561db62d82d28048884b3811646c5647} 
+\index{DisplayPlaylist@{DisplayPlaylist}!playlist@{playlist}}
+\index{playlist@{playlist}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{playlist}{playlist}}
+{\footnotesize\ttfamily std\+::queue$<$\mbox{\hyperlink{classSong}{Song}}$>$ Display\+Playlist\+::playlist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+playlist represents the song playlist which holds the songs to be played. 
+
+\Hypertarget{classDisplayPlaylist_aa4d5ed56b6210fa0ad04e1810cf5fbcd}\label{classDisplayPlaylist_aa4d5ed56b6210fa0ad04e1810cf5fbcd} 
+\index{DisplayPlaylist@{DisplayPlaylist}!songCondition@{songCondition}}
+\index{songCondition@{songCondition}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{songCondition}{songCondition}}
+{\footnotesize\ttfamily std\+::condition\+\_\+variable Display\+Playlist\+::song\+Condition\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+song\+Condition is the condition variable to synchronize the display and pop thread. 
+
+\Hypertarget{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e}\label{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e} 
+\index{DisplayPlaylist@{DisplayPlaylist}!songPlaying@{songPlaying}}
+\index{songPlaying@{songPlaying}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{songPlaying}{songPlaying}}
+{\footnotesize\ttfamily bool Display\+Playlist\+::song\+Playing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+song\+Playing is the boolean that indicates either any song is being played or not. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{displayplaylist_8h}{displayplaylist.\+h}}\item 
+\mbox{\hyperlink{displayplaylist_8cpp}{displayplaylist.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,15 @@
+<map id="main" name="main">
+<area shape="rect" id="node1" title="main method is used to handle the flow of the program. It creates an object of DisplayPlaylist...." alt="" coords="5,192,60,217"/>
+<area shape="rect" id="node2" href="$classLogger.html#a199b998031d189d3ddba7f7990972360" title="logs will not be shown in the console." alt="" coords="109,5,326,31"/>
+<area shape="rect" id="node3" href="$classLogger.html#a354726b8407c9640e5a33e97bb2df9d8" title="enables the file log output." alt="" coords="125,55,310,80"/>
+<area shape="rect" id="node4" href="$classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="627,277,722,303"/>
+<area shape="rect" id="node5" href="$classDisplayPlaylist.html#af0e126199abd17e405045a6a16c48fd4" title="monitorException is used to check/monitor any exception during execution. This method appies unique_l..." alt="" coords="381,155,559,195"/>
+<area shape="rect" id="node6" href="$classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp..." alt="" coords="108,220,327,245"/>
+<area shape="rect" id="node8" href="$classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835" title="displaySongDetails continouslly desplays the song details that is being played. It waits if the songP..." alt="" coords="116,277,319,303"/>
+<area shape="rect" id="node9" href="$main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="125,356,310,381"/>
+<area shape="rect" id="node13" href="$classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019" title="setPriority is used to set log priority, to filter logs to display." alt="" coords="147,405,288,431"/>
+<area shape="rect" id="node7" href="$structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="379,270,561,310"/>
+<area shape="rect" id="node10" href="$classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="375,435,565,475"/>
+<area shape="rect" id="node11" href="$classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="627,417,722,443"/>
+<area shape="rect" id="node12" href="$classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="613,467,736,492"/>
+</map>

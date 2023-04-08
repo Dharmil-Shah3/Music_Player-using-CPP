@@ -1,6 +1,7 @@
 #include "logger.h"
 
 /* ========== DATA MEMBERS ===========*/
+bool Logger::consoleOutput = true;
 bool Logger::fileOutput = false;
 std::string Logger::log_filename = "tracelogs.txt";
 FILE * Logger::file;
@@ -9,6 +10,18 @@ std::mutex Logger::display_lock;
 LogPriority Logger::priority = LogPriority::Debug;
 
 /* ============= METHODS ==============*/
+void Logger::enableConsoleOutput(){
+    consoleOutput = true;
+}
+
+void Logger::disableConsoleOutput(){
+    consoleOutput = false;
+}
+
+bool Logger::isConsoleOutputEnabled(){
+    return consoleOutput;
+}
+
 void Logger::enableFileOutput(const std::string &filename){
     fileOutput = true;
     if(!filename.empty()){

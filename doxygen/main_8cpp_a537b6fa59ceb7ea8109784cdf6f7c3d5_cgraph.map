@@ -1,0 +1,7 @@
+<map id="push_songs_into_playlist" name="push_songs_into_playlist">
+<area shape="rect" id="node1" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="5,31,191,56"/>
+<area shape="rect" id="node2" href="$classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="491,5,586,31"/>
+<area shape="rect" id="node3" href="$classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="239,51,429,91"/>
+<area shape="rect" id="node4" href="$classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="491,56,586,81"/>
+<area shape="rect" id="node5" href="$classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="477,105,600,131"/>
+</map>

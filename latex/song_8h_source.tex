@@ -1,0 +1,71 @@
+\hypertarget{song_8h_source}{}\doxysection{song.\+h}
+\mbox{\hyperlink{song_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SONG\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SONG\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/**************************************************************************************************/}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSong}{Song}}}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ /*************************************************/}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classSong}{Song}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classSong_ac9a7a376f0428cf9d13574b4f014049a}{name}},}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::chrono::seconds\ \&\mbox{\hyperlink{classSong_a09a59cc18cc7b7a9140d5784cf554419}{duration}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classSong_aceb9f5d2fda79388d466f61ec4d1e78a}{thumbnailPath}});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classSong_a0749c3367e8de89e27458c248377027b}{\string~Song}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ /*********************************************/}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSong_adcceab18a1a5803c46a329184a9ae233}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ /******************************************/}}
+\DoxyCodeLine{00049\ \ \ \ \ std::string\ \mbox{\hyperlink{classSong_a60a38ab26b8ba27999f2e3b35899aefc}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ /***************************************************************/}}
+\DoxyCodeLine{00055\ \ \ \ \ std::string\ \mbox{\hyperlink{classSong_a324aa846fa7d58ee73ff4a0ad6f523cd}{getThumbnailPath}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ /*********************************************************************/}}
+\DoxyCodeLine{00061\ \ \ \ \ std::chrono::seconds\ \mbox{\hyperlink{classSong_a06bc75addc1c9bdcb7f8534b5a231d5c}{getDuration}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSong_a793d726379e14f72c4f1554fc70d9a39}{totalSongs}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSong_a35181f7067485c7c155af9cec75bd741}{id}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00072\ \ \ \ \ std::string\ \mbox{\hyperlink{classSong_ac9a7a376f0428cf9d13574b4f014049a}{name}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::chrono::seconds\ \mbox{\hyperlink{classSong_a09a59cc18cc7b7a9140d5784cf554419}{duration}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \ \ \ \ std::string\ \mbox{\hyperlink{classSong_aceb9f5d2fda79388d466f61ec4d1e78a}{thumbnailPath}};}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{/*****************************************************/}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceSongError}{SongError}}}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ /******************************************************************/}}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58}{ErrorCode}}}
+\DoxyCodeLine{00094\ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a5612c2000417565ad7f7d19c647f083c}{CORRUPTED\_SONG}},}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a2a2f1c64fbff23bbe2a62e314070eb85}{CORRUPTED\_THUMBNAIL}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a034a01dab6c1ffee6106c08190688ef3}{NO\_INTERNET\_CONNECTION}}}
+\DoxyCodeLine{00098\ \ \ \ \ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{comment}{\ \ \ \ /***********************************************************************************/}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structSongError_1_1ErrorMessage}{ErrorMessage}}}
+\DoxyCodeLine{00107\ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ \ \ \ \ \ \ \ /********************************************************************/}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{structSongError_1_1ErrorMessage_a1d99eeaf0bb74a00cbf15f142c0e6881}{what}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58}{ErrorCode}}\ \&errorCode);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structSongError_1_1ErrorMessage_a9eec585b0016b11a3d582ab1a7420343}{pure\_virtual\_function\_to\_make\_this\_class\_abstract}}()\ =\ 0;}
+\DoxyCodeLine{00117\ \ \ \ \ \};}
+\DoxyCodeLine{00118\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SONG\_H}}
+
+\end{DoxyCode}

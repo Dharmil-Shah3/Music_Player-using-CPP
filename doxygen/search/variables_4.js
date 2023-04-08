@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['id_72',['id',['../classSong.html#a35181f7067485c7c155af9cec75bd741',1,'Song']]]
+  ['file_0',['file',['../classLogger.html#a128ce99d1539f618d3b41a46b8c18619',1,'Logger']]],
+  ['fileoutput_1',['fileOutput',['../classLogger.html#ae8349188f1e958b19de3e363ee6faaef',1,'Logger']]]
 ];

@@ -1,0 +1,43 @@
+\hypertarget{song_8h}{}\doxysection{song.\+h File Reference}
+\label{song_8h}\index{song.h@{song.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+Include dependency graph for song.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{song_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{song_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSong}{Song}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{classSong}{Song} class represents a song, and contains song related attributes and methods. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSongError_1_1ErrorMessage}{Song\+Error\+::\+Error\+Message}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{structSongError_1_1ErrorMessage}{Error\+Message} struct contains error messages of elements of Error\+Code enum. This is an abstact structure that has a static method \doxylink{structSongError_1_1ErrorMessage_a1d99eeaf0bb74a00cbf15f142c0e6881}{what()},~\newline
+which takes Error\+Code element as an argument,~\newline
+and returns the related error message.~\newline
+. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceSongError}{Song\+Error}}
+\begin{DoxyCompactList}\small\item\em \doxylink{namespaceSongError}{Song\+Error} is a bundle of custom \doxylink{classSong}{Song} exceptions. It contains the error codes and related messages too. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58}{Song\+Error\+::\+Error\+Code}} \{ \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a5612c2000417565ad7f7d19c647f083c}{Song\+Error\+::\+CORRUPTED\+\_\+\+SONG}}
+, \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a2a2f1c64fbff23bbe2a62e314070eb85}{Song\+Error\+::\+CORRUPTED\+\_\+\+THUMBNAIL}}
+, \mbox{\hyperlink{namespaceSongError_a026b317783780136da3f4dced3e21b58a034a01dab6c1ffee6106c08190688ef3}{Song\+Error\+::\+NO\+\_\+\+INTERNET\+\_\+\+CONNECTION}}
+ \}
+\begin{DoxyCompactList}\small\item\em The Error\+Code enum contains the errors related to \doxylink{classSong}{Song} class. This enum is used to throw the \doxylink{classSong}{Song} related errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
