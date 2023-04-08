@@ -1,21 +1,28 @@
 #include "logger.h"
 
 /* ========== DATA MEMBERS ===========*/
-bool Logger::saveLogsIntoFile = false;
+bool Logger::fileOutput = false;
 std::string Logger::log_filename = "tracelogs.log";
-std::ofstream Logger::fout;
+FILE * Logger::file;
 std::mutex Logger::write_lock;
 std::mutex Logger::display_lock;
 LogPriority Logger::priority = LogPriority::Debug;
 
 
 /* ============= METHODS ==============*/
-void Logger::setSaveLogsIntoFile(const bool &true_false){
-    saveLogsIntoFile = true_false;
+void Logger::enableFileOutput(const std::string &filename){
+    fileOutput = true;
+    if(!filename.empty()){
+        Logger::log_filename = filename;
+    }
 }
 
-bool Logger::isSavingIntoFile(){
-    return saveLogsIntoFile;
+void Logger::disableFileOutput(){
+    fileOutput = false;
+}
+
+bool Logger::isFileOutputEnabled(){
+    return fileOutput;
 }
 
 void Logger::setFilename(const char *filename){

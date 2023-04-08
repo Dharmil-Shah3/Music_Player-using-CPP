@@ -4,7 +4,7 @@
 #include <iostream>
 #include <chrono>
 
-/**
+/**************************************************************************************************//**
  * @brief The Song class represents a song, and contains song related attributes and methods.
  *
  * The Song class contains song attributes such as\n
@@ -19,16 +19,16 @@
  *
  * It also provides the getter methods to get all attribute's value listed above, except totalSongs,\n
  * since all the attributes are private.
- */
+ *****************************************************************************************************/
 class Song
 {
 public:
-    /**
+    /*************************************************//**
      * @brief Song is the parameterised constructor.
      * @param name of the song.
      * @param duration of the song in seconds.
      * @param thumbnailPath is the path of song thumbnail.
-     */
+     ****************************************************/
     Song(const std::string &name,
          const std::chrono::seconds &duration,
          const std::string &thumbnailPath);
@@ -36,25 +36,28 @@ public:
     /** @brief ~Song destructor. */
     ~Song();
 
-    /**
+    /*********************************************//**
      * @brief getId returns the unique id of the song.
      * @return id of the song.
-     */
+     ************************************************/
     unsigned int getId() const;
-    /**
+
+    /******************************************//**
      * @brief getName returns the name of the song.
      * @return name of the song.
-     */
+     *********************************************/
     std::string getName() const;
-    /**
+
+    /***************************************************************//**
      * @brief getThumbnailPath returns the path of the song's thumbnail.
      * @return thumbnailPath of the song.
-     */
+     ******************************************************************/
     std::string getThumbnailPath() const;
-    /**
+
+    /*********************************************************************//**
      * @brief getDuration returns the duration of the time in chrono::seconds.
      * @return duration of the song.
-     */
+     ************************************************************************/
     std::chrono::seconds getDuration() const;
 
 private:
@@ -76,17 +79,17 @@ private:
 };
 
 
-/**
+/*****************************************************//**
  * @namespace SongError
  * @brief SongError is a bundle of custom Song exceptions.
  * It contains the error codes and related messages too.
- */
+ ********************************************************/
 namespace SongError
 {
-    /**
+    /******************************************************************//**
      * @brief The ErrorCode enum contains the errors related to Song class.
      * This enum is used to throw the Song related errors.
-     */
+     *********************************************************************/
     enum ErrorCode
     {
         CORRUPTED_SONG,
@@ -94,19 +97,19 @@ namespace SongError
         NO_INTERNET_CONNECTION
     };
 
-    /**
+    /***********************************************************************************//**
      * @brief The ErrorMessage struct contains error messages of elements of ErrorCode enum.
      * This is an abstact structure that has a static method what(),\n
      * which takes ErrorCode element as an argument,\n
      * and returns the related error message.\n
-     */
+     *************************************************************************************/
     struct ErrorMessage
     {
-        /**
+        /********************************************************************//**
          * @brief what returns the error message of the given ErrorCode.
          * @param errorCode is an attribute of enum ErrorCode.
          * @return the error message related to the argument passed of ErrorCode.
-         */
+         ***********************************************************************/
         static std::string what(const ErrorCode &errorCode);
 
         private:
