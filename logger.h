@@ -87,9 +87,25 @@ public:
                 case Critical: logType="Critical"; break;
             }
 
+            // getting current date and time
+            time_t t;
+            tm *_time;
+            time(&t);
+            _time = localtime(&t);
+
+            // getting microseconds to display
+            using namespace std::chrono;
+            microseconds ms = duration_cast<microseconds>(system_clock::now().time_since_epoch());
+            unsigned long int milliseconds = ms.count()%1000000/1000;
+            unsigned long int microseconds = ms.count()%1000000%1000;
+
             // lock mutex, and display the log message
             display_lock.lock();
-            printf("[%s]: ", logType.c_str());
+            printf("[%s][%4d/%02d/%02d %02d:%02d:%02d.%03ld.%03ld]: ",
+                    logType.c_str(),
+                    _time->tm_year+1900, _time->tm_mon+1, _time->tm_mday,
+                    _time->tm_hour, _time->tm_min, _time->tm_sec,
+                    milliseconds, microseconds);
             printf(message, args...);
             printf("\n");
             display_lock.unlock();
@@ -99,8 +115,13 @@ public:
             {
                 write_lock.lock();
                 file = fopen(log_filename.c_str(), "a");
-                if(file != 0){ // file is not opened
-                    fprintf(file, "[%s] : ", logType.c_str());
+                if(file != 0) // file is opened
+                {
+                    fprintf(file, "[%s][%4d/%02d/%02d %02d:%02d:%02d.%03ld.%03ld]: ",
+                            logType.c_str(),
+                            _time->tm_year+1900, _time->tm_mon+1, _time->tm_mday,
+                            _time->tm_hour, _time->tm_min, _time->tm_sec,
+                            milliseconds, microseconds);
                     fprintf(file, message, args...);
                     fprintf(file, "\n");
                     fclose(file);
