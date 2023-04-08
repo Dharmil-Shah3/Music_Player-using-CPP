@@ -2,12 +2,11 @@
 
 /* ========== DATA MEMBERS ===========*/
 bool Logger::fileOutput = false;
-std::string Logger::log_filename = "tracelogs.log";
+std::string Logger::log_filename = "tracelogs.txt";
 FILE * Logger::file;
 std::mutex Logger::write_lock;
 std::mutex Logger::display_lock;
 LogPriority Logger::priority = LogPriority::Debug;
-
 
 /* ============= METHODS ==============*/
 void Logger::enableFileOutput(const std::string &filename){
