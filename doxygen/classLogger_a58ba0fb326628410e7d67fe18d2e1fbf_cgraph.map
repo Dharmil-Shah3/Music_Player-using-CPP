@@ -1,0 +1,4 @@
+<map id="Logger::GetInstance" name="Logger::GetInstance">
+<area shape="rect" id="node1" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="5,5,157,31"/>
+<area shape="rect" id="node2" href="$classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="205,5,324,31"/>
+</map>

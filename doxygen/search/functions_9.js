@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['_7edisplayplaylist_0',['~DisplayPlaylist',['../classDisplayPlaylist.html#a7e56f6cebdc5576d3832f642205e2c3b',1,'DisplayPlaylist']]],
-  ['_7esong_1',['~Song',['../classSong.html#a0749c3367e8de89e27458c248377027b',1,'Song']]]
+  ['what_0',['what',['../structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881',1,'SongError::ErrorMessage']]]
 ];

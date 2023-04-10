@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['setfilename_0',['setFilename',['../classLogger.html#a2d3843582fd2f314db30cf7372a49ab4',1,'Logger']]],
-  ['setpriority_1',['setPriority',['../classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019',1,'Logger']]],
-  ['song_2',['Song',['../classSong.html',1,'Song'],['../classSong.html#aebeaf90ab839d74c311219f76a668f23',1,'Song::Song()']]],
-  ['song_2ecpp_3',['song.cpp',['../song_8cpp.html',1,'']]],
-  ['song_2eh_4',['song.h',['../song_8h.html',1,'']]],
-  ['songcondition_5',['songCondition',['../classDisplayPlaylist.html#aa4d5ed56b6210fa0ad04e1810cf5fbcd',1,'DisplayPlaylist']]],
-  ['songerror_6',['SongError',['../namespaceSongError.html',1,'']]],
-  ['songplaying_7',['songPlaying',['../classDisplayPlaylist.html#a4f9e3c39e02271747e6d55b1831cd18e',1,'DisplayPlaylist']]]
+  ['playlist_0',['playlist',['../classDisplayPlaylist.html#a561db62d82d28048884b3811646c5647',1,'DisplayPlaylist']]],
+  ['playnextsong_1',['playNextSong',['../classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99',1,'DisplayPlaylist']]],
+  ['playplaylist_2',['playPlaylist',['../classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835',1,'DisplayPlaylist']]],
+  ['priority_3',['priority',['../classLogger.html#ad7b321fea0d776a80926da20f6faf320',1,'Logger']]],
+  ['pure_5fvirtual_5ffunction_5fto_5fmake_5fthis_5fclass_5fabstract_4',['pure_virtual_function_to_make_this_class_abstract',['../structSongError_1_1ErrorMessage.html#a9eec585b0016b11a3d582ab1a7420343',1,'SongError::ErrorMessage']]],
+  ['push_5fsongs_5finto_5fplaylist_5',['push_songs_into_playlist',['../main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5',1,'main.cpp']]],
+  ['pushsongintoplaylist_6',['pushSongIntoPlaylist',['../classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c',1,'DisplayPlaylist']]]
 ];

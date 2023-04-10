@@ -7,6 +7,7 @@
 #include <mutex>
 #include <condition_variable>
 #include "song.h"
+#include "logger.h"
 
 /**
  * @brief The DisplayData class.
@@ -68,6 +69,9 @@ public:
     void pushSongIntoPlaylist(const Song &song);
 
 private:
+
+    /** @brief logger is a pointer to logger class's singleton object. */
+    Logger *logger;
 
     /** @brief songPlaying is the boolean that indicates either any song is being played or not. */
     bool songPlaying;

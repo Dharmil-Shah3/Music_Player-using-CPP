@@ -107,7 +107,8 @@ Collaboration diagram for DisplayPlaylist:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDisplayPlaylist__coll__graph.png" border="0" usemap="#aDisplayPlaylist_coll__map" alt="Collaboration graph"/></div>
 <map name="aDisplayPlaylist_coll__map" id="aDisplayPlaylist_coll__map">
-<area shape="rect" title="The DisplayData class." alt="" coords="5,5,180,291"/>
+<area shape="rect" title="The DisplayData class." alt="" coords="17,593,191,879"/>
+<area shape="rect" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe..." alt="" coords="5,5,203,531"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -145,6 +146,9 @@ After waking up, it displays the error message if any and terminates program.<br
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:af6629a59ca3812c74c1ea31f4dcb5675"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplayPlaylist.html#af6629a59ca3812c74c1ea31f4dcb5675">logger</a></td></tr>
+<tr class="memdesc:af6629a59ca3812c74c1ea31f4dcb5675"><td class="mdescLeft">&#160;</td><td class="mdescRight">logger is a pointer to logger class's singleton object.  <br /></td></tr>
+<tr class="separator:af6629a59ca3812c74c1ea31f4dcb5675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f9e3c39e02271747e6d55b1831cd18e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDisplayPlaylist.html#a4f9e3c39e02271747e6d55b1831cd18e">songPlaying</a></td></tr>
 <tr class="memdesc:a4f9e3c39e02271747e6d55b1831cd18e"><td class="mdescLeft">&#160;</td><td class="mdescRight">songPlaying is the boolean that indicates either any song is being played or not.  <br /></td></tr>
 <tr class="separator:a4f9e3c39e02271747e6d55b1831cd18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,8 +211,10 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph.png" border="0" usemap="#aclassDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph" alt=""/></div>
 <map name="aclassDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph" id="aclassDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph">
-<area shape="rect" title="DisplayPlaylist is a default constructor." alt="" coords="5,5,181,45"/>
-<area shape="rect" href="classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="229,13,324,38"/>
+<area shape="rect" title="DisplayPlaylist is a default constructor." alt="" coords="5,23,181,63"/>
+<area shape="rect" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="229,5,381,31"/>
+<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="258,55,353,80"/>
+<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="429,5,548,31"/>
 </map>
 </div>
 
@@ -260,7 +266,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4_cgraph.png" border="0" usemap="#aclassDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4_cgraph" alt=""/></div>
 <map name="aclassDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4_cgraph" id="aclassDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4_cgraph">
 <area shape="rect" title="monitorException is used to check/monitor any exception during execution. This method appies unique_l..." alt="" coords="5,5,184,45"/>
-<area shape="rect" href="classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="232,13,327,38"/>
+<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="232,13,327,38"/>
 </map>
 </div>
 
@@ -293,7 +299,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99_cgraph.png" border="0" usemap="#aclassDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99_cgraph" alt=""/></div>
 <map name="aclassDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99_cgraph" id="aclassDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99_cgraph">
 <area shape="rect" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp..." alt="" coords="5,35,224,60"/>
-<area shape="rect" href="classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="316,5,411,31"/>
+<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="316,5,411,31"/>
 <area shape="rect" href="structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="272,55,455,95"/>
 </map>
 </div>
@@ -325,7 +331,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="classDisplayPlaylist_a1dc52601d46d80980323159174e02835_cgraph.png" border="0" usemap="#aclassDisplayPlaylist_a1dc52601d46d80980323159174e02835_cgraph" alt=""/></div>
 <map name="aclassDisplayPlaylist_a1dc52601d46d80980323159174e02835_cgraph" id="aclassDisplayPlaylist_a1dc52601d46d80980323159174e02835_cgraph">
 <area shape="rect" title="displaySongDetails continouslly desplays the song details that is being played. It waits if the songP..." alt="" coords="5,35,208,60"/>
-<area shape="rect" href="classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="300,5,395,31"/>
+<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="300,5,395,31"/>
 <area shape="rect" href="structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="256,55,439,95"/>
 </map>
 </div>
@@ -363,7 +369,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="5,47,196,87"/>
 <area shape="rect" href="classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="258,5,353,31"/>
 <area shape="rect" href="classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="244,55,367,80"/>
-<area shape="rect" href="classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="258,104,353,129"/>
+<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="258,104,353,129"/>
 </map>
 </div>
 
@@ -470,6 +476,30 @@ If there is any error, then print the error message stored inside this variable,
 </div><div class="memdoc">
 
 <p>executionComplete flag indicates if all songs are completed or not. This flag is specially used into monitorException method. If its true, then error thread can end it's waiting to complete execution. </p>
+
+</div>
+</div>
+<a id="af6629a59ca3812c74c1ea31f4dcb5675" name="af6629a59ca3812c74c1ea31f4dcb5675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6629a59ca3812c74c1ea31f4dcb5675">&#9670;&#160;</a></span>logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLogger.html">Logger</a>* DisplayPlaylist::logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>logger is a pointer to logger class's singleton object. </p>
 
 </div>
 </div>

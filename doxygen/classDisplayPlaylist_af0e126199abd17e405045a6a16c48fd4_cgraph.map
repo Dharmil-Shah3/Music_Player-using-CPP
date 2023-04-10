@@ -1,4 +1,4 @@
 <map id="DisplayPlaylist::monitorException" name="DisplayPlaylist::monitorException">
 <area shape="rect" id="node1" title="monitorException is used to check/monitor any exception during execution. This method appies unique_l..." alt="" coords="5,5,184,45"/>
-<area shape="rect" id="node2" href="$classLogger.html#a31af8315a1b226a59cdd06d139114bfb" title="log displays the log message and log&#39;s type." alt="" coords="232,13,327,38"/>
+<area shape="rect" id="node2" href="$classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="232,13,327,38"/>
 </map>

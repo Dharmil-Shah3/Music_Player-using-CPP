@@ -10,6 +10,7 @@ var classDisplayPlaylist =
     [ "errorMessage", "classDisplayPlaylist.html#a15abd2ca3cd2aef468219dc7bd6e503c", null ],
     [ "errorRaised", "classDisplayPlaylist.html#a7f48c666e192e446990e87663f877c1c", null ],
     [ "executionComplete", "classDisplayPlaylist.html#a56ffcad8db2241b89b18914061915a52", null ],
+    [ "logger", "classDisplayPlaylist.html#af6629a59ca3812c74c1ea31f4dcb5675", null ],
     [ "playlist", "classDisplayPlaylist.html#a561db62d82d28048884b3811646c5647", null ],
     [ "songCondition", "classDisplayPlaylist.html#aa4d5ed56b6210fa0ad04e1810cf5fbcd", null ],
     [ "songPlaying", "classDisplayPlaylist.html#a4f9e3c39e02271747e6d55b1831cd18e", null ]

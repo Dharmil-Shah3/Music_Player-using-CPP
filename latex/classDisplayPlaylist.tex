@@ -15,7 +15,7 @@ Collaboration diagram for Display\+Playlist\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=211pt]{classDisplayPlaylist__coll__graph}
+\includegraphics[height=550pt]{classDisplayPlaylist__coll__graph}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -47,6 +47,8 @@ void \mbox{\hyperlink{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c}{pu
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classDisplayPlaylist_af6629a59ca3812c74c1ea31f4dcb5675}{logger}}
+\begin{DoxyCompactList}\small\item\em logger is a pointer to logger class\textquotesingle{}s singleton object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e}{song\+Playing}}
 \begin{DoxyCompactList}\small\item\em song\+Playing is the boolean that indicates either any song is being played or not. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52}{execution\+Complete}}
@@ -98,7 +100,7 @@ Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=319pt]{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph}
+\includegraphics[width=350pt]{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b}\label{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b} 
@@ -247,6 +249,16 @@ used to send error monitoring thread into waiting, and wake error thread back fr
 
 
 execution\+Complete flag indicates if all songs are completed or not. This flag is specially used into monitor\+Exception method. If its true, then error thread can end it\textquotesingle{}s waiting to complete execution. 
+
+\Hypertarget{classDisplayPlaylist_af6629a59ca3812c74c1ea31f4dcb5675}\label{classDisplayPlaylist_af6629a59ca3812c74c1ea31f4dcb5675} 
+\index{DisplayPlaylist@{DisplayPlaylist}!logger@{logger}}
+\index{logger@{logger}!DisplayPlaylist@{DisplayPlaylist}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}$\ast$ Display\+Playlist\+::logger\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+logger is a pointer to logger class\textquotesingle{}s singleton object. 
 
 \Hypertarget{classDisplayPlaylist_a561db62d82d28048884b3811646c5647}\label{classDisplayPlaylist_a561db62d82d28048884b3811646c5647} 
 \index{DisplayPlaylist@{DisplayPlaylist}!playlist@{playlist}}

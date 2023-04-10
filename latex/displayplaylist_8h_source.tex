@@ -10,48 +10,51 @@
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <mutex>}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <condition\_variable>}}
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{song_8h}{song.h}}"{}}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDisplayPlaylist}{DisplayPlaylist}}}
-\DoxyCodeLine{00026\ \{}
-\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9}{DisplayPlaylist}}();}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b}{\string~DisplayPlaylist}}();}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ /***********************************************************************************************/}}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a1dc52601d46d80980323159174e02835}{playPlaylist}}();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ /********************************************************************************************/}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{playNextSong}}();}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ /****************************************************************************************************************/}}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4}{monitorException}}(\textcolor{keywordtype}{int}\ \&returnValue);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{comment}{\ \ \ \ /**********************************************************************************/}}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c}{pushSongIntoPlaylist}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSong}{Song}}\ \&song);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e}{songPlaying}};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52}{executionComplete}};}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ /************************************************************************************************************/}}
-\DoxyCodeLine{00091\ \ \ \ \ std::string\ \mbox{\hyperlink{classDisplayPlaylist_a15abd2ca3cd2aef468219dc7bd6e503c}{errorMessage}};}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{comment}{\ \ \ \ /*******************************************************************************************/}}
-\DoxyCodeLine{00097\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classDisplayPlaylist_a5aa85b02817c47c3a3ebf3f4ebe6a17f}{\_lock\_}};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00100\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classDisplayPlaylist_aa4d5ed56b6210fa0ad04e1810cf5fbcd}{songCondition}};}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \textcolor{comment}{\ \ \ \ /*******************************************************/}}
-\DoxyCodeLine{00106\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classDisplayPlaylist_a7f48c666e192e446990e87663f877c1c}{errorRaised}};}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00109\ \ \ \ \ std::queue<Song>\ \mbox{\hyperlink{classDisplayPlaylist_a561db62d82d28048884b3811646c5647}{playlist}};}
-\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDisplayPlaylist}{DisplayPlaylist}}}
+\DoxyCodeLine{00027\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classDisplayPlaylist_afbda174f468b7318741f2b257ccfc6a9}{DisplayPlaylist}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classDisplayPlaylist_a7e56f6cebdc5576d3832f642205e2c3b}{\string~DisplayPlaylist}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ /***********************************************************************************************/}}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a1dc52601d46d80980323159174e02835}{playPlaylist}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ /********************************************************************************************/}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{playNextSong}}();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ /****************************************************************************************************************/}}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_af0e126199abd17e405045a6a16c48fd4}{monitorException}}(\textcolor{keywordtype}{int}\ \&returnValue);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ /**********************************************************************************/}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classDisplayPlaylist_a9fad162b09fc72a0b220d8d8afa27c3c}{pushSongIntoPlaylist}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classSong}{Song}}\ \&song);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}\ *\mbox{\hyperlink{classDisplayPlaylist_af6629a59ca3812c74c1ea31f4dcb5675}{logger}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDisplayPlaylist_a4f9e3c39e02271747e6d55b1831cd18e}{songPlaying}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ /************************************************************************/}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDisplayPlaylist_a56ffcad8db2241b89b18914061915a52}{executionComplete}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ /************************************************************************************************************/}}
+\DoxyCodeLine{00095\ \ \ \ \ std::string\ \mbox{\hyperlink{classDisplayPlaylist_a15abd2ca3cd2aef468219dc7bd6e503c}{errorMessage}};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ /*******************************************************************************************/}}
+\DoxyCodeLine{00101\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classDisplayPlaylist_a5aa85b02817c47c3a3ebf3f4ebe6a17f}{\_lock\_}};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classDisplayPlaylist_aa4d5ed56b6210fa0ad04e1810cf5fbcd}{songCondition}};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{comment}{\ \ \ \ /*******************************************************/}}
+\DoxyCodeLine{00110\ \ \ \ \ std::condition\_variable\ \mbox{\hyperlink{classDisplayPlaylist_a7f48c666e192e446990e87663f877c1c}{errorRaised}};}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DISPLAYDATA\_H}}
+\DoxyCodeLine{00113\ \ \ \ \ std::queue<Song>\ \mbox{\hyperlink{classDisplayPlaylist_a561db62d82d28048884b3811646c5647}{playlist}};}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DISPLAYDATA\_H}}
 
 \end{DoxyCode}

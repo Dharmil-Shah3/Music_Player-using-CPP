@@ -26,11 +26,11 @@ void push_songs_into_playlist(DisplayPlaylist &playlist);
  *******************************************************************/
 int main()
 {
+    unique_ptr<Logger> logger(Logger::GetInstance());
     try {
-        Logger::disableConsoleOutput();
-        Logger::enableFileOutput();
-        Logger::setPriority(Trace);
-        Logger::log(Trace, "Execution started -> %s", __PRETTY_FUNCTION__);
+        logger->disableConsoleOutput();
+        logger->setPriority(Trace);
+        logger->log(Trace, "Execution started -> %s", __PRETTY_FUNCTION__);
 
         DisplayPlaylist playlist;
 
@@ -42,25 +42,27 @@ int main()
         thread t_monitorException(&DisplayPlaylist::monitorException, &playlist, ref(returnValueOfExceptionThread));
         thread t_changeSong(&DisplayPlaylist::playNextSong, &playlist);
 
-        Logger::log(Trace, "All threads are created in main()");
+        logger->log(Trace, "All threads are created in main()");
 
         t_playSongs.join();
         t_changeSong.join();
         t_monitorException.join();
 
-        Logger::log(Trace, "After joining all threads in main()");
+        logger->log(Trace, "After joining all threads in main()");
         return returnValueOfExceptionThread;
     }
     catch (const exception &error) {
-        Logger::log(Error, "%s , in -> %s", error.what(), __PRETTY_FUNCTION__);
+        logger->log(Error, "%s , in -> %s", error.what(), __PRETTY_FUNCTION__);
         return 1;
     }
 }
 
 void push_songs_into_playlist(DisplayPlaylist &playlist)
 {
+    Logger *logger;
     try {
-        Logger::log(Trace, "push_songs_into_playlist() pushing the songs");
+        logger = Logger::GetInstance();
+        logger->log(Trace, "push_songs_into_playlist() pushing the songs");
         Song song1("Daku", chrono::seconds(2), "/thumbnails/daku.jpeg");
         Song song2("Shape of You", chrono::seconds(4), "/thumbnails/shape_of_you.jpeg");
         Song song3("Dandelion", chrono::seconds(3), "/thumbnails/dandelion.jpeg");
@@ -68,9 +70,9 @@ void push_songs_into_playlist(DisplayPlaylist &playlist)
         playlist.pushSongIntoPlaylist(song1);
         playlist.pushSongIntoPlaylist(song2);
         playlist.pushSongIntoPlaylist(song3);
-        Logger::log(Trace, "push_songs_into_playlist() pushed songs");
+        logger->log(Trace, "push_songs_into_playlist() pushed songs");
     }
     catch (const exception &error) {
-        Logger::log(Error, "%s , in -> %s", error.what(), __PRETTY_FUNCTION__);
+        logger->log(Error, "%s , in -> %s", error.what(), __PRETTY_FUNCTION__);
     }
 }

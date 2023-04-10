@@ -1,4 +1,26 @@
 var classLogger =
 [
-    [ "make_this_class_abstract", "classLogger.html#ad711e7901228adc322912647b7e4cbb2", null ]
+    [ "~Logger", "classLogger.html#acb668a9e186a25fbaad2e4af6d1ed00a", null ],
+    [ "Logger", "classLogger.html#abc41bfb031d896170c7675fa96a6b30c", null ],
+    [ "Logger", "classLogger.html#add0f34d4c753c86af8074840a72366b3", null ],
+    [ "disableConsoleOutput", "classLogger.html#a199b998031d189d3ddba7f7990972360", null ],
+    [ "disableFileOutput", "classLogger.html#a8aea89458ae5f830897ce33ba1acbbeb", null ],
+    [ "enableConsoleOutput", "classLogger.html#ad4419b938c11ca8b784f40e82dffc796", null ],
+    [ "enableFileOutput", "classLogger.html#a40088b9687aa1efaa13b510dfc66d412", null ],
+    [ "isConsoleOutputEnabled", "classLogger.html#a282f5ca050c07220817bd50742d96eea", null ],
+    [ "isFileOutputEnabled", "classLogger.html#abfe9ff5af856623b4d0f949b6e7bad5a", null ],
+    [ "log", "classLogger.html#a65e3986cade9b9d8a03b19af413693b1", null ],
+    [ "operator=", "classLogger.html#a8c0ca770cdc91ca9fc3015286568e1ea", null ],
+    [ "setFilename", "classLogger.html#a2d3843582fd2f314db30cf7372a49ab4", null ],
+    [ "setPriority", "classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019", null ],
+    [ "consoleOutput", "classLogger.html#a9c80d0ec2b6530c821d2aa230293c532", null ],
+    [ "currentTime", "classLogger.html#a5917f4a72259ddfa4fe8394bfe7b712d", null ],
+    [ "display_lock", "classLogger.html#a48e9515cb4fb33382c921ecb027bad4b", null ],
+    [ "file", "classLogger.html#ad00c914c1f38de6d069cb788b9074d8f", null ],
+    [ "filename", "classLogger.html#a4a7913dbecc583e935e8c18ec62716ab", null ],
+    [ "fileOutput", "classLogger.html#ae8349188f1e958b19de3e363ee6faaef", null ],
+    [ "priority", "classLogger.html#ad7b321fea0d776a80926da20f6faf320", null ],
+    [ "timeBuffer", "classLogger.html#ae72ef53b317573a253fe2895e2f8af7f", null ],
+    [ "timeStamp", "classLogger.html#a668ef12e44edddc179c09268715f480c", null ],
+    [ "write_lock", "classLogger.html#a096fe3e71ad92248c39aca2f8b2b66e6", null ]
 ];

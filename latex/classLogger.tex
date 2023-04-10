@@ -2,8 +2,9 @@
 \label{classLogger}\index{Logger@{Logger}}
 
 
-The \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. This class provides the static members and methods to print the differernt log messages with different priorities.~\newline
-This class uses values of enum Log\+Priority to display the differernt type of logs.  
+The singleton \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.~\newline
+This class uses values of enum Log\+Priority to display the differernt type of logs.~\newline
+Reference video\+: \href{https://youtu.be/1rnmYBSppYY}{\texttt{ https\+://youtu.\+be/1rnm\+YBSpp\+YY}}.  
 
 
 
@@ -16,65 +17,126 @@ Collaboration diagram for Logger\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=234pt]{classLogger__coll__graph}
+\includegraphics[width=284pt]{classLogger__coll__graph}
 \end{center}
 \end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Destructor ensures to close the file and delete pointers, before instance is deleted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_ad4419b938c11ca8b784f40e82dffc796}{enable\+Console\+Output}} ()
+\begin{DoxyCompactList}\small\item\em enables the console log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a199b998031d189d3ddba7f7990972360}{disable\+Console\+Output}} ()
+\begin{DoxyCompactList}\small\item\em logs will not be shown in the console. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogger_a282f5ca050c07220817bd50742d96eea}{is\+Console\+Output\+Enabled}} ()
+\begin{DoxyCompactList}\small\item\em whether logs are displaying on the console or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a40088b9687aa1efaa13b510dfc66d412}{enable\+File\+Output}} (const char $\ast$\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}}=NULL)
+\begin{DoxyCompactList}\small\item\em enables the file log output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a8aea89458ae5f830897ce33ba1acbbeb}{disable\+File\+Output}} ()
+\begin{DoxyCompactList}\small\item\em disables file output. Logs will not be saved into the files. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classLogger_abfe9ff5af856623b4d0f949b6e7bad5a}{is\+File\+Output\+Enabled}} ()
+\begin{DoxyCompactList}\small\item\em used to know whether the flag file\+Output is true or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a2d3843582fd2f314db30cf7372a49ab4}{set\+Filename}} (const char $\ast$\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}})
+\begin{DoxyCompactList}\small\item\em set\+Filename used to change the filename in which the logs are written. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_ab14bd9c29dd7b0d49e0fd3561a36d019}{set\+Priority}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&\mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}})
+\begin{DoxyCompactList}\small\item\em set\+Priority is used to set log priority, to filter logs to display. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classLogger_a65e3986cade9b9d8a03b19af413693b1}{log}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&log\+Priority, const char $\ast$message, const Args... args)
+\begin{DoxyCompactList}\small\item\em log displays the log message and log\textquotesingle{}s type. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classLogger_ad4419b938c11ca8b784f40e82dffc796}{enable\+Console\+Output}} ()
-\begin{DoxyCompactList}\small\item\em enables the console log output. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLogger_a199b998031d189d3ddba7f7990972360}{disable\+Console\+Output}} ()
-\begin{DoxyCompactList}\small\item\em logs will not be shown in the console. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{classLogger_a282f5ca050c07220817bd50742d96eea}{is\+Console\+Output\+Enabled}} ()
-\begin{DoxyCompactList}\small\item\em whether logs are displaying on the console or not. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLogger_a354726b8407c9640e5a33e97bb2df9d8}{enable\+File\+Output}} (const std\+::string \&filename=\char`\"{}\char`\"{})
-\begin{DoxyCompactList}\small\item\em enables the file log output. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLogger_a8aea89458ae5f830897ce33ba1acbbeb}{disable\+File\+Output}} ()
-\begin{DoxyCompactList}\small\item\em disables file output. Logs will not be saved into the files. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{classLogger_abfe9ff5af856623b4d0f949b6e7bad5a}{is\+File\+Output\+Enabled}} ()
-\begin{DoxyCompactList}\small\item\em used to know whether the flag file\+Output is true or not. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLogger_a2d3843582fd2f314db30cf7372a49ab4}{set\+Filename}} (const char $\ast$filename)
-\begin{DoxyCompactList}\small\item\em set\+Filename used to change the filename in which the logs are written. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classLogger_ab14bd9c29dd7b0d49e0fd3561a36d019}{set\+Priority}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&\mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}})
-\begin{DoxyCompactList}\small\item\em set\+Priority is used to set log priority, to filter logs to display. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename... Args$>$ }\\static void \mbox{\hyperlink{classLogger_a31af8315a1b226a59cdd06d139114bfb}{log}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&log\+Priority, const char $\ast$message, const Args... args)
-\begin{DoxyCompactList}\small\item\em log displays the log message and log\textquotesingle{}s type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get\+Instance creates new instance(if does not exist). It is used to get the reference of the singleton object of the \doxylink{classLogger}{Logger} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \mbox{\hyperlink{classLogger_ad711e7901228adc322912647b7e4cbb2}{make\+\_\+this\+\_\+class\+\_\+abstract}} ()=0
-\begin{DoxyCompactList}\small\item\em make\+\_\+this\+\_\+class\+\_\+abstract is just declared to make this class abstract. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Private Attributes}
+\mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{classLogger}{Logger} is a private default constructor. This is declared private, to make this class singleton.~\newline
+Singleton class ensures that only one object of the class can be created. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger_add0f34d4c753c86af8074840a72366b3}{Logger}} (const \mbox{\hyperlink{classLogger}{Logger}} \&)=delete
+\begin{DoxyCompactList}\small\item\em \doxylink{classLogger}{Logger} is copy constructor of the class. Singleton should not be clonable, so deleting copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} \& \mbox{\hyperlink{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea}{operator=}} (const \mbox{\hyperlink{classLogger}{Logger}} \&)=delete
+\begin{DoxyCompactList}\small\item\em operator = Singleton should not be assignable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-static bool \mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{console\+Output}} = true
+bool \mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{console\+Output}}
 \begin{DoxyCompactList}\small\item\em used to determine whether to display logs into console or not (default = true). \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{file\+Output}} = false
-\begin{DoxyCompactList}\small\item\em used to determine whether to write logs into file or not (default = false). \end{DoxyCompactList}\item 
-static std\+::string \mbox{\hyperlink{classLogger_a6860dab8b7a2e76d9db0c255bd94378f}{log\+\_\+filename}} = \char`\"{}tracelogs.\+txt\char`\"{}
-\begin{DoxyCompactList}\small\item\em log\+\_\+filename stores the name of the file to write logs into. \end{DoxyCompactList}\item 
-static FILE $\ast$ \mbox{\hyperlink{classLogger_a128ce99d1539f618d3b41a46b8c18619}{file}} = NULL
+bool \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{file\+Output}}
+\begin{DoxyCompactList}\small\item\em used to determine whether to write logs into file or not (default = true). \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}}
+\begin{DoxyCompactList}\small\item\em filename stores the name of the file to write logs into (default = \textquotesingle{}logs.\+log\textquotesingle{}). \end{DoxyCompactList}\item 
+FILE $\ast$ \mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}}
 \begin{DoxyCompactList}\small\item\em file is used to write logs into log file. \end{DoxyCompactList}\item 
-static std\+::mutex \mbox{\hyperlink{classLogger_a096fe3e71ad92248c39aca2f8b2b66e6}{write\+\_\+lock}}
+std\+::mutex \mbox{\hyperlink{classLogger_a096fe3e71ad92248c39aca2f8b2b66e6}{write\+\_\+lock}}
 \begin{DoxyCompactList}\small\item\em write\+\_\+lock mutex is used to prevent the race condition to write logs into file. \end{DoxyCompactList}\item 
-static std\+::mutex \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\+\_\+lock}}
+std\+::mutex \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\+\_\+lock}}
 \begin{DoxyCompactList}\small\item\em display\+\_\+lock used to prevent race condition while displaying logs. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}} = \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8}{Log\+Priority\+::\+Debug}}
+\mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}}
 \begin{DoxyCompactList}\small\item\em priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.~\newline
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.~\newline
 Default value is Log\+Priority\+::\+Debug. \end{DoxyCompactList}\item 
-static time\+\_\+t \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{current\+Time}}
+time\+\_\+t \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{current\+Time}}
 \begin{DoxyCompactList}\small\item\em it is used to get the current system time to display log time. \end{DoxyCompactList}\item 
-static tm $\ast$ \mbox{\hyperlink{classLogger_aae885396a933b3535acdab857fd7f379}{time\+Stamp}}
+tm $\ast$ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{time\+Stamp}}
 \begin{DoxyCompactList}\small\item\em it is used to hold the localtime of the system to display log timestamp. \end{DoxyCompactList}\item 
-static char \mbox{\hyperlink{classLogger_ab145fde1bfb3e52907d46a37268279fa}{time\+Buffer}} \mbox{[}25\mbox{]}
+char \mbox{\hyperlink{classLogger_ae72ef53b317573a253fe2895e2f8af7f}{time\+Buffer}} \mbox{[}25\mbox{]}
 \begin{DoxyCompactList}\small\item\em it holds the string formatted(YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS) timestamp of the system to display with log. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::mutex \mbox{\hyperlink{classLogger_a690d70b52e96021cdd5866e642177ef5}{get\+\_\+instance\+\_\+lock}}
+\begin{DoxyCompactList}\small\item\em get\+\_\+instance\+\_\+lock is used to make \doxylink{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf}{Get\+Instance()} thread safe, to prevent creation of more than one objects. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classLogger_a27beabe5af49a8ea78b02b3f236c7a05}{logger}} = NULL
+\begin{DoxyCompactList}\small\item\em logger is the pointer to the singleton object of the class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-The \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. This class provides the static members and methods to print the differernt log messages with different priorities.~\newline
-This class uses values of enum Log\+Priority to display the differernt type of logs. 
+The singleton \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.~\newline
+This class uses values of enum Log\+Priority to display the differernt type of logs.~\newline
+Reference video\+: \href{https://youtu.be/1rnmYBSppYY}{\texttt{ https\+://youtu.\+be/1rnm\+YBSpp\+YY}}. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}\label{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a} 
+\index{Logger@{Logger}!````~Logger@{$\sim$Logger}}
+\index{````~Logger@{$\sim$Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Logger()}{~Logger()}}
+{\footnotesize\ttfamily Logger\+::$\sim$\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor ensures to close the file and delete pointers, before instance is deleted. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classLogger_abc41bfb031d896170c7675fa96a6b30c}\label{classLogger_abc41bfb031d896170c7675fa96a6b30c} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxylink{classLogger}{Logger} is a private default constructor. This is declared private, to make this class singleton.~\newline
+Singleton class ensures that only one object of the class can be created. 
+
+\Hypertarget{classLogger_add0f34d4c753c86af8074840a72366b3}\label{classLogger_add0f34d4c753c86af8074840a72366b3} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLogger}{Logger}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
+
+
+
+\doxylink{classLogger}{Logger} is copy constructor of the class. Singleton should not be clonable, so deleting copy constructor. 
 
 
 
@@ -83,7 +145,7 @@ This class uses values of enum Log\+Priority to display the differernt type of l
 \index{Logger@{Logger}!disableConsoleOutput@{disableConsoleOutput}}
 \index{disableConsoleOutput@{disableConsoleOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{disableConsoleOutput()}{disableConsoleOutput()}}
-{\footnotesize\ttfamily void Logger\+::disable\+Console\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::disable\+Console\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -93,7 +155,7 @@ logs will not be shown in the console.
 \index{Logger@{Logger}!disableFileOutput@{disableFileOutput}}
 \index{disableFileOutput@{disableFileOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{disableFileOutput()}{disableFileOutput()}}
-{\footnotesize\ttfamily void Logger\+::disable\+File\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::disable\+File\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -103,17 +165,17 @@ disables file output. Logs will not be saved into the files.
 \index{Logger@{Logger}!enableConsoleOutput@{enableConsoleOutput}}
 \index{enableConsoleOutput@{enableConsoleOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{enableConsoleOutput()}{enableConsoleOutput()}}
-{\footnotesize\ttfamily void Logger\+::enable\+Console\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::enable\+Console\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 enables the console log output. 
 
-\Hypertarget{classLogger_a354726b8407c9640e5a33e97bb2df9d8}\label{classLogger_a354726b8407c9640e5a33e97bb2df9d8} 
+\Hypertarget{classLogger_a40088b9687aa1efaa13b510dfc66d412}\label{classLogger_a40088b9687aa1efaa13b510dfc66d412} 
 \index{Logger@{Logger}!enableFileOutput@{enableFileOutput}}
 \index{enableFileOutput@{enableFileOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{enableFileOutput()}{enableFileOutput()}}
-{\footnotesize\ttfamily void Logger\+::enable\+File\+Output (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::enable\+File\+Output (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename = {\ttfamily NULL} }\end{DoxyParamCaption})}
 
 
 
@@ -121,14 +183,42 @@ enables the file log output.
 
 
 \begin{DoxyParams}{Parameters}
-{\em filename} & sets the log file name if provided. Ohterwise default value is already there. \\
+{\em filename} & sets the log file name if provided (defaulr = NULL). \\
 \hline
 \end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classLogger_a40088b9687aa1efaa13b510dfc66d412_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf}\label{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf} 
+\index{Logger@{Logger}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ Logger\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get\+Instance creates new instance(if does not exist). It is used to get the reference of the singleton object of the \doxylink{classLogger}{Logger} class. 
+
+\begin{DoxyReturn}{Returns}
+reference of the newly(if does not exist) created \doxylink{classLogger}{Logger} instance,~\newline
+else reference of the existing object of \doxylink{classLogger}{Logger} class. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{classLogger_a282f5ca050c07220817bd50742d96eea}\label{classLogger_a282f5ca050c07220817bd50742d96eea} 
 \index{Logger@{Logger}!isConsoleOutputEnabled@{isConsoleOutputEnabled}}
 \index{isConsoleOutputEnabled@{isConsoleOutputEnabled}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{isConsoleOutputEnabled()}{isConsoleOutputEnabled()}}
-{\footnotesize\ttfamily bool Logger\+::is\+Console\+Output\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily bool Logger\+::is\+Console\+Output\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -141,7 +231,7 @@ value of boolean console\+Output flag.
 \index{Logger@{Logger}!isFileOutputEnabled@{isFileOutputEnabled}}
 \index{isFileOutputEnabled@{isFileOutputEnabled}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{isFileOutputEnabled()}{isFileOutputEnabled()}}
-{\footnotesize\ttfamily bool Logger\+::is\+File\+Output\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily bool Logger\+::is\+File\+Output\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -150,12 +240,12 @@ used to know whether the flag file\+Output is true or not.
 \begin{DoxyReturn}{Returns}
 value of static member file\+Output. 
 \end{DoxyReturn}
-\Hypertarget{classLogger_a31af8315a1b226a59cdd06d139114bfb}\label{classLogger_a31af8315a1b226a59cdd06d139114bfb} 
+\Hypertarget{classLogger_a65e3986cade9b9d8a03b19af413693b1}\label{classLogger_a65e3986cade9b9d8a03b19af413693b1} 
 \index{Logger@{Logger}!log@{log}}
 \index{log@{log}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{log()}{log()}}
 {\footnotesize\ttfamily template$<$typename... Args$>$ \\
-static void Logger\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{log\+Priority,  }\item[{const char $\ast$}]{message,  }\item[{const Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+void Logger\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{log\+Priority,  }\item[{const char $\ast$}]{message,  }\item[{const Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -172,21 +262,24 @@ If the priority of the log message is equal or higher than the member, then log 
 This way, we can decide what types of logs to be displayed and what not to be displayed. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classLogger_ad711e7901228adc322912647b7e4cbb2}\label{classLogger_ad711e7901228adc322912647b7e4cbb2} 
-\index{Logger@{Logger}!make\_this\_class\_abstract@{make\_this\_class\_abstract}}
-\index{make\_this\_class\_abstract@{make\_this\_class\_abstract}!Logger@{Logger}}
-\doxysubsubsection{\texorpdfstring{make\_this\_class\_abstract()}{make\_this\_class\_abstract()}}
-{\footnotesize\ttfamily virtual void Logger\+::make\+\_\+this\+\_\+class\+\_\+abstract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [pure virtual]}}
+\Hypertarget{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea}\label{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea} 
+\index{Logger@{Logger}!operator=@{operator=}}
+\index{operator=@{operator=}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} \& Logger\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLogger}{Logger}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}
 
 
 
-make\+\_\+this\+\_\+class\+\_\+abstract is just declared to make this class abstract. 
+operator = Singleton should not be assignable. 
 
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \Hypertarget{classLogger_a2d3843582fd2f314db30cf7372a49ab4}\label{classLogger_a2d3843582fd2f314db30cf7372a49ab4} 
 \index{Logger@{Logger}!setFilename@{setFilename}}
 \index{setFilename@{setFilename}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{setFilename()}{setFilename()}}
-{\footnotesize\ttfamily void Logger\+::set\+Filename (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::set\+Filename (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
 
 
 
@@ -201,7 +294,7 @@ set\+Filename used to change the filename in which the logs are written.
 \index{Logger@{Logger}!setPriority@{setPriority}}
 \index{setPriority@{setPriority}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{setPriority()}{setPriority()}}
-{\footnotesize\ttfamily void Logger\+::set\+Priority (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{priority }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Logger\+::set\+Priority (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{priority }\end{DoxyParamCaption})}
 
 
 
@@ -220,7 +313,7 @@ set\+Priority is used to set log priority, to filter logs to display.
 \index{Logger@{Logger}!consoleOutput@{consoleOutput}}
 \index{consoleOutput@{consoleOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{consoleOutput}{consoleOutput}}
-{\footnotesize\ttfamily bool Logger\+::console\+Output = true\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily bool Logger\+::console\+Output\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -230,7 +323,7 @@ used to determine whether to display logs into console or not (default = true).
 \index{Logger@{Logger}!currentTime@{currentTime}}
 \index{currentTime@{currentTime}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{currentTime}{currentTime}}
-{\footnotesize\ttfamily time\+\_\+t Logger\+::current\+Time\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily time\+\_\+t Logger\+::current\+Time\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -240,47 +333,67 @@ it is used to get the current system time to display log time.
 \index{Logger@{Logger}!display\_lock@{display\_lock}}
 \index{display\_lock@{display\_lock}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{display\_lock}{display\_lock}}
-{\footnotesize\ttfamily std\+::mutex Logger\+::display\+\_\+lock\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::mutex Logger\+::display\+\_\+lock\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 display\+\_\+lock used to prevent race condition while displaying logs. 
 
-\Hypertarget{classLogger_a128ce99d1539f618d3b41a46b8c18619}\label{classLogger_a128ce99d1539f618d3b41a46b8c18619} 
+\Hypertarget{classLogger_ad00c914c1f38de6d069cb788b9074d8f}\label{classLogger_ad00c914c1f38de6d069cb788b9074d8f} 
 \index{Logger@{Logger}!file@{file}}
 \index{file@{file}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{file}{file}}
-{\footnotesize\ttfamily FILE $\ast$ Logger\+::file = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily FILE$\ast$ Logger\+::file\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 file is used to write logs into log file. 
 
+\Hypertarget{classLogger_a4a7913dbecc583e935e8c18ec62716ab}\label{classLogger_a4a7913dbecc583e935e8c18ec62716ab} 
+\index{Logger@{Logger}!filename@{filename}}
+\index{filename@{filename}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily char$\ast$ Logger\+::filename\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+filename stores the name of the file to write logs into (default = \textquotesingle{}logs.\+log\textquotesingle{}). 
+
 \Hypertarget{classLogger_ae8349188f1e958b19de3e363ee6faaef}\label{classLogger_ae8349188f1e958b19de3e363ee6faaef} 
 \index{Logger@{Logger}!fileOutput@{fileOutput}}
 \index{fileOutput@{fileOutput}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{fileOutput}{fileOutput}}
-{\footnotesize\ttfamily bool Logger\+::file\+Output = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily bool Logger\+::file\+Output\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-used to determine whether to write logs into file or not (default = false). 
+used to determine whether to write logs into file or not (default = true). 
 
-\Hypertarget{classLogger_a6860dab8b7a2e76d9db0c255bd94378f}\label{classLogger_a6860dab8b7a2e76d9db0c255bd94378f} 
-\index{Logger@{Logger}!log\_filename@{log\_filename}}
-\index{log\_filename@{log\_filename}!Logger@{Logger}}
-\doxysubsubsection{\texorpdfstring{log\_filename}{log\_filename}}
-{\footnotesize\ttfamily std\+::string Logger\+::log\+\_\+filename = \char`\"{}tracelogs.\+txt\char`\"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+\Hypertarget{classLogger_a690d70b52e96021cdd5866e642177ef5}\label{classLogger_a690d70b52e96021cdd5866e642177ef5} 
+\index{Logger@{Logger}!get\_instance\_lock@{get\_instance\_lock}}
+\index{get\_instance\_lock@{get\_instance\_lock}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{get\_instance\_lock}{get\_instance\_lock}}
+{\footnotesize\ttfamily std\+::mutex Logger\+::get\+\_\+instance\+\_\+lock\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 
-log\+\_\+filename stores the name of the file to write logs into. 
+get\+\_\+instance\+\_\+lock is used to make \doxylink{classLogger_a58ba0fb326628410e7d67fe18d2e1fbf}{Get\+Instance()} thread safe, to prevent creation of more than one objects. 
+
+\Hypertarget{classLogger_a27beabe5af49a8ea78b02b3f236c7a05}\label{classLogger_a27beabe5af49a8ea78b02b3f236c7a05} 
+\index{Logger@{Logger}!logger@{logger}}
+\index{logger@{logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ Logger\+::logger = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+logger is the pointer to the singleton object of the class. 
 
 \Hypertarget{classLogger_ad7b321fea0d776a80926da20f6faf320}\label{classLogger_ad7b321fea0d776a80926da20f6faf320} 
 \index{Logger@{Logger}!priority@{priority}}
 \index{priority@{priority}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{priority}{priority}}
-{\footnotesize\ttfamily \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} Logger\+::priority = \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8}{Log\+Priority\+::\+Debug}}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} Logger\+::priority\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -288,21 +401,21 @@ priority variable is used to compare with priority of the log message to be disp
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.~\newline
 Default value is Log\+Priority\+::\+Debug. 
 
-\Hypertarget{classLogger_ab145fde1bfb3e52907d46a37268279fa}\label{classLogger_ab145fde1bfb3e52907d46a37268279fa} 
+\Hypertarget{classLogger_ae72ef53b317573a253fe2895e2f8af7f}\label{classLogger_ae72ef53b317573a253fe2895e2f8af7f} 
 \index{Logger@{Logger}!timeBuffer@{timeBuffer}}
 \index{timeBuffer@{timeBuffer}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{timeBuffer}{timeBuffer}}
-{\footnotesize\ttfamily char Logger\+::time\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily char Logger\+::time\+Buffer\mbox{[}25\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 it holds the string formatted(YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS) timestamp of the system to display with log. 
 
-\Hypertarget{classLogger_aae885396a933b3535acdab857fd7f379}\label{classLogger_aae885396a933b3535acdab857fd7f379} 
+\Hypertarget{classLogger_a668ef12e44edddc179c09268715f480c}\label{classLogger_a668ef12e44edddc179c09268715f480c} 
 \index{Logger@{Logger}!timeStamp@{timeStamp}}
 \index{timeStamp@{timeStamp}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{timeStamp}{timeStamp}}
-{\footnotesize\ttfamily tm $\ast$ Logger\+::time\+Stamp\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily tm$\ast$ Logger\+::time\+Stamp\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -312,7 +425,7 @@ it is used to hold the localtime of the system to display log timestamp.
 \index{Logger@{Logger}!write\_lock@{write\_lock}}
 \index{write\_lock@{write\_lock}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{write\_lock}{write\_lock}}
-{\footnotesize\ttfamily std\+::mutex Logger\+::write\+\_\+lock\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily std\+::mutex Logger\+::write\+\_\+lock\hspace{0.3cm}{\ttfamily [private]}}
 
 
 

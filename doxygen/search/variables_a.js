@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['thumbnailpath_0',['thumbnailPath',['../classSong.html#aceb9f5d2fda79388d466f61ec4d1e78a',1,'Song']]],
-  ['timebuffer_1',['timeBuffer',['../classLogger.html#ab145fde1bfb3e52907d46a37268279fa',1,'Logger']]],
-  ['timestamp_2',['timeStamp',['../classLogger.html#aae885396a933b3535acdab857fd7f379',1,'Logger']]],
-  ['totalsongs_3',['totalSongs',['../classSong.html#a793d726379e14f72c4f1554fc70d9a39',1,'Song']]]
+  ['songcondition_0',['songCondition',['../classDisplayPlaylist.html#aa4d5ed56b6210fa0ad04e1810cf5fbcd',1,'DisplayPlaylist']]],
+  ['songplaying_1',['songPlaying',['../classDisplayPlaylist.html#a4f9e3c39e02271747e6d55b1831cd18e',1,'DisplayPlaylist']]]
 ];

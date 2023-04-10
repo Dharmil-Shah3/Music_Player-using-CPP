@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['id_0',['id',['../classSong.html#a35181f7067485c7c155af9cec75bd741',1,'Song']]]
+  ['get_5finstance_5flock_0',['get_instance_lock',['../classLogger.html#a690d70b52e96021cdd5866e642177ef5',1,'Logger']]]
 ];
