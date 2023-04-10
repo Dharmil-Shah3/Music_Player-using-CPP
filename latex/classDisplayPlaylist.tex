@@ -11,8 +11,7 @@ The Display\+Data class.
 
 
 
-Collaboration diagram for Display\+Playlist\+:
-\nopagebreak
+Collaboration diagram for Display\+Playlist\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -95,8 +94,7 @@ Objects of class \doxylink{classSong}{Song} are pushed into that queue.~\newline
 
 \doxylink{classDisplayPlaylist}{Display\+Playlist} is a default constructor. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -129,8 +127,7 @@ It wakes from the sleep once anyone notify on the error\+Raised condition variab
 After waking up, it displays the error message if any and terminates program.~\newline
 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -152,8 +149,7 @@ It wakes up after someone notify on the song\+Condition variable.~\newline
 After waking up, it pops the song from the playlist, and sets the song\+Playing flag to true.~\newline
 And it notifies on the song\+Playing variable. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -173,8 +169,7 @@ It goes into waiting queue until someone wakes him up.~\newline
 It waits on the song\+Condition variable with the unique\+\_\+lock using {\itshape lock} attribut of the class.~\newline
 After song finishes its duration, it will set song\+Playing flag to false and notify the waiting thread on song\+Condition variable. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -196,8 +191,7 @@ push\+Song\+Into\+Playlist method pushes the \doxylink{classSong}{Song} object i
 {\em song} & is the objecet of the \doxylink{classSong}{Song}, that needs to be pushed into the playlist. \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -12,8 +12,7 @@ This class uses values of enum Log\+Priority to display the differernt type of l
 
 
 
-Collaboration diagram for Logger\+:
-\nopagebreak
+Collaboration diagram for Logger\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -55,7 +54,7 @@ static bool \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{file
 \begin{DoxyCompactList}\small\item\em used to determine whether to write logs into file or not (default = false). \end{DoxyCompactList}\item 
 static std\+::string \mbox{\hyperlink{classLogger_a6860dab8b7a2e76d9db0c255bd94378f}{log\+\_\+filename}} = \char`\"{}tracelogs.\+txt\char`\"{}
 \begin{DoxyCompactList}\small\item\em log\+\_\+filename stores the name of the file to write logs into. \end{DoxyCompactList}\item 
-static FILE $\ast$ \mbox{\hyperlink{classLogger_a128ce99d1539f618d3b41a46b8c18619}{file}}
+static FILE $\ast$ \mbox{\hyperlink{classLogger_a128ce99d1539f618d3b41a46b8c18619}{file}} = NULL
 \begin{DoxyCompactList}\small\item\em file is used to write logs into log file. \end{DoxyCompactList}\item 
 static std\+::mutex \mbox{\hyperlink{classLogger_a096fe3e71ad92248c39aca2f8b2b66e6}{write\+\_\+lock}}
 \begin{DoxyCompactList}\small\item\em write\+\_\+lock mutex is used to prevent the race condition to write logs into file. \end{DoxyCompactList}\item 
@@ -64,7 +63,13 @@ static std\+::mutex \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad
 static \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}} = \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8}{Log\+Priority\+::\+Debug}}
 \begin{DoxyCompactList}\small\item\em priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.~\newline
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.~\newline
-Default value is Log\+Priority\+::\+Debug. \end{DoxyCompactList}\end{DoxyCompactItemize}
+Default value is Log\+Priority\+::\+Debug. \end{DoxyCompactList}\item 
+static time\+\_\+t \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{current\+Time}}
+\begin{DoxyCompactList}\small\item\em it is used to get the current system time to display log time. \end{DoxyCompactList}\item 
+static tm $\ast$ \mbox{\hyperlink{classLogger_aae885396a933b3535acdab857fd7f379}{time\+Stamp}}
+\begin{DoxyCompactList}\small\item\em it is used to hold the localtime of the system to display log timestamp. \end{DoxyCompactList}\item 
+static char \mbox{\hyperlink{classLogger_ab145fde1bfb3e52907d46a37268279fa}{time\+Buffer}} \mbox{[}25\mbox{]}
+\begin{DoxyCompactList}\small\item\em it holds the string formatted(YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS) timestamp of the system to display with log. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -116,7 +121,7 @@ enables the file log output.
 
 
 \begin{DoxyParams}{Parameters}
-{\em sets} & the log file name if provided. Ohterwise default value is already there. \\
+{\em filename} & sets the log file name if provided. Ohterwise default value is already there. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classLogger_a282f5ca050c07220817bd50742d96eea}\label{classLogger_a282f5ca050c07220817bd50742d96eea} 
@@ -221,6 +226,16 @@ set\+Priority is used to set log priority, to filter logs to display.
 
 used to determine whether to display logs into console or not (default = true). 
 
+\Hypertarget{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}\label{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d} 
+\index{Logger@{Logger}!currentTime@{currentTime}}
+\index{currentTime@{currentTime}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{currentTime}{currentTime}}
+{\footnotesize\ttfamily time\+\_\+t Logger\+::current\+Time\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+it is used to get the current system time to display log time. 
+
 \Hypertarget{classLogger_a48e9515cb4fb33382c921ecb027bad4b}\label{classLogger_a48e9515cb4fb33382c921ecb027bad4b} 
 \index{Logger@{Logger}!display\_lock@{display\_lock}}
 \index{display\_lock@{display\_lock}!Logger@{Logger}}
@@ -235,7 +250,7 @@ display\+\_\+lock used to prevent race condition while displaying logs.
 \index{Logger@{Logger}!file@{file}}
 \index{file@{file}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{file}{file}}
-{\footnotesize\ttfamily FILE $\ast$ Logger\+::file\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+{\footnotesize\ttfamily FILE $\ast$ Logger\+::file = NULL\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
 
 
@@ -272,6 +287,26 @@ log\+\_\+filename stores the name of the file to write logs into.
 priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.~\newline
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.~\newline
 Default value is Log\+Priority\+::\+Debug. 
+
+\Hypertarget{classLogger_ab145fde1bfb3e52907d46a37268279fa}\label{classLogger_ab145fde1bfb3e52907d46a37268279fa} 
+\index{Logger@{Logger}!timeBuffer@{timeBuffer}}
+\index{timeBuffer@{timeBuffer}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{timeBuffer}{timeBuffer}}
+{\footnotesize\ttfamily char Logger\+::time\+Buffer\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+it holds the string formatted(YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS) timestamp of the system to display with log. 
+
+\Hypertarget{classLogger_aae885396a933b3535acdab857fd7f379}\label{classLogger_aae885396a933b3535acdab857fd7f379} 
+\index{Logger@{Logger}!timeStamp@{timeStamp}}
+\index{timeStamp@{timeStamp}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{timeStamp}{timeStamp}}
+{\footnotesize\ttfamily tm $\ast$ Logger\+::time\+Stamp\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+it is used to hold the localtime of the system to display log timestamp. 
 
 \Hypertarget{classLogger_a096fe3e71ad92248c39aca2f8b2b66e6}\label{classLogger_a096fe3e71ad92248c39aca2f8b2b66e6} 
 \index{Logger@{Logger}!write\_lock@{write\_lock}}

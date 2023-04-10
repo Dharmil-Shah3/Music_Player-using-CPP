@@ -109,7 +109,7 @@ Collaboration diagram for Logger:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogger__coll__graph.png" border="0" usemap="#aLogger_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogger_coll__map" id="aLogger_coll__map">
-<area shape="rect" title="The Logger class is used for trace logging and debugging purpose. This class provides the static memb..." alt="" coords="5,5,211,371"/>
+<area shape="rect" title="The Logger class is used for trace logging and debugging purpose. This class provides the static memb..." alt="" coords="5,5,211,431"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -161,7 +161,7 @@ Static Private Attributes</h2></td></tr>
 <tr class="memitem:a6860dab8b7a2e76d9db0c255bd94378f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a6860dab8b7a2e76d9db0c255bd94378f">log_filename</a> = &quot;tracelogs.txt&quot;</td></tr>
 <tr class="memdesc:a6860dab8b7a2e76d9db0c255bd94378f"><td class="mdescLeft">&#160;</td><td class="mdescRight">log_filename stores the name of the file to write logs into.  <br /></td></tr>
 <tr class="separator:a6860dab8b7a2e76d9db0c255bd94378f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a128ce99d1539f618d3b41a46b8c18619"><td class="memItemLeft" align="right" valign="top">static FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a128ce99d1539f618d3b41a46b8c18619">file</a></td></tr>
+<tr class="memitem:a128ce99d1539f618d3b41a46b8c18619"><td class="memItemLeft" align="right" valign="top">static FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a128ce99d1539f618d3b41a46b8c18619">file</a> = NULL</td></tr>
 <tr class="memdesc:a128ce99d1539f618d3b41a46b8c18619"><td class="mdescLeft">&#160;</td><td class="mdescRight">file is used to write logs into log file.  <br /></td></tr>
 <tr class="separator:a128ce99d1539f618d3b41a46b8c18619"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a096fe3e71ad92248c39aca2f8b2b66e6"><td class="memItemLeft" align="right" valign="top">static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a096fe3e71ad92248c39aca2f8b2b66e6">write_lock</a></td></tr>
@@ -175,6 +175,15 @@ Static Private Attributes</h2></td></tr>
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.<br  />
 Default value is LogPriority::Debug.  <br /></td></tr>
 <tr class="separator:ad7b321fea0d776a80926da20f6faf320"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="memItemLeft" align="right" valign="top">static time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a5917f4a72259ddfa4fe8394bfe7b712d">currentTime</a></td></tr>
+<tr class="memdesc:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to get the current system time to display log time.  <br /></td></tr>
+<tr class="separator:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae885396a933b3535acdab857fd7f379"><td class="memItemLeft" align="right" valign="top">static tm *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#aae885396a933b3535acdab857fd7f379">timeStamp</a></td></tr>
+<tr class="memdesc:aae885396a933b3535acdab857fd7f379"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to hold the localtime of the system to display log timestamp.  <br /></td></tr>
+<tr class="separator:aae885396a933b3535acdab857fd7f379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab145fde1bfb3e52907d46a37268279fa"><td class="memItemLeft" align="right" valign="top">static char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ab145fde1bfb3e52907d46a37268279fa">timeBuffer</a> [25]</td></tr>
+<tr class="memdesc:ab145fde1bfb3e52907d46a37268279fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">it holds the string formatted(YYYY-MM-DD HH:MM:SS) timestamp of the system to display with log.  <br /></td></tr>
+<tr class="separator:ab145fde1bfb3e52907d46a37268279fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classLogger.html" title="The Logger class is used for trace logging and debugging purpose. This class provides the static memb...">Logger</a> class is used for trace logging and debugging purpose. This class provides the static members and methods to print the differernt log messages with different priorities.<br  />
@@ -288,7 +297,7 @@ This class uses values of enum LogPriority to display the differernt type of log
 <p>enables the file log output. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sets</td><td>the log file name if provided. Ohterwise default value is already there. </td></tr>
+    <tr><td class="paramname">filename</td><td>sets the log file name if provided. Ohterwise default value is already there. </td></tr>
   </table>
   </dd>
 </dl>
@@ -528,6 +537,30 @@ This way, we can decide what types of logs to be displayed and what not to be di
 
 </div>
 </div>
+<a id="a5917f4a72259ddfa4fe8394bfe7b712d" name="a5917f4a72259ddfa4fe8394bfe7b712d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5917f4a72259ddfa4fe8394bfe7b712d">&#9670;&#160;</a></span>currentTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t Logger::currentTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>it is used to get the current system time to display log time. </p>
+
+</div>
+</div>
 <a id="a48e9515cb4fb33382c921ecb027bad4b" name="a48e9515cb4fb33382c921ecb027bad4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48e9515cb4fb33382c921ecb027bad4b">&#9670;&#160;</a></span>display_lock</h2>
 
@@ -562,7 +595,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">FILE * Logger::file</td>
+          <td class="memname">FILE * Logger::file = NULL</td>
         </tr>
       </table>
   </td>
@@ -647,6 +680,54 @@ This way, we can decide what types of logs to be displayed and what not to be di
 <p>priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.<br  />
 If the priority of the log message is lesser that this variable, then that log message will not be displayed.<br  />
 Default value is LogPriority::Debug. </p>
+
+</div>
+</div>
+<a id="ab145fde1bfb3e52907d46a37268279fa" name="ab145fde1bfb3e52907d46a37268279fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab145fde1bfb3e52907d46a37268279fa">&#9670;&#160;</a></span>timeBuffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Logger::timeBuffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>it holds the string formatted(YYYY-MM-DD HH:MM:SS) timestamp of the system to display with log. </p>
+
+</div>
+</div>
+<a id="aae885396a933b3535acdab857fd7f379" name="aae885396a933b3535acdab857fd7f379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae885396a933b3535acdab857fd7f379">&#9670;&#160;</a></span>timeStamp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tm * Logger::timeStamp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>it is used to hold the localtime of the system to display log timestamp. </p>
 
 </div>
 </div>

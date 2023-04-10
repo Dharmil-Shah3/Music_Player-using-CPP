@@ -24,7 +24,8 @@ enum LogPriority{
  * @class Logger
  * @brief The Logger class is used for trace logging and debugging purpose.
  * This class provides the static members and methods to print the differernt log messages with different priorities.\n
- * This class uses values of enum LogPriority to display the differernt type of logs.
+ * This class uses values of enum LogPriority to display the differernt type of logs.\n
+ * Reference video: https://youtu.be/1rnmYBSppYY
  *********************************************************************************************************************/
 class Logger
 {
@@ -42,10 +43,10 @@ public:
      **********************************************************/
     bool static isConsoleOutputEnabled();
 
-    /**********************************************************************************//**
+    /*******************************************************************************************//**
      * @brief enables the file log output.
-     * @param sets the log file name if provided. Ohterwise default value is already there.
-     *************************************************************************************/
+     * @param filename sets the log file name if provided. Ohterwise default value is already there.
+     **********************************************************************************************/
     void static enableFileOutput(const std::string &filename="");
 
     /************************************//**
