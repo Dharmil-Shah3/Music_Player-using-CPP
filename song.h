@@ -102,7 +102,7 @@ namespace SongError
      * This is an abstact structure that has a static method what(),\n
      * which takes ErrorCode element as an argument,\n
      * and returns the related error message.\n
-     *************************************************************************************/
+     **************************************************************************************/
     struct ErrorMessage
     {
         /********************************************************************//**

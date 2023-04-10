@@ -87,7 +87,9 @@ public:
     template <typename... Args>
     static void log(const LogPriority &logPriority, const char *message, const Args... args)
     {
-        if(consoleOutput == true && logPriority >= Logger::priority)
+        // Either consoleOutput or fileOutput must be true.
+        // And log priority also should be equal and greater
+        if((consoleOutput || fileOutput) && (logPriority >= Logger::priority))
         {
             std::string logType;
             switch (logPriority) {
@@ -100,10 +102,9 @@ public:
             }
 
             // getting current date and time
-            time_t t;
-            tm *_time;
-            time(&t);
-            _time = localtime(&t);
+            currentTime = time(0);
+            timeStamp = localtime(&currentTime);
+            strftime(timeBuffer, 25, "%F %T", timeStamp);
 
             // getting microseconds to display
             using namespace std::chrono;
@@ -112,28 +113,21 @@ public:
             unsigned long int microseconds = ms.count()%1000000%1000;
 
             // lock mutex, and display the log message
-            display_lock.lock();
-            printf("[%s][%4d/%02d/%02d %02d:%02d:%02d.%03ld.%03ld]: ",
-                    logType.c_str(),
-                    _time->tm_year+1900, _time->tm_mon+1, _time->tm_mday,
-                    _time->tm_hour, _time->tm_min, _time->tm_sec,
-                    milliseconds, microseconds);
-            printf(message, args...);
-            printf("\n");
-            display_lock.unlock();
+            if(consoleOutput){
+                display_lock.lock();
+                printf("[%s][%s.%03ld.%03ld]: ", logType.c_str(), timeBuffer, milliseconds, microseconds);
+                printf(message, args...);
+                printf("\n");
+                display_lock.unlock();
+            }
 
             // write logs into file, if enabled
-            if(fileOutput)
-            {
+            if(fileOutput){
                 write_lock.lock();
                 file = fopen(log_filename.c_str(), "a");
                 if(file != 0) // file is opened
                 {
-                    fprintf(file, "[%s][%4d/%02d/%02d %02d:%02d:%02d.%03ld.%03ld]: ",
-                            logType.c_str(),
-                            _time->tm_year+1900, _time->tm_mon+1, _time->tm_mday,
-                            _time->tm_hour, _time->tm_min, _time->tm_sec,
-                            milliseconds, microseconds);
+                    fprintf(file, "[%s][%s.%03ld.%03ld]: ", logType.c_str(), timeBuffer, milliseconds, microseconds);
                     fprintf(file, message, args...);
                     fprintf(file, "\n");
                     fclose(file);
@@ -172,6 +166,15 @@ private:
      * Default value is LogPriority::Debug.
      ************************************************************************************************************/
     static LogPriority priority;
+
+    /** @brief it is used to get the current system time to display log time. */
+    static time_t currentTime;
+
+    /** @brief it is used to hold the localtime of the system to display log timestamp. */
+    static tm *timeStamp;
+
+    /** @brief it holds the string formatted(YYYY-MM-DD HH:MM:SS) timestamp of the system to display with log. */
+    static char timeBuffer[25];
 
     /** @brief make_this_class_abstract is just declared to make this class abstract. */
     virtual void make_this_class_abstract() = 0;

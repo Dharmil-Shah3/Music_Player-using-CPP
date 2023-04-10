@@ -4,10 +4,13 @@
 bool Logger::consoleOutput = true;
 bool Logger::fileOutput = false;
 std::string Logger::log_filename = "tracelogs.txt";
-FILE * Logger::file;
+LogPriority Logger::priority = LogPriority::Debug;
+FILE * Logger::file = NULL;
 std::mutex Logger::write_lock;
 std::mutex Logger::display_lock;
-LogPriority Logger::priority = LogPriority::Debug;
+time_t Logger::currentTime;
+tm * Logger::timeStamp;
+char Logger::timeBuffer[];
 
 /* ============= METHODS ==============*/
 void Logger::enableConsoleOutput(){
