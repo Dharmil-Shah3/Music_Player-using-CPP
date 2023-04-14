@@ -16,16 +16,9 @@ Include dependency graph for main.\+cpp\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{main_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5}{push\+\_\+songs\+\_\+into\+\_\+playlist}} (\mbox{\hyperlink{classDisplayPlaylist}{Display\+Playlist}} \&playlist)
-\begin{DoxyCompactList}\small\item\em push\+\_\+songs\+\_\+into\+\_\+playlist is a global function that pushes objects of \doxylink{classSong}{Song} into queue of object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}. This function is called from the main.~\newline
-Objective of the method is to populate the playlist(queue) of an object of \doxylink{classDisplayPlaylist}{Display\+Playlist}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em push\+\_\+songs\+\_\+into\+\_\+playlist is a global function that pushes objects of \doxylink{classSong}{Song} into queue of object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
-\begin{DoxyCompactList}\small\item\em main method is used to handle the flow of the program. It creates an object of \doxylink{classDisplayPlaylist}{Display\+Playlist}.~\newline
-Calls \doxylink{main_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5}{push\+\_\+songs\+\_\+into\+\_\+playlist()} to push songs into that object.~\newline
-Creates 3 threads that run paralally.~\newline
-1st thraed for Display\+Playlist\+::display\+Song\+Details() method.~\newline
-2nd thraed for \doxylink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{Display\+Playlist\+::play\+Next\+Song()} method.~\newline
-And 3rd thraed for Display\+Playlist\+::check\+For\+Exception() method.~\newline
-\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em main method is used to handle the flow of the program. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -37,15 +30,17 @@ And 3rd thraed for Display\+Playlist\+::check\+For\+Exception() method.~\newline
 
 
 
-main method is used to handle the flow of the program. It creates an object of \doxylink{classDisplayPlaylist}{Display\+Playlist}.~\newline
+main method is used to handle the flow of the program. 
+
+It creates an object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}.~\newline
 Calls \doxylink{main_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5}{push\+\_\+songs\+\_\+into\+\_\+playlist()} to push songs into that object.~\newline
 Creates 3 threads that run paralally.~\newline
-1st thraed for Display\+Playlist\+::display\+Song\+Details() method.~\newline
-2nd thraed for \doxylink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{Display\+Playlist\+::play\+Next\+Song()} method.~\newline
-And 3rd thraed for Display\+Playlist\+::check\+For\+Exception() method.~\newline
 
-
-\begin{DoxyReturn}{Returns}
+\begin{DoxyEnumerate}
+\item for Display\+Playlist\+::display\+Song\+Details() method.
+\item for \doxylink{classDisplayPlaylist_a5ca0279c9e53c247308756030cd69e99}{Display\+Playlist\+::play\+Next\+Song()} method.
+\item for Display\+Playlist\+::check\+For\+Exception() method.
+\end{DoxyEnumerate}\begin{DoxyReturn}{Returns}
 0 on successfull execution, else returns 1. 
 \end{DoxyReturn}
 Here is the call graph for this function\+:\nopagebreak
@@ -63,10 +58,10 @@ Here is the call graph for this function\+:\nopagebreak
 
 
 
-push\+\_\+songs\+\_\+into\+\_\+playlist is a global function that pushes objects of \doxylink{classSong}{Song} into queue of object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}. This function is called from the main.~\newline
-Objective of the method is to populate the playlist(queue) of an object of \doxylink{classDisplayPlaylist}{Display\+Playlist}. 
+push\+\_\+songs\+\_\+into\+\_\+playlist is a global function that pushes objects of \doxylink{classSong}{Song} into queue of object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}. 
 
-
+This function is called from the \doxylink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}.~\newline
+Objective of the method is to populate the playlist(queue) of an object of class \doxylink{classDisplayPlaylist}{Display\+Playlist}. 
 \begin{DoxyParams}{Parameters}
 {\em playlist} & is an object of \doxylink{classDisplayPlaylist}{Display\+Playlist} class, in which the \doxylink{classSong}{Song} object will be pushed. \\
 \hline

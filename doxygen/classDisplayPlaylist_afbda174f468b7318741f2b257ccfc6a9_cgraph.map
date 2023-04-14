@@ -1,6 +1,0 @@
-<map id="DisplayPlaylist::DisplayPlaylist" name="DisplayPlaylist::DisplayPlaylist">
-<area shape="rect" id="node1" title="DisplayPlaylist is a default constructor." alt="" coords="5,23,181,63"/>
-<area shape="rect" id="node2" href="$classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="229,5,381,31"/>
-<area shape="rect" id="node4" href="$classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="258,55,353,80"/>
-<area shape="rect" id="node3" href="$classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="429,5,548,31"/>
-</map>

@@ -7,12 +7,12 @@
 /**************************************************************************************************//**
  * @brief The Song class represents a song, and contains song related attributes and methods.
  *
- * The Song class contains song attributes such as\n
- *  1) unique id of the song (auto-generated)\n
- *  2) Name of the song\n
- *  3) Duration of the songs (in chrono seconds)\n
- *  4) thubnail's path of the song\n\n
- *
+ * The Song class contains song attributes such as
+ * 1. unique id of the song (auto-generated)
+ * 2. Name of the song
+ * 3. Duration of the songs (in chrono seconds)
+ * 4. thubnail's path of the song
+ * .
  * In addition, it has also a static attribute named totalSongs.\n
  * totalSongs is used to provide the auto-generated id's to each object of the Song class.\n
  * initially it's zero(0), but it's value is being incremented in the constructor of Song class.\n\n
@@ -82,12 +82,14 @@ private:
 /*****************************************************//**
  * @namespace SongError
  * @brief SongError is a bundle of custom Song exceptions.
+ *
  * It contains the error codes and related messages too.
  ********************************************************/
 namespace SongError
 {
     /******************************************************************//**
      * @brief The ErrorCode enum contains the errors related to Song class.
+     *
      * This enum is used to throw the Song related errors.
      *********************************************************************/
     enum ErrorCode
@@ -99,6 +101,7 @@ namespace SongError
 
     /***********************************************************************************//**
      * @brief The ErrorMessage struct contains error messages of elements of ErrorCode enum.
+     *
      * This is an abstact structure that has a static method what(),\n
      * which takes ErrorCode element as an argument,\n
      * and returns the related error message.\n

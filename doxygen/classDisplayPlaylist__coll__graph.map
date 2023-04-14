@@ -1,4 +1,4 @@
 <map id="DisplayPlaylist" name="DisplayPlaylist">
-<area shape="rect" id="node1" title="The DisplayData class." alt="" coords="17,593,191,879"/>
-<area shape="rect" id="node2" href="$classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe..." alt="" coords="5,5,203,531"/>
+<area shape="rect" id="node1" title="This class runs/plays the playlist containig songs(object of class Song)." alt="" coords="17,593,191,879"/>
+<area shape="rect" id="node2" href="$classLogger.html" title="Logger class is used for trace logging and debugging purpose." alt="" coords="5,5,203,531"/>
 </map>

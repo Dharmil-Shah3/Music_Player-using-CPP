@@ -105,34 +105,28 @@ Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#amain_8cpp" alt=""/></div>
 <map name="amain_8cpp" id="amain_8cpp">
-<area shape="rect" title=" " alt="" coords="185,5,268,31"/>
-<area shape="rect" title=" " alt="" coords="96,225,176,251"/>
-<area shape="rect" href="song_8h.html" title=" " alt="" coords="7,152,73,177"/>
-<area shape="rect" href="displayplaylist_8h.html" title=" " alt="" coords="265,79,394,104"/>
-<area shape="rect" title=" " alt="" coords="604,152,668,177"/>
-<area shape="rect" href="logger_8h.html" title=" " alt="" coords="199,152,273,177"/>
+<area shape="rect" title=" " alt="" coords="279,5,361,31"/>
+<area shape="rect" title=" " alt="" coords="108,225,188,251"/>
+<area shape="rect" href="song_8h.html" title=" " alt="" coords="6,152,71,177"/>
+<area shape="rect" href="displayplaylist_8h.html" title=" " alt="" coords="255,79,385,104"/>
+<area shape="rect" title=" " alt="" coords="601,225,665,251"/>
+<area shape="rect" href="logger_8h.html" title=" " alt="" coords="503,152,577,177"/>
 <area shape="rect" title=" " alt="" coords="5,225,72,251"/>
-<area shape="rect" title=" " alt="" coords="298,152,361,177"/>
-<area shape="rect" title=" " alt="" coords="332,225,396,251"/>
-<area shape="rect" title=" " alt="" coords="437,152,579,177"/>
-<area shape="rect" title=" " alt="" coords="201,225,274,251"/>
+<area shape="rect" title=" " alt="" coords="415,152,478,177"/>
+<area shape="rect" title=" " alt="" coords="271,225,335,251"/>
+<area shape="rect" title=" " alt="" coords="249,152,391,177"/>
+<area shape="rect" title=" " alt="" coords="405,225,478,251"/>
+<area shape="rect" title=" " alt="" coords="503,225,577,251"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a537b6fa59ceb7ea8109784cdf6f7c3d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5">push_songs_into_playlist</a> (<a class="el" href="classDisplayPlaylist.html">DisplayPlaylist</a> &amp;playlist)</td></tr>
-<tr class="memdesc:a537b6fa59ceb7ea8109784cdf6f7c3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">push_songs_into_playlist is a global function that pushes objects of <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> into queue of object of class <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>. This function is called from the main.<br  />
-Objective of the method is to populate the playlist(queue) of an object of <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>.  <br /></td></tr>
+<tr class="memdesc:a537b6fa59ceb7ea8109784cdf6f7c3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">push_songs_into_playlist is a global function that pushes objects of <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> into queue of object of class <a class="el" href="classDisplayPlaylist.html" title="This class runs/plays the playlist containig songs(object of class Song).">DisplayPlaylist</a>.  <br /></td></tr>
 <tr class="separator:a537b6fa59ceb7ea8109784cdf6f7c3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">main method is used to handle the flow of the program. It creates an object of <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>.<br  />
-Calls <a class="el" href="main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla...">push_songs_into_playlist()</a> to push songs into that object.<br  />
-Creates 3 threads that run paralally.<br  />
-1st thraed for DisplayPlaylist::displaySongDetails() method.<br  />
-2nd thraed for <a class="el" href="classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp...">DisplayPlaylist::playNextSong()</a> method.<br  />
-And 3rd thraed for DisplayPlaylist::checkForException() method.<br  />
- <br /></td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">main method is used to handle the flow of the program.  <br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -151,31 +145,32 @@ And 3rd thraed for DisplayPlaylist::checkForException() method.<br  />
       </table>
 </div><div class="memdoc">
 
-<p>main method is used to handle the flow of the program. It creates an object of <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>.<br  />
+<p>main method is used to handle the flow of the program. </p>
+<p>It creates an object of class <a class="el" href="classDisplayPlaylist.html" title="This class runs/plays the playlist containig songs(object of class Song).">DisplayPlaylist</a>.<br  />
 Calls <a class="el" href="main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla...">push_songs_into_playlist()</a> to push songs into that object.<br  />
 Creates 3 threads that run paralally.<br  />
-1st thraed for DisplayPlaylist::displaySongDetails() method.<br  />
-2nd thraed for <a class="el" href="classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp...">DisplayPlaylist::playNextSong()</a> method.<br  />
-And 3rd thraed for DisplayPlaylist::checkForException() method.<br  />
-</p>
+</p><ol type="1">
+<li>for DisplayPlaylist::displaySongDetails() method.</li>
+<li>for <a class="el" href="classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist.">DisplayPlaylist::playNextSong()</a> method.</li>
+<li>for DisplayPlaylist::checkForException() method.</li>
+</ol>
 <dl class="section return"><dt>Returns</dt><dd>0 on successfull execution, else returns 1. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph.png" border="0" usemap="#amain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" alt=""/></div>
 <map name="amain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph" id="amain_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph">
-<area shape="rect" title="main method is used to handle the flow of the program. It creates an object of DisplayPlaylist...." alt="" coords="5,177,60,203"/>
-<area shape="rect" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="394,5,546,31"/>
-<area shape="rect" href="classDisplayPlaylist.html#af0e126199abd17e405045a6a16c48fd4" title="monitorException is used to check/monitor any exception during execution. This method appies unique_l..." alt="" coords="381,170,559,210"/>
-<area shape="rect" href="classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp..." alt="" coords="108,235,327,260"/>
-<area shape="rect" href="classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835" title="displaySongDetails continouslly desplays the song details that is being played. It waits if the songP..." alt="" coords="116,292,319,317"/>
-<area shape="rect" href="main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="125,104,310,129"/>
-<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="615,5,734,31"/>
-<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="627,177,722,203"/>
-<area shape="rect" href="structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="379,285,561,325"/>
-<area shape="rect" href="classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="375,55,565,95"/>
-<area shape="rect" href="classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="627,59,722,84"/>
-<area shape="rect" href="classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="613,108,736,133"/>
+<area shape="rect" title="main method is used to handle the flow of the program." alt="" coords="5,120,60,145"/>
+<area shape="rect" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger." alt="" coords="170,5,265,31"/>
+<area shape="rect" href="classDisplayPlaylist.html#af0e126199abd17e405045a6a16c48fd4" title="monitorException is used to check/monitor any exception during execution." alt="" coords="128,55,307,95"/>
+<area shape="rect" href="classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist." alt="" coords="108,120,327,145"/>
+<area shape="rect" href="classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835" title="displaySongDetails continouslly desplays the song details that is being played." alt="" coords="116,169,319,195"/>
+<area shape="rect" href="main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="125,219,310,244"/>
+<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor." alt="" coords="411,5,529,31"/>
+<area shape="rect" href="structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="379,130,561,170"/>
+<area shape="rect" href="classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="It pushes the Song class object into the playlist (queue)." alt="" coords="375,211,565,251"/>
+<area shape="rect" href="classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="627,193,722,219"/>
+<area shape="rect" href="classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="613,243,736,268"/>
 </map>
 </div>
 
@@ -197,11 +192,11 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>push_songs_into_playlist is a global function that pushes objects of <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> into queue of object of class <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>. This function is called from the main.<br  />
-Objective of the method is to populate the playlist(queue) of an object of <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>push_songs_into_playlist is a global function that pushes objects of <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> into queue of object of class <a class="el" href="classDisplayPlaylist.html" title="This class runs/plays the playlist containig songs(object of class Song).">DisplayPlaylist</a>. </p>
+<p>This function is called from the <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main method is used to handle the flow of the program.">main()</a>.<br  />
+Objective of the method is to populate the playlist(queue) of an object of class <a class="el" href="classDisplayPlaylist.html" title="This class runs/plays the playlist containig songs(object of class Song).">DisplayPlaylist</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">playlist</td><td>is an object of <a class="el" href="classDisplayPlaylist.html" title="The DisplayData class.">DisplayPlaylist</a> class, in which the <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> object will be pushed. </td></tr>
+    <tr><td class="paramname">playlist</td><td>is an object of <a class="el" href="classDisplayPlaylist.html" title="This class runs/plays the playlist containig songs(object of class Song).">DisplayPlaylist</a> class, in which the <a class="el" href="classSong.html" title="The Song class represents a song, and contains song related attributes and methods.">Song</a> object will be pushed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -210,13 +205,10 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5_cgraph.png" border="0" usemap="#amain_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5_cgraph" alt=""/></div>
 <map name="amain_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5_cgraph" id="amain_8cpp_a537b6fa59ceb7ea8109784cdf6f7c3d5_cgraph">
-<area shape="rect" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="5,56,191,81"/>
-<area shape="rect" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="258,5,410,31"/>
-<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="491,57,586,83"/>
-<area shape="rect" href="classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="239,106,429,146"/>
-<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="479,5,598,31"/>
-<area shape="rect" href="classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="491,111,586,136"/>
-<area shape="rect" href="classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="477,160,600,185"/>
+<area shape="rect" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="5,31,191,56"/>
+<area shape="rect" href="classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="It pushes the Song class object into the playlist (queue)." alt="" coords="239,23,429,63"/>
+<area shape="rect" href="classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="491,5,586,31"/>
+<area shape="rect" href="classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="477,55,600,80"/>
 </map>
 </div>
 

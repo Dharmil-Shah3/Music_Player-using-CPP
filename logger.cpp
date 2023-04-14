@@ -1,37 +1,47 @@
 #include "logger.h"
-#include <cstring>
+#include <cstring>  // for strcpy(), strlen() etc.
+
 
 /* ========== CONSTRUCTOR - DESTRUCTOR ===========*/
 Logger::Logger(){
-    this->priority = Debug;
-    this->consoleOutput = true;
-    this->fileOutput = true;
+    priority = trace;
+    consoleOutput = true;
+    fileOutput = true;
     filename = new char[9];
     strcpy(filename, "logs.log");
-    this->file = fopen(filename, "a");
+    file = fopen(filename, "a");
 }
 
 Logger::~Logger(){
-    this->log(Trace, "-> Logger DESTRUCTOR START");
-    if(file != NULL){
+    //LOG(trace, "-> Logger destructor called", NULL);
+    if(file != NULL)
         fclose(file);
-    }
-    delete filename;
-    printf("\n[Trace] : Logger DESTRUCTOR END\n");
+    if(filename != NULL)
+        delete filename;
 }
+
 
 /* ============= STATIC MEMBERS & METHODS ==============*/
 std::mutex Logger::get_instance_lock;
 Logger* Logger::logger = NULL;
 
-Logger* Logger::GetInstance(){
+Logger* Logger::get(){
     std::lock_guard<std::mutex> lock(get_instance_lock);
     if(logger == NULL)
         logger = new Logger();
     return logger;
 }
 
+
 /* ============= METHODS ==============*/
+void Logger::setPriority(const LogPriority &priority){
+    this->priority = priority;
+}
+
+LogPriority Logger::getPriority() const{
+    return this->priority;
+}
+
 void Logger::enableConsoleOutput(){
     consoleOutput = true;
 }
@@ -40,8 +50,22 @@ void Logger::disableConsoleOutput(){
     consoleOutput = false;
 }
 
-bool Logger::isConsoleOutputEnabled(){
+bool Logger::isConsoleOutputEnabled() const{
     return consoleOutput;
+}
+
+bool Logger::isFileOutputEnabled() const{
+    return fileOutput;
+}
+
+void Logger::setFilename(const char *filename){
+    std::lock_guard<std::mutex> lock(file_lock); // locking file before making any change
+
+    if(file) fclose(file);
+    delete this->filename;
+    this->filename = new char[strlen(filename)+1];
+    strcpy(this->filename, filename);
+    file = fopen(filename, "a");
 }
 
 void Logger::enableFileOutput(const char *filename){
@@ -49,32 +73,25 @@ void Logger::enableFileOutput(const char *filename){
     if(filename != NULL){
         this->setFilename(filename);
     }
-    if(file != 0){ // if file is opened, then close it to reopen it.
-        fclose(file);
-    }
-    file = fopen(filename, "a");
-    if(file == 0){ // if file is not opened
-        printf("[Warn] : Failed to open file '%s' to write logs.", filename);
+    else {
+        std::lock_guard<std::mutex> lock(file_lock); // locking file before making any change
+        if(file != NULL){ // if file is opened, then close it to reopen it.
+            fclose(file);
+        }
+        file = fopen(this->filename, "a");
+        if(file == NULL)
+        {
+            LOG(error, "Failed to open file '%s' to write logs.", this->filename);
+            if(!consoleOutput) /* print on console using printf() if consoleOutput is OFF */
+                printf("[ERROR] : Failed to open file '%s' to write logs.\n", this->filename);
+        }
     }
 }
 
 void Logger::disableFileOutput(){
+    std::lock_guard<std::mutex> lock(file_lock); // locking file before making any change
     fileOutput = false;
-    if(file != 0){
+    if(file != NULL){
         fclose(file);
     }
-}
-
-bool Logger::isFileOutputEnabled(){
-    return fileOutput;
-}
-
-void Logger::setFilename(const char *filename){
-    delete this->filename;
-    this->filename = new char[strlen(filename)+1];
-    strcpy(this->filename, filename);
-}
-
-void Logger::setPriority(const LogPriority &priority){
-    this->priority = priority;
 }

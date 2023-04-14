@@ -1,6 +1,5 @@
 <map id="DisplayPlaylist::pushSongIntoPlaylist" name="DisplayPlaylist::pushSongIntoPlaylist">
-<area shape="rect" id="node1" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="5,47,196,87"/>
+<area shape="rect" id="node1" title="It pushes the Song class object into the playlist (queue)." alt="" coords="5,23,196,63"/>
 <area shape="rect" id="node2" href="$classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="258,5,353,31"/>
 <area shape="rect" id="node3" href="$classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="244,55,367,80"/>
-<area shape="rect" id="node4" href="$classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="258,104,353,129"/>
 </map>

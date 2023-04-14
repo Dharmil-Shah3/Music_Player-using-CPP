@@ -1,0 +1,4 @@
+<map id="Logger::get" name="Logger::get">
+<area shape="rect" id="node1" title="It creates new instance (if does not exist) of class Logger." alt="" coords="5,5,100,31"/>
+<area shape="rect" id="node2" href="$classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor." alt="" coords="148,5,267,31"/>
+</map>

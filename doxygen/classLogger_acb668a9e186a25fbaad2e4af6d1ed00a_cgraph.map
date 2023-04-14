@@ -1,4 +1,0 @@
-<map id="Logger::~Logger" name="Logger::~Logger">
-<area shape="rect" id="node1" title="Destructor ensures to close the file and delete pointers, before instance is deleted." alt="" coords="5,5,135,31"/>
-<area shape="rect" id="node2" href="$classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="183,5,277,31"/>
-</map>

@@ -101,9 +101,7 @@ $(document).ready(function(){initNavTree('classLogger.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
-<p>The singleton <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.<br  />
-This class uses values of enum LogPriority to display the differernt type of logs.<br  />
-Reference video: <a href="https://youtu.be/1rnmYBSppYY">https://youtu.be/1rnmYBSppYY</a>.  
+<p><a class="el" href="classLogger.html" title="Logger class is used for trace logging and debugging purpose.">Logger</a> class is used for trace logging and debugging purpose.  
  <a href="classLogger.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
@@ -112,7 +110,7 @@ Collaboration diagram for Logger:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogger__coll__graph.png" border="0" usemap="#aLogger_coll__map" alt="Collaboration graph"/></div>
 <map name="aLogger_coll__map" id="aLogger_coll__map">
-<area shape="rect" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe..." alt="" coords="5,5,203,531"/>
+<area shape="rect" title="Logger class is used for trace logging and debugging purpose." alt="" coords="5,5,203,531"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -122,101 +120,106 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:acb668a9e186a25fbaad2e4af6d1ed00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor ensures to close the file and delete pointers, before instance is deleted.  <br /></td></tr>
 <tr class="separator:acb668a9e186a25fbaad2e4af6d1ed00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4419b938c11ca8b784f40e82dffc796"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ad4419b938c11ca8b784f40e82dffc796">enableConsoleOutput</a> ()</td></tr>
-<tr class="memdesc:ad4419b938c11ca8b784f40e82dffc796"><td class="mdescLeft">&#160;</td><td class="mdescRight">enables the console log output.  <br /></td></tr>
+<tr class="memdesc:ad4419b938c11ca8b784f40e82dffc796"><td class="mdescLeft">&#160;</td><td class="mdescRight">enables the console output of logs.  <br /></td></tr>
 <tr class="separator:ad4419b938c11ca8b784f40e82dffc796"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a199b998031d189d3ddba7f7990972360"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a199b998031d189d3ddba7f7990972360">disableConsoleOutput</a> ()</td></tr>
-<tr class="memdesc:a199b998031d189d3ddba7f7990972360"><td class="mdescLeft">&#160;</td><td class="mdescRight">logs will not be shown in the console.  <br /></td></tr>
+<tr class="memdesc:a199b998031d189d3ddba7f7990972360"><td class="mdescLeft">&#160;</td><td class="mdescRight">desables the console output of logs.  <br /></td></tr>
 <tr class="separator:a199b998031d189d3ddba7f7990972360"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a282f5ca050c07220817bd50742d96eea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a282f5ca050c07220817bd50742d96eea">isConsoleOutputEnabled</a> ()</td></tr>
-<tr class="memdesc:a282f5ca050c07220817bd50742d96eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether logs are displaying on the console or not.  <br /></td></tr>
-<tr class="separator:a282f5ca050c07220817bd50742d96eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1974dfc8917afc783e9cc93fe26c68e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a1974dfc8917afc783e9cc93fe26c68e7">isConsoleOutputEnabled</a> () const</td></tr>
+<tr class="memdesc:a1974dfc8917afc783e9cc93fe26c68e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to know if console output is enabled on not.  <br /></td></tr>
+<tr class="separator:a1974dfc8917afc783e9cc93fe26c68e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40088b9687aa1efaa13b510dfc66d412"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a40088b9687aa1efaa13b510dfc66d412">enableFileOutput</a> (const char *<a class="el" href="classLogger.html#a4a7913dbecc583e935e8c18ec62716ab">filename</a>=NULL)</td></tr>
-<tr class="memdesc:a40088b9687aa1efaa13b510dfc66d412"><td class="mdescLeft">&#160;</td><td class="mdescRight">enables the file log output.  <br /></td></tr>
+<tr class="memdesc:a40088b9687aa1efaa13b510dfc66d412"><td class="mdescLeft">&#160;</td><td class="mdescRight">enables the file output of logs.  <br /></td></tr>
 <tr class="separator:a40088b9687aa1efaa13b510dfc66d412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8aea89458ae5f830897ce33ba1acbbeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a8aea89458ae5f830897ce33ba1acbbeb">disableFileOutput</a> ()</td></tr>
-<tr class="memdesc:a8aea89458ae5f830897ce33ba1acbbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">disables file output. Logs will not be saved into the files.  <br /></td></tr>
+<tr class="memdesc:a8aea89458ae5f830897ce33ba1acbbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">disables file output and closes the opened file. Logs will not be saved into the file.  <br /></td></tr>
 <tr class="separator:a8aea89458ae5f830897ce33ba1acbbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfe9ff5af856623b4d0f949b6e7bad5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#abfe9ff5af856623b4d0f949b6e7bad5a">isFileOutputEnabled</a> ()</td></tr>
-<tr class="memdesc:abfe9ff5af856623b4d0f949b6e7bad5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to know whether the flag fileOutput is true or not.  <br /></td></tr>
-<tr class="separator:abfe9ff5af856623b4d0f949b6e7bad5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417bccadad269d729c4157fac5e7f00a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a417bccadad269d729c4157fac5e7f00a">isFileOutputEnabled</a> () const</td></tr>
+<tr class="memdesc:a417bccadad269d729c4157fac5e7f00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to know whether the file output is enabled or not.  <br /></td></tr>
+<tr class="separator:a417bccadad269d729c4157fac5e7f00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d3843582fd2f314db30cf7372a49ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a2d3843582fd2f314db30cf7372a49ab4">setFilename</a> (const char *<a class="el" href="classLogger.html#a4a7913dbecc583e935e8c18ec62716ab">filename</a>)</td></tr>
-<tr class="memdesc:a2d3843582fd2f314db30cf7372a49ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">setFilename used to change the filename in which the logs are written.  <br /></td></tr>
+<tr class="memdesc:a2d3843582fd2f314db30cf7372a49ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">is used to change the filename in which the logs are written.  <br /></td></tr>
 <tr class="separator:a2d3843582fd2f314db30cf7372a49ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab14bd9c29dd7b0d49e0fd3561a36d019"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019">setPriority</a> (const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;<a class="el" href="classLogger.html#ad7b321fea0d776a80926da20f6faf320">priority</a>)</td></tr>
-<tr class="memdesc:ab14bd9c29dd7b0d49e0fd3561a36d019"><td class="mdescLeft">&#160;</td><td class="mdescRight">setPriority is used to set log priority, to filter logs to display.  <br /></td></tr>
+<tr class="memdesc:ab14bd9c29dd7b0d49e0fd3561a36d019"><td class="mdescLeft">&#160;</td><td class="mdescRight">is used to set log priority, to filter logs.  <br /></td></tr>
 <tr class="separator:ab14bd9c29dd7b0d49e0fd3561a36d019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65e3986cade9b9d8a03b19af413693b1"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:a65e3986cade9b9d8a03b19af413693b1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1">log</a> (const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;logPriority, const char *message, const Args... args)</td></tr>
-<tr class="memdesc:a65e3986cade9b9d8a03b19af413693b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">log displays the log message and log's type.  <br /></td></tr>
-<tr class="separator:a65e3986cade9b9d8a03b19af413693b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ac04d4f4ea5f3c95337cba192a1d734ba">getPriority</a> () const</td></tr>
+<tr class="memdesc:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to get the current priority.  <br /></td></tr>
+<tr class="separator:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
+<tr class="memitem:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">log</a> (const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;logPriority, const std::thread::id &amp;threadId, const unsigned short _line_number_, const char *_function_name_, const char *message, const Args... args)</td></tr>
+<tr class="memdesc:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.  <br /></td></tr>
+<tr class="separator:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a58ba0fb326628410e7d67fe18d2e1fbf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf">GetInstance</a> ()</td></tr>
-<tr class="memdesc:a58ba0fb326628410e7d67fe18d2e1fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton object of the <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class.  <br /></td></tr>
-<tr class="separator:a58ba0fb326628410e7d67fe18d2e1fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace01762bec46da925f0949b7ff1d3bf2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">get</a> ()</td></tr>
+<tr class="memdesc:ace01762bec46da925f0949b7ff1d3bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">It creates new instance (if does not exist) of <a class="el" href="classLogger.html">class Logger</a>.  <br /></td></tr>
+<tr class="separator:ace01762bec46da925f0949b7ff1d3bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:abc41bfb031d896170c7675fa96a6b30c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c">Logger</a> ()</td></tr>
-<tr class="memdesc:abc41bfb031d896170c7675fa96a6b30c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> is a private default constructor. This is declared private, to make this class singleton.<br  />
-Singleton class ensures that only one object of the class can be created.  <br /></td></tr>
+<tr class="memdesc:abc41bfb031d896170c7675fa96a6b30c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code><a class="el" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor.">Logger()</a></code> is a private default constructor.  <br /></td></tr>
 <tr class="separator:abc41bfb031d896170c7675fa96a6b30c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0f34d4c753c86af8074840a72366b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#add0f34d4c753c86af8074840a72366b3">Logger</a> (const <a class="el" href="classLogger.html">Logger</a> &amp;)=delete</td></tr>
-<tr class="memdesc:add0f34d4c753c86af8074840a72366b3"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> is copy constructor of the class. Singleton should not be clonable, so deleting copy constructor.  <br /></td></tr>
+<tr class="memdesc:add0f34d4c753c86af8074840a72366b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">a copy constructor.  <br /></td></tr>
 <tr class="separator:add0f34d4c753c86af8074840a72366b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c0ca770cdc91ca9fc3015286568e1ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a8c0ca770cdc91ca9fc3015286568e1ea">operator=</a> (const <a class="el" href="classLogger.html">Logger</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a8c0ca770cdc91ca9fc3015286568e1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator = Singleton should not be assignable.  <br /></td></tr>
+<tr class="memdesc:a8c0ca770cdc91ca9fc3015286568e1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator =  <br /></td></tr>
 <tr class="separator:a8c0ca770cdc91ca9fc3015286568e1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9c80d0ec2b6530c821d2aa230293c532"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a9c80d0ec2b6530c821d2aa230293c532">consoleOutput</a></td></tr>
-<tr class="memdesc:a9c80d0ec2b6530c821d2aa230293c532"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to determine whether to display logs into console or not (default = true).  <br /></td></tr>
+<tr class="memdesc:a9c80d0ec2b6530c821d2aa230293c532"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to determine whether to display logs into console or not (default <code>true</code>).  <br /></td></tr>
 <tr class="separator:a9c80d0ec2b6530c821d2aa230293c532"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8349188f1e958b19de3e363ee6faaef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ae8349188f1e958b19de3e363ee6faaef">fileOutput</a></td></tr>
-<tr class="memdesc:ae8349188f1e958b19de3e363ee6faaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to determine whether to write logs into file or not (default = true).  <br /></td></tr>
+<tr class="memdesc:ae8349188f1e958b19de3e363ee6faaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to determine whether to write logs into file or not (default <code>true</code>).  <br /></td></tr>
 <tr class="separator:ae8349188f1e958b19de3e363ee6faaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a7913dbecc583e935e8c18ec62716ab"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a4a7913dbecc583e935e8c18ec62716ab">filename</a></td></tr>
-<tr class="memdesc:a4a7913dbecc583e935e8c18ec62716ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">filename stores the name of the file to write logs into (default = 'logs.log').  <br /></td></tr>
+<tr class="memdesc:a4a7913dbecc583e935e8c18ec62716ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">filename stores the name of the file to write logs into (default <code>logs.log</code>).  <br /></td></tr>
 <tr class="separator:a4a7913dbecc583e935e8c18ec62716ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad00c914c1f38de6d069cb788b9074d8f"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ad00c914c1f38de6d069cb788b9074d8f">file</a></td></tr>
 <tr class="memdesc:ad00c914c1f38de6d069cb788b9074d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">file is used to write logs into log file.  <br /></td></tr>
 <tr class="separator:ad00c914c1f38de6d069cb788b9074d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a096fe3e71ad92248c39aca2f8b2b66e6"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a096fe3e71ad92248c39aca2f8b2b66e6">write_lock</a></td></tr>
-<tr class="memdesc:a096fe3e71ad92248c39aca2f8b2b66e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">write_lock mutex is used to prevent the race condition to write logs into file.  <br /></td></tr>
-<tr class="separator:a096fe3e71ad92248c39aca2f8b2b66e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5393066ae28af6d6c23cee9613c11b1d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a5393066ae28af6d6c23cee9613c11b1d">file_lock</a></td></tr>
+<tr class="memdesc:a5393066ae28af6d6c23cee9613c11b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">file_lock mutex is used to prevent the race condition to write logs into <code>file</code>.  <br /></td></tr>
+<tr class="separator:a5393066ae28af6d6c23cee9613c11b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e9515cb4fb33382c921ecb027bad4b"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a48e9515cb4fb33382c921ecb027bad4b">display_lock</a></td></tr>
-<tr class="memdesc:a48e9515cb4fb33382c921ecb027bad4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">display_lock used to prevent race condition while displaying logs.  <br /></td></tr>
+<tr class="memdesc:a48e9515cb4fb33382c921ecb027bad4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">display_lock used to prevent race condition while displaying logs into console.  <br /></td></tr>
 <tr class="separator:a48e9515cb4fb33382c921ecb027bad4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7b321fea0d776a80926da20f6faf320"><td class="memItemLeft" align="right" valign="top"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ad7b321fea0d776a80926da20f6faf320">priority</a></td></tr>
-<tr class="memdesc:ad7b321fea0d776a80926da20f6faf320"><td class="mdescLeft">&#160;</td><td class="mdescRight">priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.<br  />
-If the priority of the log message is lesser that this variable, then that log message will not be displayed.<br  />
-Default value is LogPriority::Debug.  <br /></td></tr>
+<tr class="memdesc:ad7b321fea0d776a80926da20f6faf320"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used filter the log messages based on priority.  <br /></td></tr>
 <tr class="separator:ad7b321fea0d776a80926da20f6faf320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a5917f4a72259ddfa4fe8394bfe7b712d">currentTime</a></td></tr>
-<tr class="memdesc:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to get the current system time to display log time.  <br /></td></tr>
+<tr class="memdesc:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to get the current system time to display log time(used by <code>tm *timeStamp</code>).  <br /></td></tr>
 <tr class="separator:a5917f4a72259ddfa4fe8394bfe7b712d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a668ef12e44edddc179c09268715f480c"><td class="memItemLeft" align="right" valign="top">tm *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a668ef12e44edddc179c09268715f480c">timeStamp</a></td></tr>
-<tr class="memdesc:a668ef12e44edddc179c09268715f480c"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to hold the localtime of the system to display log timestamp.  <br /></td></tr>
+<tr class="memdesc:a668ef12e44edddc179c09268715f480c"><td class="mdescLeft">&#160;</td><td class="mdescRight">it is used to hold the localtime of the system to display log's timestamp.  <br /></td></tr>
 <tr class="separator:a668ef12e44edddc179c09268715f480c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae72ef53b317573a253fe2895e2f8af7f"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ae72ef53b317573a253fe2895e2f8af7f">timeBuffer</a> [25]</td></tr>
-<tr class="memdesc:ae72ef53b317573a253fe2895e2f8af7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">it holds the string formatted(YYYY-MM-DD HH:MM:SS) timestamp of the system to display with log.  <br /></td></tr>
-<tr class="separator:ae72ef53b317573a253fe2895e2f8af7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a690d70b52e96021cdd5866e642177ef5"><td class="memItemLeft" align="right" valign="top">static std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a690d70b52e96021cdd5866e642177ef5">get_instance_lock</a></td></tr>
-<tr class="memdesc:a690d70b52e96021cdd5866e642177ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_instance_lock is used to make <a class="el" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton...">GetInstance()</a> thread safe, to prevent creation of more than one objects.  <br /></td></tr>
+<tr class="memdesc:a690d70b52e96021cdd5866e642177ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_instance_lock is used to make <code><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a></code> thread safe, to prevent creation of more than one objects.  <br /></td></tr>
 <tr class="separator:a690d70b52e96021cdd5866e642177ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27beabe5af49a8ea78b02b3f236c7a05"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLogger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a27beabe5af49a8ea78b02b3f236c7a05">logger</a> = NULL</td></tr>
-<tr class="memdesc:a27beabe5af49a8ea78b02b3f236c7a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">logger is the pointer to the singleton object of the class.  <br /></td></tr>
+<tr class="memdesc:a27beabe5af49a8ea78b02b3f236c7a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">logger is a pointer to the singleton object of the class.  <br /></td></tr>
 <tr class="separator:a27beabe5af49a8ea78b02b3f236c7a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The singleton <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.<br  />
-This class uses values of enum LogPriority to display the differernt type of logs.<br  />
-Reference video: <a href="https://youtu.be/1rnmYBSppYY">https://youtu.be/1rnmYBSppYY</a>. </p>
+<div class="textblock"><p><a class="el" href="classLogger.html" title="Logger class is used for trace logging and debugging purpose.">Logger</a> class is used for trace logging and debugging purpose. </p>
+<p>This class provides members and methods to display and save(into files), logs with different types/priorities.<br  />
+This class uses values of <code>enum LogPriority</code> to display the differernt type of logs.<br  />
+This class uses std::mutex to be a <b>thread safe</b> class.<br  />
+<a href="https://youtu.be/1rnmYBSppYY" title="link">Reference YouTube video</a>.<br  />
+<br  />
+ Along with the priority and log message, this also displays</p><ol type="1">
+<li>thread-id</li>
+<li>line number</li>
+<li>function name </li>
+</ol>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="acb668a9e186a25fbaad2e4af6d1ed00a" name="acb668a9e186a25fbaad2e4af6d1ed00a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acb668a9e186a25fbaad2e4af6d1ed00a">&#9670;&#160;</a></span>~Logger()</h2>
@@ -234,15 +237,6 @@ Reference video: <a href="https://youtu.be/1rnmYBSppYY">https://youtu.be/1rnmYBS
 </div><div class="memdoc">
 
 <p>Destructor ensures to close the file and delete pointers, before instance is deleted. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="classLogger_acb668a9e186a25fbaad2e4af6d1ed00a_cgraph.png" border="0" usemap="#aclassLogger_acb668a9e186a25fbaad2e4af6d1ed00a_cgraph" alt=""/></div>
-<map name="aclassLogger_acb668a9e186a25fbaad2e4af6d1ed00a_cgraph" id="aclassLogger_acb668a9e186a25fbaad2e4af6d1ed00a_cgraph">
-<area shape="rect" title="Destructor ensures to close the file and delete pointers, before instance is deleted." alt="" coords="5,5,135,31"/>
-<area shape="rect" href="classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="183,5,277,31"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -269,7 +263,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> is a private default constructor. This is declared private, to make this class singleton.<br  />
+<p><code><a class="el" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor.">Logger()</a></code> is a private default constructor. </p>
+<p>This is declared private, to make this class singleton.<br  />
 Singleton class ensures that only one object of the class can be created. </p>
 
 </div>
@@ -298,7 +293,8 @@ Singleton class ensures that only one object of the class can be created. </p>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> is copy constructor of the class. Singleton should not be clonable, so deleting copy constructor. </p>
+<p>a copy constructor. </p>
+<p>Singleton class should not be clonable, so deleting copy constructor. </p>
 
 </div>
 </div>
@@ -318,7 +314,7 @@ Singleton class ensures that only one object of the class can be created. </p>
       </table>
 </div><div class="memdoc">
 
-<p>logs will not be shown in the console. </p>
+<p>desables the console output of logs. </p>
 
 </div>
 </div>
@@ -337,7 +333,7 @@ Singleton class ensures that only one object of the class can be created. </p>
       </table>
 </div><div class="memdoc">
 
-<p>disables file output. Logs will not be saved into the files. </p>
+<p>disables file output and closes the opened file. Logs will not be saved into the file. </p>
 
 </div>
 </div>
@@ -356,7 +352,7 @@ Singleton class ensures that only one object of the class can be created. </p>
       </table>
 </div><div class="memdoc">
 
-<p>enables the console log output. </p>
+<p>enables the console output of logs. </p>
 
 </div>
 </div>
@@ -376,10 +372,10 @@ Singleton class ensures that only one object of the class can be created. </p>
       </table>
 </div><div class="memdoc">
 
-<p>enables the file log output. </p>
+<p>enables the file output of logs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>sets the log file name if provided (defaulr = NULL). </td></tr>
+    <tr><td class="paramname">filename</td><td>sets the log file name if provided (default <code>NULL</code>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -388,15 +384,15 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classLogger_a40088b9687aa1efaa13b510dfc66d412_cgraph.png" border="0" usemap="#aclassLogger_a40088b9687aa1efaa13b510dfc66d412_cgraph" alt=""/></div>
 <map name="aclassLogger_a40088b9687aa1efaa13b510dfc66d412_cgraph" id="aclassLogger_a40088b9687aa1efaa13b510dfc66d412_cgraph">
-<area shape="rect" title="enables the file log output." alt="" coords="5,5,191,31"/>
-<area shape="rect" href="classLogger.html#a2d3843582fd2f314db30cf7372a49ab4" title="setFilename used to change the filename in which the logs are written." alt="" coords="239,5,393,31"/>
+<area shape="rect" title="enables the file output of logs." alt="" coords="5,5,191,31"/>
+<area shape="rect" href="classLogger.html#a2d3843582fd2f314db30cf7372a49ab4" title="is used to change the filename in which the logs are written." alt="" coords="239,5,393,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a58ba0fb326628410e7d67fe18d2e1fbf" name="a58ba0fb326628410e7d67fe18d2e1fbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58ba0fb326628410e7d67fe18d2e1fbf">&#9670;&#160;</a></span>GetInstance()</h2>
+<a id="ace01762bec46da925f0949b7ff1d3bf2" name="ace01762bec46da925f0949b7ff1d3bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace01762bec46da925f0949b7ff1d3bf2">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -405,7 +401,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classLogger.html">Logger</a> * Logger::GetInstance </td>
+          <td class="memname"><a class="el" href="classLogger.html">Logger</a> * Logger::get </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -418,23 +414,42 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton object of the <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class. </p>
-<dl class="section return"><dt>Returns</dt><dd>reference of the newly(if does not exist) created <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> instance,<br  />
-else reference of the existing object of <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class. </dd></dl>
+<p>It creates new instance (if does not exist) of <a class="el" href="classLogger.html">class Logger</a>. </p>
+<p>It is used to get the reference of the singleton object of the <a class="el" href="classLogger.html">Logger</a>. </p><dl class="section return"><dt>Returns</dt><dd>pointer to the singleton <a class="el" href="classLogger.html">Logger</a> instance. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="classLogger_a58ba0fb326628410e7d67fe18d2e1fbf_cgraph.png" border="0" usemap="#aclassLogger_a58ba0fb326628410e7d67fe18d2e1fbf_cgraph" alt=""/></div>
-<map name="aclassLogger_a58ba0fb326628410e7d67fe18d2e1fbf_cgraph" id="aclassLogger_a58ba0fb326628410e7d67fe18d2e1fbf_cgraph">
-<area shape="rect" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="5,5,157,31"/>
-<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="205,5,324,31"/>
+<div class="center"><img src="classLogger_ace01762bec46da925f0949b7ff1d3bf2_cgraph.png" border="0" usemap="#aclassLogger_ace01762bec46da925f0949b7ff1d3bf2_cgraph" alt=""/></div>
+<map name="aclassLogger_ace01762bec46da925f0949b7ff1d3bf2_cgraph" id="aclassLogger_ace01762bec46da925f0949b7ff1d3bf2_cgraph">
+<area shape="rect" title="It creates new instance (if does not exist) of class Logger." alt="" coords="5,5,100,31"/>
+<area shape="rect" href="classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor." alt="" coords="148,5,267,31"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a282f5ca050c07220817bd50742d96eea" name="a282f5ca050c07220817bd50742d96eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a282f5ca050c07220817bd50742d96eea">&#9670;&#160;</a></span>isConsoleOutputEnabled()</h2>
+<a id="ac04d4f4ea5f3c95337cba192a1d734ba" name="ac04d4f4ea5f3c95337cba192a1d734ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac04d4f4ea5f3c95337cba192a1d734ba">&#9670;&#160;</a></span>getPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> Logger::getPriority </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>used to get the current priority. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of <code>LogPriority priority</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a1974dfc8917afc783e9cc93fe26c68e7" name="a1974dfc8917afc783e9cc93fe26c68e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1974dfc8917afc783e9cc93fe26c68e7">&#9670;&#160;</a></span>isConsoleOutputEnabled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -443,18 +458,18 @@ Here is the call graph for this function:</div>
           <td class="memname">bool Logger::isConsoleOutputEnabled </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>whether logs are displaying on the console or not. </p>
-<dl class="section return"><dt>Returns</dt><dd>value of boolean consoleOutput flag. </dd></dl>
+<p>used to know if console output is enabled on not. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of <code>bool consoleOutput</code> flag. </dd></dl>
 
 </div>
 </div>
-<a id="abfe9ff5af856623b4d0f949b6e7bad5a" name="abfe9ff5af856623b4d0f949b6e7bad5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfe9ff5af856623b4d0f949b6e7bad5a">&#9670;&#160;</a></span>isFileOutputEnabled()</h2>
+<a id="a417bccadad269d729c4157fac5e7f00a" name="a417bccadad269d729c4157fac5e7f00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a417bccadad269d729c4157fac5e7f00a">&#9670;&#160;</a></span>isFileOutputEnabled()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,18 +478,18 @@ Here is the call graph for this function:</div>
           <td class="memname">bool Logger::isFileOutputEnabled </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>used to know whether the flag fileOutput is true or not. </p>
-<dl class="section return"><dt>Returns</dt><dd>value of static member fileOutput. </dd></dl>
+<p>used to know whether the file output is enabled or not. </p>
+<dl class="section return"><dt>Returns</dt><dd>value of <code>bool fileOutput</code> member. </dd></dl>
 
 </div>
 </div>
-<a id="a65e3986cade9b9d8a03b19af413693b1" name="a65e3986cade9b9d8a03b19af413693b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65e3986cade9b9d8a03b19af413693b1">&#9670;&#160;</a></span>log()</h2>
+<a id="ad24b3e72e63712513cf3b07cb6d4d6e0" name="ad24b3e72e63712513cf3b07cb6d4d6e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24b3e72e63712513cf3b07cb6d4d6e0">&#9670;&#160;</a></span>log()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,6 +504,24 @@ template&lt;typename... Args&gt; </div>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;&#160;</td>
           <td class="paramname"><em>logPriority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::thread::id &amp;&#160;</td>
+          <td class="paramname"><em>threadId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned short&#160;</td>
+          <td class="paramname"><em>_line_number_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_function_name_</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -515,17 +548,33 @@ template&lt;typename... Args&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>log displays the log message and log's type. </p>
+<p>displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">logPriority</td><td>is the type of the log message. </td></tr>
-    <tr><td class="paramname">message</td><td>to be displayed. </td></tr>
-    <tr><td class="paramname">args</td><td>is the arguments to bind into the log message, and it is optional. It checks the priority of the log message and compare it with private member priority.<br  />
-If the priority of the log message is equal or higher than the member, then log message will be displayed, else it will be skipped.<br  />
-This way, we can decide what types of logs to be displayed and what not to be displayed. </td></tr>
+    <tr><td class="paramname">logPriority</td><td>is the priority of the log message. </td></tr>
+    <tr><td class="paramname">threadId</td><td>is id of the thread who called this function (generally taken care by macro <code>LOG</code>). </td></tr>
+    <tr><td class="paramname">_line_number_</td><td>is the number of line on which the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
+    <tr><td class="paramname">_function_name_</td><td>is the name of the function in which the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
+    <tr><td class="paramname">message</td><td>to be displayed and/or saved. </td></tr>
+    <tr><td class="paramname">args</td><td>are the arguments to bind into the log message, and it is optional.</td></tr>
   </table>
   </dd>
 </dl>
+<p>This function checks the priority of the log message and compare it with member <code>priority</code>.<br  />
+If priority of the log message is equal or higher than <code>priority</code>, then log message will be displayed, else it will be skipped.<br  />
+Format of the log message will be<br  />
+i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace ] [31 ] Execution Begin -&gt; [int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main method is used to handle the flow of the program.">main()</a>]<br  />
+[Time stamp with milliseconds and microseconds] [thread-id] [priority] [line-number] Log message -&gt; [function_name]</p>
+<p><b>Example</b></p><ol type="1">
+<li><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a>-&gt;log(trace, this_thread::get_id(), <b>LINE</b>, <b>PRETTY_FUNCTION</b>, "log message");</li>
+<li><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a>-&gt;log(trace, this_thread::get_id(), <b>LINE</b>, <b>PRETTY_FUNCTION</b>, "sstudent added, id:%d, name:%s", studentId, studentName);</li>
+</ol>
+<p>Better to use macro <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> instead of this function.<br  />
+<code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> takes care of passing all the static arguments(thread id, line number and function name) by itself.</p>
+<p><b>Above Examples with <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> macro</b></p><ol type="1">
+<li>LOG(trace, "log message", NULL);</li>
+<li>LOG(trace, "sstudent added, id:%d, name:%s", studentId, studentName); </li>
+</ol>
 
 </div>
 </div>
@@ -553,8 +602,8 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>operator = Singleton should not be assignable. </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>operator = </p>
+<p>Singleton class should not be assignable. </p><dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 </div>
 </div>
@@ -574,10 +623,10 @@ This way, we can decide what types of logs to be displayed and what not to be di
       </table>
 </div><div class="memdoc">
 
-<p>setFilename used to change the filename in which the logs are written. </p>
+<p>is used to change the filename in which the logs are written. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>is the new filename to write logs into. </td></tr>
+    <tr><td class="paramname">filename</td><td>is the new filename to save output into. It closes the current open <a class="el" href="classLogger.html#ad00c914c1f38de6d069cb788b9074d8f" title="file is used to write logs into log file.">file(if any)</a>, changes the filename, and reopen the file with new filename. </td></tr>
   </table>
   </dd>
 </dl>
@@ -600,11 +649,11 @@ This way, we can decide what types of logs to be displayed and what not to be di
       </table>
 </div><div class="memdoc">
 
-<p>setPriority is used to set log priority, to filter logs to display. </p>
+<p>is used to set log priority, to filter logs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">priority</td><td>is the new priority to set. This method changes value of the static data member called priority, with the given LogPriority.<br  />
-<a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class checks the variable priority before printing any Log into screen. </td></tr>
+    <tr><td class="paramname">priority</td><td>is the new <code>LogPriority</code>to set. This method changes value of <code>LogPriority priority</code>.<br  />
+<a class="el" href="classLogger.html">Logger</a> checks the <code>priority</code> before logging. </td></tr>
   </table>
   </dd>
 </dl>
@@ -632,7 +681,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>used to determine whether to display logs into console or not (default = true). </p>
+<p>used to determine whether to display logs into console or not (default <code>true</code>). </p>
 
 </div>
 </div>
@@ -656,7 +705,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>it is used to get the current system time to display log time. </p>
+<p>it is used to get the current system time to display log time(used by <code>tm *timeStamp</code>). </p>
 
 </div>
 </div>
@@ -680,7 +729,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>display_lock used to prevent race condition while displaying logs. </p>
+<p>display_lock used to prevent race condition while displaying logs into console. </p>
 
 </div>
 </div>
@@ -708,6 +757,30 @@ This way, we can decide what types of logs to be displayed and what not to be di
 
 </div>
 </div>
+<a id="a5393066ae28af6d6c23cee9613c11b1d" name="a5393066ae28af6d6c23cee9613c11b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5393066ae28af6d6c23cee9613c11b1d">&#9670;&#160;</a></span>file_lock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex Logger::file_lock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>file_lock mutex is used to prevent the race condition to write logs into <code>file</code>. </p>
+
+</div>
+</div>
 <a id="a4a7913dbecc583e935e8c18ec62716ab" name="a4a7913dbecc583e935e8c18ec62716ab"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a7913dbecc583e935e8c18ec62716ab">&#9670;&#160;</a></span>filename</h2>
 
@@ -728,7 +801,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>filename stores the name of the file to write logs into (default = 'logs.log'). </p>
+<p>filename stores the name of the file to write logs into (default <code>logs.log</code>). </p>
 
 </div>
 </div>
@@ -752,7 +825,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>used to determine whether to write logs into file or not (default = true). </p>
+<p>used to determine whether to write logs into file or not (default <code>true</code>). </p>
 
 </div>
 </div>
@@ -776,7 +849,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>get_instance_lock is used to make <a class="el" href="classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton...">GetInstance()</a> thread safe, to prevent creation of more than one objects. </p>
+<p>get_instance_lock is used to make <code><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a></code> thread safe, to prevent creation of more than one objects. </p>
 
 </div>
 </div>
@@ -800,7 +873,7 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>logger is the pointer to the singleton object of the class. </p>
+<p>logger is a pointer to the singleton object of the class. </p>
 
 </div>
 </div>
@@ -824,33 +897,10 @@ This way, we can decide what types of logs to be displayed and what not to be di
 </table>
 </div><div class="memdoc">
 
-<p>priority variable is used to compare with priority of the log message to be displayed. Before displaying the log, this variable is used to check and compare with the priority of the log message is equal or higher than this or not.<br  />
-If the priority of the log message is lesser that this variable, then that log message will not be displayed.<br  />
-Default value is LogPriority::Debug. </p>
-
-</div>
-</div>
-<a id="ae72ef53b317573a253fe2895e2f8af7f" name="ae72ef53b317573a253fe2895e2f8af7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae72ef53b317573a253fe2895e2f8af7f">&#9670;&#160;</a></span>timeBuffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">char Logger::timeBuffer[25]</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>it holds the string formatted(YYYY-MM-DD HH:MM:SS) timestamp of the system to display with log. </p>
+<p>It is used filter the log messages based on priority. </p>
+<p>Before logging each log, <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> checks the priority of the log message is equal or higher than <code>priority</code>(member) or not.<br  />
+If the priority of the log message is lesser that this, then that log message will be skipped.<br  />
+<em>Default</em> value is <code>LogPriority::trace</code>. </p>
 
 </div>
 </div>
@@ -874,31 +924,7 @@ Default value is LogPriority::Debug. </p>
 </table>
 </div><div class="memdoc">
 
-<p>it is used to hold the localtime of the system to display log timestamp. </p>
-
-</div>
-</div>
-<a id="a096fe3e71ad92248c39aca2f8b2b66e6" name="a096fe3e71ad92248c39aca2f8b2b66e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a096fe3e71ad92248c39aca2f8b2b66e6">&#9670;&#160;</a></span>write_lock</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::mutex Logger::write_lock</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>write_lock mutex is used to prevent the race condition to write logs into file. </p>
+<p>it is used to hold the localtime of the system to display log's timestamp. </p>
 
 </div>
 </div>

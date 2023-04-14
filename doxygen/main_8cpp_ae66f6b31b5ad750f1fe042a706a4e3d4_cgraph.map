@@ -1,14 +1,13 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title="main method is used to handle the flow of the program. It creates an object of DisplayPlaylist...." alt="" coords="5,177,60,203"/>
-<area shape="rect" id="node2" href="$classLogger.html#a58ba0fb326628410e7d67fe18d2e1fbf" title="GetInstance creates new instance(if does not exist). It is used to get the reference of the singleton..." alt="" coords="394,5,546,31"/>
-<area shape="rect" id="node4" href="$classDisplayPlaylist.html#af0e126199abd17e405045a6a16c48fd4" title="monitorException is used to check/monitor any exception during execution. This method appies unique_l..." alt="" coords="381,170,559,210"/>
-<area shape="rect" id="node6" href="$classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist. This function executes until the queue is not emp..." alt="" coords="108,235,327,260"/>
-<area shape="rect" id="node8" href="$classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835" title="displaySongDetails continouslly desplays the song details that is being played. It waits if the songP..." alt="" coords="116,292,319,317"/>
-<area shape="rect" id="node9" href="$main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="125,104,310,129"/>
-<area shape="rect" id="node3" href="$classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger is a private default constructor. This is declared private, to make this class singleton...." alt="" coords="615,5,734,31"/>
-<area shape="rect" id="node5" href="$classLogger.html#a65e3986cade9b9d8a03b19af413693b1" title="log displays the log message and log&#39;s type." alt="" coords="627,177,722,203"/>
-<area shape="rect" id="node7" href="$structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="379,285,561,325"/>
-<area shape="rect" id="node10" href="$classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="pushSongIntoPlaylist method pushes the Song object into the playlist (queue)." alt="" coords="375,55,565,95"/>
-<area shape="rect" id="node11" href="$classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="627,59,722,84"/>
-<area shape="rect" id="node12" href="$classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="613,108,736,133"/>
+<area shape="rect" id="node1" title="main method is used to handle the flow of the program." alt="" coords="5,120,60,145"/>
+<area shape="rect" id="node2" href="$classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger." alt="" coords="170,5,265,31"/>
+<area shape="rect" id="node4" href="$classDisplayPlaylist.html#af0e126199abd17e405045a6a16c48fd4" title="monitorException is used to check/monitor any exception during execution." alt="" coords="128,55,307,95"/>
+<area shape="rect" id="node5" href="$classDisplayPlaylist.html#a5ca0279c9e53c247308756030cd69e99" title="playNextSong pops the first song from the playlist." alt="" coords="108,120,327,145"/>
+<area shape="rect" id="node7" href="$classDisplayPlaylist.html#a1dc52601d46d80980323159174e02835" title="displaySongDetails continouslly desplays the song details that is being played." alt="" coords="116,169,319,195"/>
+<area shape="rect" id="node8" href="$main_8cpp.html#a537b6fa59ceb7ea8109784cdf6f7c3d5" title="push_songs_into_playlist is a global function that pushes objects of Song into queue of object of cla..." alt="" coords="125,219,310,244"/>
+<area shape="rect" id="node3" href="$classLogger.html#abc41bfb031d896170c7675fa96a6b30c" title="Logger() is a private default constructor." alt="" coords="411,5,529,31"/>
+<area shape="rect" id="node6" href="$structSongError_1_1ErrorMessage.html#a1d99eeaf0bb74a00cbf15f142c0e6881" title="what returns the error message of the given ErrorCode." alt="" coords="379,130,561,170"/>
+<area shape="rect" id="node9" href="$classDisplayPlaylist.html#a9fad162b09fc72a0b220d8d8afa27c3c" title="It pushes the Song class object into the playlist (queue)." alt="" coords="375,211,565,251"/>
+<area shape="rect" id="node10" href="$classSong.html#adcceab18a1a5803c46a329184a9ae233" title="getId returns the unique id of the song." alt="" coords="627,193,722,219"/>
+<area shape="rect" id="node11" href="$classSong.html#a60a38ab26b8ba27999f2e3b35899aefc" title="getName returns the name of the song." alt="" coords="613,243,736,268"/>
 </map>

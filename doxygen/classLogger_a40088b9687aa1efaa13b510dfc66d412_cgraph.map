@@ -1,4 +1,4 @@
 <map id="Logger::enableFileOutput" name="Logger::enableFileOutput">
-<area shape="rect" id="node1" title="enables the file log output." alt="" coords="5,5,191,31"/>
-<area shape="rect" id="node2" href="$classLogger.html#a2d3843582fd2f314db30cf7372a49ab4" title="setFilename used to change the filename in which the logs are written." alt="" coords="239,5,393,31"/>
+<area shape="rect" id="node1" title="enables the file output of logs." alt="" coords="5,5,191,31"/>
+<area shape="rect" id="node2" href="$classLogger.html#a2d3843582fd2f314db30cf7372a49ab4" title="is used to change the filename in which the logs are written." alt="" coords="239,5,393,31"/>
 </map>

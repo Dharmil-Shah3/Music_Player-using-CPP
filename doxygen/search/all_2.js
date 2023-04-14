@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['debug_0',['Debug',['../logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8',1,'logger.h']]],
+  ['debug_0',['debug',['../logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da',1,'logger.h']]],
   ['disableconsoleoutput_1',['disableConsoleOutput',['../classLogger.html#a199b998031d189d3ddba7f7990972360',1,'Logger']]],
   ['disablefileoutput_2',['disableFileOutput',['../classLogger.html#a8aea89458ae5f830897ce33ba1acbbeb',1,'Logger']]],
   ['display_5flock_3',['display_lock',['../classLogger.html#a48e9515cb4fb33382c921ecb027bad4b',1,'Logger']]],

@@ -1,12 +1,13 @@
 <map id="displayplaylist.h" name="displayplaylist.h">
-<area shape="rect" id="node1" title=" " alt="" coords="172,5,301,31"/>
-<area shape="rect" id="node2" title=" " alt="" coords="426,152,506,177"/>
-<area shape="rect" id="node3" title=" " alt="" coords="24,79,86,104"/>
-<area shape="rect" id="node4" title=" " alt="" coords="111,79,175,104"/>
-<area shape="rect" id="node5" title=" " alt="" coords="32,152,96,177"/>
-<area shape="rect" id="node6" title=" " alt="" coords="298,79,441,104"/>
-<area shape="rect" id="node7" href="$song_8h.html" title=" " alt="" coords="517,79,582,104"/>
-<area shape="rect" id="node9" href="$logger_8h.html" title=" " alt="" coords="199,79,274,104"/>
-<area shape="rect" id="node8" title=" " alt="" coords="530,152,596,177"/>
-<area shape="rect" id="node10" title=" " alt="" coords="200,152,273,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="251,5,381,31"/>
+<area shape="rect" id="node2" title=" " alt="" coords="96,152,176,177"/>
+<area shape="rect" id="node3" title=" " alt="" coords="429,79,491,104"/>
+<area shape="rect" id="node4" title=" " alt="" coords="200,152,264,177"/>
+<area shape="rect" id="node5" title=" " alt="" coords="485,152,549,177"/>
+<area shape="rect" id="node6" title=" " alt="" coords="515,79,658,104"/>
+<area shape="rect" id="node7" href="$song_8h.html" title=" " alt="" coords="87,79,153,104"/>
+<area shape="rect" id="node9" href="$logger_8h.html" title=" " alt="" coords="279,79,353,104"/>
+<area shape="rect" id="node8" title=" " alt="" coords="5,152,72,177"/>
+<area shape="rect" id="node10" title=" " alt="" coords="289,152,362,177"/>
+<area shape="rect" id="node11" title=" " alt="" coords="387,152,461,177"/>
 </map>

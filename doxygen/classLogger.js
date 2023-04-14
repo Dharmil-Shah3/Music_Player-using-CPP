@@ -7,9 +7,10 @@ var classLogger =
     [ "disableFileOutput", "classLogger.html#a8aea89458ae5f830897ce33ba1acbbeb", null ],
     [ "enableConsoleOutput", "classLogger.html#ad4419b938c11ca8b784f40e82dffc796", null ],
     [ "enableFileOutput", "classLogger.html#a40088b9687aa1efaa13b510dfc66d412", null ],
-    [ "isConsoleOutputEnabled", "classLogger.html#a282f5ca050c07220817bd50742d96eea", null ],
-    [ "isFileOutputEnabled", "classLogger.html#abfe9ff5af856623b4d0f949b6e7bad5a", null ],
-    [ "log", "classLogger.html#a65e3986cade9b9d8a03b19af413693b1", null ],
+    [ "getPriority", "classLogger.html#ac04d4f4ea5f3c95337cba192a1d734ba", null ],
+    [ "isConsoleOutputEnabled", "classLogger.html#a1974dfc8917afc783e9cc93fe26c68e7", null ],
+    [ "isFileOutputEnabled", "classLogger.html#a417bccadad269d729c4157fac5e7f00a", null ],
+    [ "log", "classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0", null ],
     [ "operator=", "classLogger.html#a8c0ca770cdc91ca9fc3015286568e1ea", null ],
     [ "setFilename", "classLogger.html#a2d3843582fd2f314db30cf7372a49ab4", null ],
     [ "setPriority", "classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019", null ],
@@ -17,10 +18,9 @@ var classLogger =
     [ "currentTime", "classLogger.html#a5917f4a72259ddfa4fe8394bfe7b712d", null ],
     [ "display_lock", "classLogger.html#a48e9515cb4fb33382c921ecb027bad4b", null ],
     [ "file", "classLogger.html#ad00c914c1f38de6d069cb788b9074d8f", null ],
+    [ "file_lock", "classLogger.html#a5393066ae28af6d6c23cee9613c11b1d", null ],
     [ "filename", "classLogger.html#a4a7913dbecc583e935e8c18ec62716ab", null ],
     [ "fileOutput", "classLogger.html#ae8349188f1e958b19de3e363ee6faaef", null ],
     [ "priority", "classLogger.html#ad7b321fea0d776a80926da20f6faf320", null ],
-    [ "timeBuffer", "classLogger.html#ae72ef53b317573a253fe2895e2f8af7f", null ],
-    [ "timeStamp", "classLogger.html#a668ef12e44edddc179c09268715f480c", null ],
-    [ "write_lock", "classLogger.html#a096fe3e71ad92248c39aca2f8b2b66e6", null ]
+    [ "timeStamp", "classLogger.html#a668ef12e44edddc179c09268715f480c", null ]
 ];

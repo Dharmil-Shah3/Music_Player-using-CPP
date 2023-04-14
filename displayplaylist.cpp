@@ -9,50 +9,47 @@ DisplayPlaylist::DisplayPlaylist()
 {
     this->songPlaying = true;
     this->executionComplete = false;
-
-    ostringstream threadId;
-    threadId << this_thread::get_id();
-    logger = Logger::GetInstance();
-    logger->log(Trace, "MusicPlayer object created (thread id: %s)", threadId.str().c_str());
+    LOG(trace, "MusicPlayer object created", NULL);
 }
 
 DisplayPlaylist::~DisplayPlaylist(){
     // it makes sure to wake the error thread before destroying the object,
     // to save error thread from infinate waiting.
+    LOG(trace, "Execution Begin", __PRETTY_FUNCTION__);
     this->errorRaised.notify_all();
+    LOG(trace, "Execution End", __PRETTY_FUNCTION__);
 }
 
 void DisplayPlaylist::pushSongIntoPlaylist(const Song &song){
     try {
         playlist.push(song);
-        logger->log(Trace, "Pushing song into playlist. Song id: %u, name: %s", song.getId(), song.getName().c_str());
-    } catch (const exception &error) {
-        errorMessage = string(error.what()) + " , in -> "+__PRETTY_FUNCTION__;
-        logger->log(Error, "%s", errorMessage.c_str());
+        LOG(trace, "Pushing song into playlist. Song id: %u, name: %s", song.getId(), song.getName().c_str());
+    } catch (const exception &e) {
+        LOG(error, "%s", e.what());
     }
 }
 
 void DisplayPlaylist::playPlaylist()
 {
-    logger->log(Trace, "Execution started -> displaySongDetails()");
+    LOG(trace, "Execution Begin", NULL);
     try {
         if(playlist.empty()){
-            cout << "\n\n => NO SONGS IN PLAYLIST <=\n" << endl;
+            LOG(trace,"NO SONGS IN PLAYLIST", NULL);
             executionComplete = true;
             return;
         }
         while(playlist.size()>1 || songPlaying)
         {
-            logger->log(Debug, "displaySongDetails() inside while loop");
+            LOG(debug, "displaySongDetails() inside while loop", NULL);
 
             unique_lock<mutex> uniqueLock(_lock_);
             while (!songPlaying){ // wait until the song starts playing
-                logger->log(Debug, "displaySongDetails() is waiting");
+                LOG(debug, "displaySongDetails() is waiting", NULL);
                 songCondition.wait(uniqueLock);
                 if(executionComplete) return; // if any exception occures during execution, this flag will be true, means stop the execution.
             }
 
-            logger->log(Debug, "displaySongDetails() going to play a Song");
+            LOG(debug, "displaySongDetails() going to play a Song", NULL);
             /* Custom exception throwing test. Uncomment below line to throw exception. */
             //throw ErrorCode::NO_INTERNET_CONNECTION;
 
@@ -65,76 +62,77 @@ void DisplayPlaylist::playPlaylist()
             cout << "\n\tLength : " << setfill('0') << setw(2) << (songLength.count()/60)
                  << ":" << setw(2) << (songLength.count()%60) << endl;
 
-            logger->log(Debug, "Song Playing id: %u, name: %s", playlist.front().getId(), playlist.front().getName().c_str());
+            LOG(debug, "Song Playing id: %u, name: %s", playlist.front().getId(), playlist.front().getName().c_str());
 
             /* wait/sleep until the duration of the song is completed */
             this_thread::sleep_for(songLength);
 
-            logger->log(Debug, "Song Completed id: %u, name: %s", playlist.front().getId(), playlist.front().getName().c_str());
+            LOG(debug, "Song Completed id: %u, name: %s", playlist.front().getId(), playlist.front().getName().c_str());
 
             /* unlock after the song is played and notify the pop thread. */
             uniqueLock.unlock();
             songPlaying = false;
             songCondition.notify_one();
         }
-        cout<<"\n\n => Playlist Completed... <=\n\n";
-        logger->log(Trace, "Playlist Completed");
+        LOG(trace, "Playlist Completed", NULL);
     }
     catch(const ErrorCode &error) {
-        errorMessage = ErrorMessage::what(error) + " , in -> "+__PRETTY_FUNCTION__;
+        errorMessage = ErrorMessage::what(error) + " , in -> %s"+__PRETTY_FUNCTION__;
         errorRaised.notify_all();
     }
     catch (const exception &error) {
-        errorMessage = string(error.what()) + " , in -> "+__PRETTY_FUNCTION__;
+        errorMessage = string(error.what()) + " , in -> %s"+__PRETTY_FUNCTION__;
         errorRaised.notify_all();
     }
     executionComplete = true;
-    logger->log(Trace, "Execution completed -> displaySongDetails()");
+    LOG(trace, "Execution End", NULL);
 }
 
 void DisplayPlaylist::playNextSong()
 {
-    logger->log(Trace, "Execution started -> playNextSong()");
+    LOG(trace, "Execution Begin", NULL);
     try {
         while(!playlist.empty())
         {
-            logger->log(Debug, "playNextSong() inside while loop");
+            LOG(debug, "playNextSong() inside while loop", NULL);
 
             unique_lock<mutex> uniqueLock(_lock_);
-            while (songPlaying){ // wait until the song stops playing
-                logger->log(Debug, "playNextSong() is waiting");
+            while (songPlaying) // wait until the song stops playing
+            {
+                LOG(debug, "playNextSong() is waiting", NULL);
                 songCondition.wait(uniqueLock);
                 if(executionComplete) return; // if any exception occures during execution, this flag will be true, means stop the execution.
             }
-            logger->log(Debug, "playNextSong() is going to pop song id: %u, name: %s", playlist.front().getId(), playlist.front().getName().c_str());
+            LOG(debug, "playNextSong() is going to pop song id: %u, name: %s",
+                playlist.front().getId(), playlist.front().getName().c_str());
+
             playlist.pop();
             songPlaying = true;
             uniqueLock.unlock();
             songCondition.notify_one();
-            logger->log(Debug, "playNextSong() popped song");
+            LOG(debug, "playNextSong() popped song", NULL);
         }
     }
-    catch (const ErrorCode &error){
-        errorMessage = ErrorMessage::what(error)+" , in -> "+__PRETTY_FUNCTION__;
+    catch (const ErrorCode &e){
+        errorMessage = ErrorMessage::what(e)+" , in -> %s"+__PRETTY_FUNCTION__;
         errorRaised.notify_all();
+        LOG(error, "%s", ErrorMessage::what(e));
     }
-    catch (const exception &error){
-        errorMessage = string(error.what())+" , in -> "+__PRETTY_FUNCTION__;
+    catch (const exception &e){
+        errorMessage = string(e.what())+" , in -> %s"+__PRETTY_FUNCTION__;
         errorRaised.notify_all();
+        LOG(error, "%s", e.what());
     }
     executionComplete = true;
-    logger->log(Trace, "Execution completed of playNextSong()");
+    LOG(trace, "Execution End", NULL);
 }
 
 void DisplayPlaylist::monitorException(int &returnValue)
 {
-    logger->log(Trace, "Execution started -> monitorException()");
+    LOG(trace, "Execution Begin", NULL);
     try {
-        /*
-         * tempErrorLock is used instead of global _lock_ with unique_lock,
-         * to maintain the proper sequence of the program.
-         */
-
+        /* tempErrorLock is used instead of global _lock_ with unique_lock,
+         * to maintain the proper sequence of the program. */
         mutex tempErrorLock;
         unique_lock<mutex> uniqueLock(tempErrorLock);
 
@@ -142,22 +140,22 @@ void DisplayPlaylist::monitorException(int &returnValue)
         while(!executionComplete && errorMessage.empty()){
             errorRaised.wait_for(uniqueLock, chrono::milliseconds(333));
         }
-        logger->log(Debug, "monitorException() is waken up");
+        LOG(debug, "monitorException() is waken up", NULL);
         returnValue = 0;
         songPlaying = false;
 
         /* to understand the use of below condition, see the documentation of errorMessage variable. */
         if(!errorMessage.empty())
         {
-            logger->log(Error, "%s", errorMessage.c_str());
+            cout << "\n ERROR: " << errorMessage << endl;
+            executionComplete = true;
             returnValue = 1;
             songCondition.notify_all(); // to wake all the sleeping threads so that they can end their execution.
         }
-    } catch (const exception &error) {
-        cout << "\n => ERROR: " << error.what() << endl
-             << "\t : in " << __PRETTY_FUNCTION__ << endl;
-        logger->log(Error, "%s , in -> %s", error.what(), __PRETTY_FUNCTION__);
+    } catch (const exception &e) {
+        LOG(error, "%s", e.what());
+        executionComplete = true;
         returnValue = 1;
     }
-    logger->log(Trace, "Execution completed -> monitorException()");
+    LOG(trace, "Execution End", NULL);
 }

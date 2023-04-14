@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['no_5finternet_5fconnection_0',['NO_INTERNET_CONNECTION',['../namespaceSongError.html#a026b317783780136da3f4dced3e21b58a034a01dab6c1ffee6106c08190688ef3',1,'SongError']]]
+  ['info_0',['info',['../logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4',1,'logger.h']]]
 ];

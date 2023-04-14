@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['isconsoleoutputenabled_0',['isConsoleOutputEnabled',['../classLogger.html#a282f5ca050c07220817bd50742d96eea',1,'Logger']]],
-  ['isfileoutputenabled_1',['isFileOutputEnabled',['../classLogger.html#abfe9ff5af856623b4d0f949b6e7bad5a',1,'Logger']]]
+  ['isconsoleoutputenabled_0',['isConsoleOutputEnabled',['../classLogger.html#a1974dfc8917afc783e9cc93fe26c68e7',1,'Logger']]],
+  ['isfileoutputenabled_1',['isFileOutputEnabled',['../classLogger.html#a417bccadad269d729c4157fac5e7f00a',1,'Logger']]]
 ];

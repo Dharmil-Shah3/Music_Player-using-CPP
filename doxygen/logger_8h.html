@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('logger_8h.html',''); initResizable(); 
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">logger.h File Reference</div></div>
 </div><!--header-->
@@ -99,15 +100,19 @@ $(document).ready(function(){initNavTree('logger_8h.html',''); initResizable(); 
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for logger.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="logger_8h__incl.png" border="0" usemap="#alogger_8h" alt=""/></div>
 <map name="alogger_8h" id="alogger_8h">
-<area shape="rect" title=" " alt="" coords="109,5,184,31"/>
+<area shape="rect" title=" " alt="" coords="203,5,277,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,85,104"/>
 <area shape="rect" title=" " alt="" coords="110,79,183,104"/>
 <area shape="rect" title=" " alt="" coords="208,79,272,104"/>
+<area shape="rect" title=" " alt="" coords="296,79,360,104"/>
+<area shape="rect" title=" " alt="" coords="384,79,459,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -128,26 +133,89 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html">Logger</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The singleton <a class="el" href="classLogger.html" title="The singleton Logger class is used for trace logging and debugging purpose. This class provides membe...">Logger</a> class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.<br  />
-This class uses values of enum LogPriority to display the differernt type of logs.<br  />
-Reference video: <a href="https://youtu.be/1rnmYBSppYY">https://youtu.be/1rnmYBSppYY</a>.  <a href="classLogger.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classLogger.html" title="Logger class is used for trace logging and debugging purpose.">Logger</a> class is used for trace logging and debugging purpose.  <a href="classLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af6e5e4b8e7d76867f7f11a9786011326"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326">LOG</a>(priority,  message, ...)&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message, __VA_ARGS__))</td></tr>
+<tr class="memdesc:af6e5e4b8e7d76867f7f11a9786011326"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.  <br /></td></tr>
+<tr class="separator:af6e5e4b8e7d76867f7f11a9786011326"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> { <br />
-&#160;&#160;<a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d">Trace</a>
-, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8">Debug</a>
-, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc">Info</a>
-, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c">Warn</a>
+&#160;&#160;<a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942">trace</a>
+, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da">debug</a>
+, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4">info</a>
+, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492">warning</a>
 , <br />
-&#160;&#160;<a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f">Error</a>
-, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2">Critical</a>
+&#160;&#160;<a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed">error</a>
+, <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f">fatal</a>
 <br />
  }</td></tr>
 <tr class="memdesc:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">The LogPriority enum defines the priority of different logs. We can use it to avoid displaying logs that has lower priority, and to avoid too many logs on the display.  <a href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">More...</a><br /></td></tr>
 <tr class="separator:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="af6e5e4b8e7d76867f7f11a9786011326" name="af6e5e4b8e7d76867f7f11a9786011326"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e5e4b8e7d76867f7f11a9786011326">&#9670;&#160;</a></span>LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">priority, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">message, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message, __VA_ARGS__))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>is the <code>LogPriority</code> of the log. </td></tr>
+    <tr><td class="paramname">message</td><td>is the log message. </td></tr>
+    <tr><td class="paramname">...</td><td>is the variable arguments to go with the message (if any). Have to pass NULL if there is no argument.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>It is used as an alternative of <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code><br  />
+Main objective is, to pass static arguments like <b>thread id</b>, <b>line number</b> and <b>function name</b> into <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.<br  />
+This macro internally calls the <code>log()</code> with all the necessary arguments passing by it self.<br  />
+So user have to pass only necessary parameters.</p>
+<p>There are 2 differences between <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> and <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.<br  />
+</p><ol type="1">
+<li>Unlike <code>log()</code>, in <code>LOG</code>, if there is no extra argument after <code>message</code>, we have to pass <b>NULL</b> explicitely.</li>
+<li>Unlike <code>log()</code>, in <code>LOG</code>, we don't have to pass <b>thread id</b>, <b>line number</b> and <b>function name</b> explicitely.</li>
+</ol>
+<p><b>Examples</b><br  />
+</p><ol type="1">
+<li>LOG(trace, "custome log 1", NULL);</li>
+<li>LOG(debug, "object id %d, object name %s", id, name); </li>
+</ol>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="aa8b1c6568df4ee385e4d1d12f7153f02" name="aa8b1c6568df4ee385e4d1d12f7153f02"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa8b1c6568df4ee385e4d1d12f7153f02">&#9670;&#160;</a></span>LogPriority</h2>
@@ -163,12 +231,12 @@ Enumerations</h2></td></tr>
 
 <p>The LogPriority enum defines the priority of different logs. We can use it to avoid displaying logs that has lower priority, and to avoid too many logs on the display. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d" name="aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d"></a>Trace&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8" name="aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8"></a>Debug&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc" name="aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc"></a>Info&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c" name="aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c"></a>Warn&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f" name="aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f"></a>Error&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2" name="aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2"></a>Critical&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942" name="aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942"></a>trace&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da" name="aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da"></a>debug&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4" name="aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4"></a>info&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492" name="aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492"></a>warning&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed" name="aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed"></a>error&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f" name="aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f"></a>fatal&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

@@ -3,11 +3,13 @@
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
 Include dependency graph for logger.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=280pt]{logger_8h__incl}
+\includegraphics[width=350pt]{logger_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -21,23 +23,65 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classLogger}{Logger}}
-\begin{DoxyCompactList}\small\item\em The singleton \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. This class provides members and methods to display and save (into files), different logs with different types/priorities.~\newline
-This class uses values of enum Log\+Priority to display the differernt type of logs.~\newline
-Reference video\+: \href{https://youtu.be/1rnmYBSppYY}{\texttt{ https\+://youtu.\+be/1rnm\+YBSpp\+YY}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{classLogger}{Logger} class is used for trace logging and debugging purpose. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG}}(priority,  message, ...)~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))
+\begin{DoxyCompactList}\small\item\em It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \{ \newline
-\mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d}{Trace}}
-, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8}{Debug}}
-, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc}{Info}}
-, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c}{Warn}}
+\mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942}{trace}}
+, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da}{debug}}
+, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4}{info}}
+, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492}{warning}}
 , \newline
-\mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f}{Error}}
-, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2}{Critical}}
+\mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed}{error}}
+, \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f}{fatal}}
  \}
 \begin{DoxyCompactList}\small\item\em The Log\+Priority enum defines the priority of different logs. We can use it to avoid displaying logs that has lower priority, and to avoid too many logs on the display. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}\label{logger_8h_af6e5e4b8e7d76867f7f11a9786011326} 
+\index{logger.h@{logger.h}!LOG@{LOG}}
+\index{LOG@{LOG}!logger.h@{logger.h}}
+\doxysubsubsection{\texorpdfstring{LOG}{LOG}}
+{\footnotesize\ttfamily \#define LOG(\begin{DoxyParamCaption}\item[{}]{priority,  }\item[{}]{message,  }\item[{}]{... }\end{DoxyParamCaption})~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))}
+
+
+
+It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em priority} & is the {\ttfamily Log\+Priority} of the log. \\
+\hline
+{\em message} & is the log message. \\
+\hline
+{\em ...} & is the variable arguments to go with the message (if any). Have to pass NULL if there is no argument.\\
+\hline
+\end{DoxyParams}
+It is used as an alternative of {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}~\newline
+Main objective is, to pass static arguments like {\bfseries{thread id}}, {\bfseries{line number}} and {\bfseries{function name}} into {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}.~\newline
+This macro internally calls the {\ttfamily log()} with all the necessary arguments passing by it self.~\newline
+So user have to pass only necessary parameters.
+
+There are 2 differences between {\ttfamily \doxylink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG()}} and {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}.~\newline
+
+\begin{DoxyEnumerate}
+\item Unlike {\ttfamily log()}, in {\ttfamily LOG}, if there is no extra argument after {\ttfamily message}, we have to pass {\bfseries{NULL}} explicitely.
+\item Unlike {\ttfamily log()}, in {\ttfamily LOG}, we don\textquotesingle{}t have to pass {\bfseries{thread id}}, {\bfseries{line number}} and {\bfseries{function name}} explicitely.
+\end{DoxyEnumerate}
+
+{\bfseries{Examples}}~\newline
+
+\begin{DoxyEnumerate}
+\item LOG(trace, \char`\"{}custome log 1\char`\"{}, NULL);
+\item LOG(debug, \char`\"{}object id \%d, object name \%s\char`\"{}, id, name); 
+\end{DoxyEnumerate}
 
 \doxysubsection{Enumeration Type Documentation}
 \Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02} 
@@ -51,28 +95,28 @@ enum \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority
 The Log\+Priority enum defines the priority of different logs. We can use it to avoid displaying logs that has lower priority, and to avoid too many logs on the display. 
 
 \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Trace@{Trace}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Trace@{Trace}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8af18ff6dfbaa47fadcc947a9f12602d} 
-Trace&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{trace@{trace}!logger.h@{logger.h}}\index{logger.h@{logger.h}!trace@{trace}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942} 
+trace&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Debug@{Debug}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Debug@{Debug}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ac909e86054cb6ad83c22bfc2b3e6e5b8} 
-Debug&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{debug@{debug}!logger.h@{logger.h}}\index{logger.h@{logger.h}!debug@{debug}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da} 
+debug&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Info@{Info}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Info@{Info}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a1cd805eaf0bb58a90fe7e7e4cf6a3cdc} 
-Info&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{info@{info}!logger.h@{logger.h}}\index{logger.h@{logger.h}!info@{info}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4} 
+info&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Warn@{Warn}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Warn@{Warn}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a86a4f5be1b42a6ee68eaeb357bbe065c} 
-Warn&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{warning@{warning}!logger.h@{logger.h}}\index{logger.h@{logger.h}!warning@{warning}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492} 
+warning&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Error@{Error}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Error@{Error}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a4dfd42ec49d09d8c6555c218301cc30f} 
-Error&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{error@{error}!logger.h@{logger.h}}\index{logger.h@{logger.h}!error@{error}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed} 
+error&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{Critical@{Critical}!logger.h@{logger.h}}\index{logger.h@{logger.h}!Critical@{Critical}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a6779101cd5bbfab8a7da94cccf1947e2} 
-Critical&\\
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fatal@{fatal}!logger.h@{logger.h}}\index{logger.h@{logger.h}!fatal@{fatal}}}\Hypertarget{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f}\label{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f} 
+fatal&\\
 \hline
 
 \end{DoxyEnumFields}
