@@ -146,10 +146,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ac04d4f4ea5f3c95337cba192a1d734ba">getPriority</a> () const</td></tr>
 <tr class="memdesc:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">used to get the current priority.  <br /></td></tr>
 <tr class="separator:ac04d4f4ea5f3c95337cba192a1d734ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memTemplParams" colspan="2">template&lt;typename... Args&gt; </td></tr>
-<tr class="memitem:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">log</a> (const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;logPriority, const std::thread::id &amp;threadId, const unsigned short _line_number_, const char *_function_name_, const char *message, const Args... args)</td></tr>
-<tr class="memdesc:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.  <br /></td></tr>
-<tr class="separator:ad24b3e72e63712513cf3b07cb6d4d6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6257127d551b26ba54edb9ddfe31f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0">log</a> (const <a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a> &amp;logPriority, const std::thread::id &amp;threadId, const unsigned short _line_number_, const char *_function_name_, const std::string &amp;message)</td></tr>
+<tr class="memdesc:a2a6257127d551b26ba54edb9ddfe31f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.  <br /></td></tr>
+<tr class="separator:a2a6257127d551b26ba54edb9ddfe31f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -183,12 +182,12 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:ad00c914c1f38de6d069cb788b9074d8f"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ad00c914c1f38de6d069cb788b9074d8f">file</a></td></tr>
 <tr class="memdesc:ad00c914c1f38de6d069cb788b9074d8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">file is used to write logs into log file.  <br /></td></tr>
 <tr class="separator:ad00c914c1f38de6d069cb788b9074d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5393066ae28af6d6c23cee9613c11b1d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a5393066ae28af6d6c23cee9613c11b1d">file_lock</a></td></tr>
-<tr class="memdesc:a5393066ae28af6d6c23cee9613c11b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">file_lock mutex is used to prevent the race condition to write logs into <code>file</code>.  <br /></td></tr>
-<tr class="separator:a5393066ae28af6d6c23cee9613c11b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48e9515cb4fb33382c921ecb027bad4b"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a48e9515cb4fb33382c921ecb027bad4b">display_lock</a></td></tr>
 <tr class="memdesc:a48e9515cb4fb33382c921ecb027bad4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">display_lock used to prevent race condition while displaying logs into console.  <br /></td></tr>
 <tr class="separator:a48e9515cb4fb33382c921ecb027bad4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5393066ae28af6d6c23cee9613c11b1d"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a5393066ae28af6d6c23cee9613c11b1d">file_lock</a></td></tr>
+<tr class="memdesc:a5393066ae28af6d6c23cee9613c11b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">file_lock mutex is used to prevent the race condition to write logs into <code>file</code>.  <br /></td></tr>
+<tr class="separator:a5393066ae28af6d6c23cee9613c11b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7b321fea0d776a80926da20f6faf320"><td class="memItemLeft" align="right" valign="top"><a class="el" href="logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02">LogPriority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#ad7b321fea0d776a80926da20f6faf320">priority</a></td></tr>
 <tr class="memdesc:ad7b321fea0d776a80926da20f6faf320"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used filter the log messages based on priority.  <br /></td></tr>
 <tr class="separator:ad7b321fea0d776a80926da20f6faf320"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -488,16 +487,11 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ad24b3e72e63712513cf3b07cb6d4d6e0" name="ad24b3e72e63712513cf3b07cb6d4d6e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad24b3e72e63712513cf3b07cb6d4d6e0">&#9670;&#160;</a></span>log()</h2>
+<a id="a2a6257127d551b26ba54edb9ddfe31f0" name="a2a6257127d551b26ba54edb9ddfe31f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6257127d551b26ba54edb9ddfe31f0">&#9670;&#160;</a></span>log()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename... Args&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void Logger::log </td>
@@ -526,14 +520,8 @@ template&lt;typename... Args&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Args...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>message</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -541,11 +529,6 @@ template&lt;typename... Args&gt; </div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name. </p>
@@ -553,27 +536,26 @@ template&lt;typename... Args&gt; </div>
   <table class="params">
     <tr><td class="paramname">logPriority</td><td>is the priority of the log message. </td></tr>
     <tr><td class="paramname">threadId</td><td>is id of the thread who called this function (generally taken care by macro <code>LOG</code>). </td></tr>
-    <tr><td class="paramname">_line_number_</td><td>is the number of line on which the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
-    <tr><td class="paramname">_function_name_</td><td>is the name of the function in which the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
-    <tr><td class="paramname">message</td><td>to be displayed and/or saved. </td></tr>
-    <tr><td class="paramname">args</td><td>are the arguments to bind into the log message, and it is optional.</td></tr>
+    <tr><td class="paramname">_line_number_</td><td>is the number of line on which the <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
+    <tr><td class="paramname">_function_name_</td><td>is the name of the function in which the <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> is called. </td></tr>
+    <tr><td class="paramname">message</td><td>to be displayed.</td></tr>
   </table>
   </dd>
 </dl>
 <p>This function checks the priority of the log message and compare it with member <code>priority</code>.<br  />
 If priority of the log message is equal or higher than <code>priority</code>, then log message will be displayed, else it will be skipped.<br  />
 Format of the log message will be<br  />
-i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace ] [31 ] Execution Begin -&gt; [int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main method is used to handle the flow of the program.">main()</a>]<br  />
+i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace] [ 31] Execution Begin -&gt; [int <a class="el" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main method is used to handle the flow of the program.">main()</a>]<br  />
 [Time stamp with milliseconds and microseconds] [thread-id] [priority] [line-number] Log message -&gt; [function_name]</p>
 <p><b>Example</b></p><ol type="1">
 <li><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a>-&gt;log(trace, this_thread::get_id(), <b>LINE</b>, <b>PRETTY_FUNCTION</b>, "log message");</li>
-<li><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a>-&gt;log(trace, this_thread::get_id(), <b>LINE</b>, <b>PRETTY_FUNCTION</b>, "sstudent added, id:%d, name:%s", studentId, studentName);</li>
+<li><a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2" title="It creates new instance (if does not exist) of class Logger.">Logger::get()</a>-&gt;log(trace, this_thread::get_id(), <b>LINE</b>, <b>PRETTY_FUNCTION</b>, "student added name: " + studentName);</li>
 </ol>
-<p>Better to use macro <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> instead of this function.<br  />
-<code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> takes care of passing all the static arguments(thread id, line number and function name) by itself.</p>
-<p><b>Above Examples with <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> macro</b></p><ol type="1">
-<li>LOG(trace, "log message", NULL);</li>
-<li>LOG(trace, "sstudent added, id:%d, name:%s", studentId, studentName); </li>
+<p>Better to use macro <code><a class="el" href="logger_8h.html#aa198a75056749707fcc21d5e303ffdf9" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> instead of this function.<br  />
+<code><a class="el" href="logger_8h.html#aa198a75056749707fcc21d5e303ffdf9" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> takes care of passing all the static arguments(thread id, line number and function name) by itself.</p>
+<p><b>Above Examples with <code><a class="el" href="logger_8h.html#aa198a75056749707fcc21d5e303ffdf9" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> macro</b></p><ol type="1">
+<li>LOG(trace, "log message");</li>
+<li>LOG(trace, "student added name: " + studentName); </li>
 </ol>
 
 </div>
@@ -652,11 +634,12 @@ i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace ] [31 ] Execution Be
 <p>is used to set log priority, to filter logs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">priority</td><td>is the new <code>LogPriority</code>to set. This method changes value of <code>LogPriority priority</code>.<br  />
-<a class="el" href="classLogger.html">Logger</a> checks the <code>priority</code> before logging. </td></tr>
+    <tr><td class="paramname">priority</td><td>is the new <code>LogPriority</code>to set.</td></tr>
   </table>
   </dd>
 </dl>
+<p>This method changes value of <code>LogPriority priority</code>.<br  />
+<a class="el" href="classLogger.html">Logger</a> checks the <code>priority</code> before logging. </p>
 
 </div>
 </div>
@@ -898,7 +881,7 @@ i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace ] [31 ] Execution Be
 </div><div class="memdoc">
 
 <p>It is used filter the log messages based on priority. </p>
-<p>Before logging each log, <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> checks the priority of the log message is equal or higher than <code>priority</code>(member) or not.<br  />
+<p>Before logging each log, <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">log()</a></code> checks the priority of the log message is equal or higher than <code>priority</code>(member) or not.<br  />
 If the priority of the log message is lesser that this, then that log message will be skipped.<br  />
 <em>Default</em> value is <code>LogPriority::trace</code>. </p>
 

@@ -1,7 +1,7 @@
 #include <iostream>
-#include "song.h"
-#include "displayplaylist.h"
 #include <thread>
+#include "displayplaylist.h"
+#include "song.h"
 #include "logger.h"
 
 using namespace std;
@@ -15,7 +15,7 @@ using namespace std;
  *************************************************************************************************************/
 void push_songs_into_playlist(DisplayPlaylist &playlist);
 
-/********************************   ********************************//**
+/*****************************************************************//**
  * @brief main method is used to handle the flow of the program.
  *
  * It creates an object of class DisplayPlaylist.\n
@@ -31,7 +31,7 @@ int main()
 {
     unique_ptr<Logger> logger(Logger::get());
     try {
-        LOG(trace, "Execution Begin", NULL);
+        LOG(error, "Execution Begin");
 
         DisplayPlaylist playlist;
 
@@ -43,16 +43,16 @@ int main()
         thread t_monitorException(&DisplayPlaylist::monitorException, &playlist, ref(returnValueOfExceptionThread));
         thread t_changeSong(&DisplayPlaylist::playNextSong, &playlist);
 
-        LOG(trace, "All threads are created", NULL);
+        LOG(error, "All threads are created");
         t_playSongs.join();
         t_changeSong.join();
         t_monitorException.join();
 
-        LOG(trace, "All threads are joined", NULL);
+        LOG(error, "All threads are joined");
         return returnValueOfExceptionThread;
     }
     catch (const exception &e) {
-        LOG(error, "%s", e.what());
+        LOG(error, e.what());
         return 1;
     }
 }
@@ -60,7 +60,7 @@ int main()
 void push_songs_into_playlist(DisplayPlaylist &playlist)
 {
     try {
-        LOG(trace, "Pushing the songs", NULL);
+        LOG(trace, "Pushing the songs");
         Song song1("Daku", chrono::seconds(1), "/thumbnails/daku.jpeg");
         Song song2("Shape of You", chrono::seconds(1), "/thumbnails/shape_of_you.jpeg");
         Song song3("Dandelion", chrono::seconds(1), "/thumbnails/dandelion.jpeg");
@@ -68,9 +68,9 @@ void push_songs_into_playlist(DisplayPlaylist &playlist)
         playlist.pushSongIntoPlaylist(song1);
         playlist.pushSongIntoPlaylist(song2);
         playlist.pushSongIntoPlaylist(song3);
-        LOG(trace, "Pushed all songs", NULL);
+        LOG(trace, "Pushed all songs");
     }
     catch (const exception &e) {
-        LOG(error, "%s", e.what());
+        LOG(error, e.what());
     }
 }

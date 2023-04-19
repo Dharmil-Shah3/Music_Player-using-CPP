@@ -9,155 +9,100 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <mutex>}\ \ \ \ \textcolor{comment}{//\ to\ avoid\ race\ conditions\ in\ output.}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <thread>}\ \ \ \textcolor{comment}{//\ to\ use\ std::thread::id}}
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}\ \ \textcolor{comment}{//\ to\ use\ 'ostringstream'\ to\ convert\ std::thread::id\ to\ std::string}}
-\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iomanip>}\ \ \textcolor{comment}{//\ to\ use\ setw(),\ setfill()\ etc.}}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00011\ \textcolor{comment}{/***************************************************************************************************************/}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LOG(priority,\ message,\ ...)\ (Logger::get()-\/>\ Logger::log(priority,\ std::this\_thread::get\_id(),\ \_\_LINE\_\_,\ \_\_PRETTY\_FUNCTION\_\_,\ message,\ \_\_VA\_ARGS\_\_))}}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{comment}{/*****************************************************************/}}
-\DoxyCodeLine{00040\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\{}
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942}{trace}},}
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da}{debug}},}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4}{info}},}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492}{warning}},}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed}{error}},}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f}{fatal}}}
-\DoxyCodeLine{00047\ \};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \textcolor{comment}{/***********************************************************************************/}}
-\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogger}{Logger}}}
-\DoxyCodeLine{00065\ \{}
-\DoxyCodeLine{00066\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{\string~Logger}}();}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ /*********************************************************************************/}}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{get}}();}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_ad4419b938c11ca8b784f40e82dffc796}{enableConsoleOutput}}();}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a199b998031d189d3ddba7f7990972360}{disableConsoleOutput}}();}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ /******************************************************/}}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a1974dfc8917afc783e9cc93fe26c68e7}{isConsoleOutputEnabled}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ /******************************************************************/}}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a40088b9687aa1efaa13b510dfc66d412}{enableFileOutput}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}}\ =\ NULL);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ /*****************************************************/}}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a8aea89458ae5f830897ce33ba1acbbeb}{disableFileOutput}}();}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \textcolor{comment}{\ \ \ \ /*************************************************************/}}
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a417bccadad269d729c4157fac5e7f00a}{isFileOutputEnabled}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \textcolor{comment}{\ \ \ \ /********************************************************************/}}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a2d3843582fd2f314db30cf7372a49ab4}{setFilename}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}});}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ /**********************************************************/}}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_ab14bd9c29dd7b0d49e0fd3561a36d019}{setPriority}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \&\mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}});}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ /**************************************/}}
-\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \mbox{\hyperlink{classLogger_ac04d4f4ea5f3c95337cba192a1d734ba}{getPriority}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ /*****************************************************************************************************************/}}
-\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
-\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{log}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \&logPriority,}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::thread::id\ \&threadId,}
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \_line\_number\_,}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_function\_name\_,}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *message,}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Args...\ args)}
-\DoxyCodeLine{00166\ \ \ \ \ \{}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Either\ consoleOutput\ or\ fileOutput\ must\ be\ true.}}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ And\ log\ priority\ also\ should\ be\ equal\ and\ greater\ than\ Logger's\ priority.}}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{consoleOutput}}\ ||\ \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{fileOutput}})\ \&\&\ (logPriority\ >=\ this-\/>priority))}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ logType;}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (logPriority)\ \{}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942}{trace}}:\ \ \ logType=\textcolor{stringliteral}{"{}trace"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da}{debug}}:\ \ \ logType=\textcolor{stringliteral}{"{}debug"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4}{info}}:\ \ \ \ logType=\textcolor{stringliteral}{"{}info"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492}{warning}}:\ logType=\textcolor{stringliteral}{"{}warning"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed}{error}}:\ \ \ logType=\textcolor{stringliteral}{"{}error"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f}{fatal}}:\ \ \ logType=\textcolor{stringliteral}{"{}fatal"{}};\ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ getting\ current\ date\ and\ time}}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{currentTime}}\ =\ time(0);}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}\ =\ localtime(\&\mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{currentTime}});}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LOG(priority,\ message)\ (Logger::get()-\/>\ Logger::log(priority,\ std::this\_thread::get\_id(),\ \_\_LINE\_\_,\ \_\_PRETTY\_FUNCTION\_\_,\ message))}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{00035\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\{}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942}{trace}},}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da}{debug}},}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02aa4abb266e72efba828327b605b2ab0f4}{info}},}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8de9aef05fc85e519a0cfce33573f492}{warning}},}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02ad606e435413ea0944dd00d49e901e4ed}{error}},}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02a8ce9ca6f2c2ee2f80260f4ae4158e45f}{fatal}}}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/***********************************************************************************/}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogger}{Logger}}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{\string~Logger}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ /*********************************************************************************/}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{get}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_ad4419b938c11ca8b784f40e82dffc796}{enableConsoleOutput}}();}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a199b998031d189d3ddba7f7990972360}{disableConsoleOutput}}();}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ /******************************************************/}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a1974dfc8917afc783e9cc93fe26c68e7}{isConsoleOutputEnabled}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ /******************************************************************/}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a40088b9687aa1efaa13b510dfc66d412}{enableFileOutput}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}}\ =\ NULL);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ /*****************************************************/}}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a8aea89458ae5f830897ce33ba1acbbeb}{disableFileOutput}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ /*************************************************************/}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a417bccadad269d729c4157fac5e7f00a}{isFileOutputEnabled}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{comment}{\ \ \ \ /********************************************************************/}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a2d3843582fd2f314db30cf7372a49ab4}{setFilename}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{\ \ \ \ /**********************************************************/}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_ab14bd9c29dd7b0d49e0fd3561a36d019}{setPriority}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \&\mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}});}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{\ \ \ \ /**************************************/}}
+\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \mbox{\hyperlink{classLogger_ac04d4f4ea5f3c95337cba192a1d734ba}{getPriority}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ /*****************************************************************************************************************/}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{log}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \&logPriority,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::thread::id\ \&threadId,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ \_line\_number\_,}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \_function\_name\_,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&message);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{\ \ \ \ /***********************************************************************/}}
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{comment}{\ \ \ \ /*******************************************************************/}}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{classLogger_add0f34d4c753c86af8074840a72366b3}{Logger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{comment}{\ \ \ \ /***************************************/}}
+\DoxyCodeLine{00183\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}\&\ \mbox{\hyperlink{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea}{operator=\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\ \&)\ =\ \textcolor{keyword}{delete};}
 \DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ getting\ milliseconds\ and\ microseconds\ for\ timestamp}}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::chrono;}
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ microseconds\ ms\ =\ duration\_cast<microseconds>(system\_clock::now().time\_since\_epoch());}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ milliseconds\ =\ ms.count()\%1000000/1000;}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ microseconds\ =\ ms.count()\%1000000\%1000;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{consoleOutput}};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{fileOutput}};}
 \DoxyCodeLine{00190\ }
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ lock\ mutex,\ and\ display\ the\ log\ message}}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{consoleOutput}})\{}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock(\mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\_lock}});}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}[\%4d-\/\%02d-\/\%02d\ \%02d:\%02d:\%02d.\%03ld.\%03ld]\ [\%ld]\ [\%-\/7s]\ [\%-\/4u]\ "{}},}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_year+1900),\ (\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_mon+1),\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_mday,}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_hour,\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_min,\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_sec,}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ milliseconds,\ microseconds,\ threadId,\ logType.c\_str(),\ \_line\_number\_}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(message,\ args...);}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\ -\/>\ [\%s]\ \(\backslash\)n"{}},\ \_function\_name\_);}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00195\ \ \ \ \ FILE\ *\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00198\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\_lock}};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00201\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classLogger_a5393066ae28af6d6c23cee9613c11b1d}{file\_lock}};}
 \DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ write\ logs\ into\ file,\ if\ enabled}}
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{fileOutput}})\{}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock(\mbox{\hyperlink{classLogger_a5393066ae28af6d6c23cee9613c11b1d}{file\_lock}});}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}}\ ==\ 0)\{\ \textcolor{comment}{//\ if\ file\ is\ not\ opened}}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}}\ =\ fopen(\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}},\ \textcolor{stringliteral}{"{}a"{}});}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}},\ \textcolor{stringliteral}{"{}[\%4d-\/\%02d-\/\%02d\ \%02d:\%02d:\%02d.\%03ld.\%03ld]\ [\%ld]\ [\%-\/7s]\ [\%-\/4u]\ "{}},}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_year+1900),\ (\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_mon+1),\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_mday,}
-\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_hour,\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_min,\ \mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}}-\/>tm\_sec,}
-\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ milliseconds,\ microseconds,\ threadId,\ logType.c\_str(),\ \_line\_number\_}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}},\ message,\ args...);}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf(\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}},\ \textcolor{stringliteral}{"{}\ -\/>\ [\%s]\ \(\backslash\)n"{}},\ \_function\_name\_);}
-\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00218\ \ \ \ \ \}}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keyword}{static}\ std::mutex\ \mbox{\hyperlink{classLogger_a690d70b52e96021cdd5866e642177ef5}{get\_instance\_lock}};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}\ *\mbox{\hyperlink{classLogger_a27beabe5af49a8ea78b02b3f236c7a05}{logger}};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ \ \ /*********************************************************************************************************/}}
+\DoxyCodeLine{00217\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00220\ \ \ \ \ time\_t\ \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{currentTime}};}
 \DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \textcolor{comment}{\ \ \ \ /***********************************************************************/}}
-\DoxyCodeLine{00228\ \ \ \ \ \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}();}
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00230\ \textcolor{comment}{\ \ \ \ /*******************************************************************/}}
-\DoxyCodeLine{00235\ \ \ \ \ \mbox{\hyperlink{classLogger_add0f34d4c753c86af8074840a72366b3}{Logger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00237\ \textcolor{comment}{\ \ \ \ /***************************************/}}
-\DoxyCodeLine{00243\ \ \ \ \ \mbox{\hyperlink{classLogger}{Logger}}\&\ \mbox{\hyperlink{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea}{operator=\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLogger}{Logger}}\ \&)\ =\ \textcolor{keyword}{delete};}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_a9c80d0ec2b6530c821d2aa230293c532}{consoleOutput}};}
-\DoxyCodeLine{00247\ }
-\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLogger_ae8349188f1e958b19de3e363ee6faaef}{fileOutput}};}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{filename}};}
-\DoxyCodeLine{00253\ }
-\DoxyCodeLine{00255\ \ \ \ \ FILE\ *\mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}};}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00258\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classLogger_a5393066ae28af6d6c23cee9613c11b1d}{file\_lock}};}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00261\ \ \ \ \ std::mutex\ \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\_lock}};}
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keyword}{static}\ std::mutex\ \mbox{\hyperlink{classLogger_a690d70b52e96021cdd5866e642177ef5}{get\_instance\_lock}};}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}\ *\mbox{\hyperlink{classLogger_a27beabe5af49a8ea78b02b3f236c7a05}{logger}};}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \textcolor{comment}{\ \ \ \ /*********************************************************************************************************/}}
-\DoxyCodeLine{00277\ \ \ \ \ \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{LogPriority}}\ \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}};}
-\DoxyCodeLine{00278\ }
-\DoxyCodeLine{00280\ \ \ \ \ time\_t\ \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{currentTime}};}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00283\ \ \ \ \ tm\ *\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}};}
-\DoxyCodeLine{00284\ \};}
-\DoxyCodeLine{00285\ }
-\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGGER\_H}}
+\DoxyCodeLine{00223\ \ \ \ \ tm\ *\mbox{\hyperlink{classLogger_a668ef12e44edddc179c09268715f480c}{timeStamp}};}
+\DoxyCodeLine{00224\ \};}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOGGER\_H}}
 
 \end{DoxyCode}

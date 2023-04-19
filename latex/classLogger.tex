@@ -11,7 +11,8 @@
 
 
 
-Collaboration diagram for Logger\+:\nopagebreak
+Collaboration diagram for Logger\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -41,7 +42,7 @@ void \mbox{\hyperlink{classLogger_ab14bd9c29dd7b0d49e0fd3561a36d019}{set\+Priori
 \begin{DoxyCompactList}\small\item\em is used to set log priority, to filter logs. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \mbox{\hyperlink{classLogger_ac04d4f4ea5f3c95337cba192a1d734ba}{get\+Priority}} () const
 \begin{DoxyCompactList}\small\item\em used to get the current priority. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename... Args$>$ }\\void \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{log}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&log\+Priority, const std\+::thread\+::id \&thread\+Id, const unsigned short \+\_\+line\+\_\+number\+\_\+, const char $\ast$\+\_\+function\+\_\+name\+\_\+, const char $\ast$message, const Args... args)
+void \mbox{\hyperlink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{log}} (const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&log\+Priority, const std\+::thread\+::id \&thread\+Id, const unsigned short \+\_\+line\+\_\+number\+\_\+, const char $\ast$\+\_\+function\+\_\+name\+\_\+, const std\+::string \&message)
 \begin{DoxyCompactList}\small\item\em displays and/or saves(into file) logs with timestamp, thread-\/id, line-\/number and function-\/name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -68,10 +69,10 @@ char $\ast$ \mbox{\hyperlink{classLogger_a4a7913dbecc583e935e8c18ec62716ab}{file
 \begin{DoxyCompactList}\small\item\em filename stores the name of the file to write logs into (default {\ttfamily logs.\+log}). \end{DoxyCompactList}\item 
 FILE $\ast$ \mbox{\hyperlink{classLogger_ad00c914c1f38de6d069cb788b9074d8f}{file}}
 \begin{DoxyCompactList}\small\item\em file is used to write logs into log file. \end{DoxyCompactList}\item 
-std\+::mutex \mbox{\hyperlink{classLogger_a5393066ae28af6d6c23cee9613c11b1d}{file\+\_\+lock}}
-\begin{DoxyCompactList}\small\item\em file\+\_\+lock mutex is used to prevent the race condition to write logs into {\ttfamily file}. \end{DoxyCompactList}\item 
 std\+::mutex \mbox{\hyperlink{classLogger_a48e9515cb4fb33382c921ecb027bad4b}{display\+\_\+lock}}
 \begin{DoxyCompactList}\small\item\em display\+\_\+lock used to prevent race condition while displaying logs into console. \end{DoxyCompactList}\item 
+std\+::mutex \mbox{\hyperlink{classLogger_a5393066ae28af6d6c23cee9613c11b1d}{file\+\_\+lock}}
+\begin{DoxyCompactList}\small\item\em file\+\_\+lock mutex is used to prevent the race condition to write logs into {\ttfamily file}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \mbox{\hyperlink{classLogger_ad7b321fea0d776a80926da20f6faf320}{priority}}
 \begin{DoxyCompactList}\small\item\em It is used filter the log messages based on priority. \end{DoxyCompactList}\item 
 time\+\_\+t \mbox{\hyperlink{classLogger_a5917f4a72259ddfa4fe8394bfe7b712d}{current\+Time}}
@@ -248,12 +249,11 @@ used to know whether the file output is enabled or not.
 \begin{DoxyReturn}{Returns}
 value of {\ttfamily bool file\+Output} member. 
 \end{DoxyReturn}
-\Hypertarget{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}\label{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0} 
+\Hypertarget{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}\label{classLogger_a2a6257127d551b26ba54edb9ddfe31f0} 
 \index{Logger@{Logger}!log@{log}}
 \index{log@{log}!Logger@{Logger}}
 \doxysubsubsection{\texorpdfstring{log()}{log()}}
-{\footnotesize\ttfamily template$<$typename... Args$>$ \\
-void Logger\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{log\+Priority,  }\item[{const std\+::thread\+::id \&}]{thread\+Id,  }\item[{const unsigned short}]{\+\_\+line\+\_\+number\+\_\+,  }\item[{const char $\ast$}]{\+\_\+function\+\_\+name\+\_\+,  }\item[{const char $\ast$}]{message,  }\item[{const Args...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority}} \&}]{log\+Priority,  }\item[{const std\+::thread\+::id \&}]{thread\+Id,  }\item[{const unsigned short}]{\+\_\+line\+\_\+number\+\_\+,  }\item[{const char $\ast$}]{\+\_\+function\+\_\+name\+\_\+,  }\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
 
 
 
@@ -265,34 +265,32 @@ displays and/or saves(into file) logs with timestamp, thread-\/id, line-\/number
 \hline
 {\em thread\+Id} & is id of the thread who called this function (generally taken care by macro {\ttfamily LOG}). \\
 \hline
-{\em \+\_\+line\+\_\+number\+\_\+} & is the number of line on which the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{log()}} is called. \\
+{\em \+\_\+line\+\_\+number\+\_\+} & is the number of line on which the {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{log()}} is called. \\
 \hline
-{\em \+\_\+function\+\_\+name\+\_\+} & is the name of the function in which the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{log()}} is called. \\
+{\em \+\_\+function\+\_\+name\+\_\+} & is the name of the function in which the {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{log()}} is called. \\
 \hline
-{\em message} & to be displayed and/or saved. \\
-\hline
-{\em args} & are the arguments to bind into the log message, and it is optional.\\
+{\em message} & to be displayed.\\
 \hline
 \end{DoxyParams}
 This function checks the priority of the log message and compare it with member {\ttfamily priority}.~\newline
 If priority of the log message is equal or higher than {\ttfamily priority}, then log message will be displayed, else it will be skipped.~\newline
 Format of the log message will be~\newline
-i.\+e) \mbox{[}2023-\/04-\/14 13\+:17\+:05.\+041.\+354\mbox{]} \mbox{[}140613438010304\mbox{]} \mbox{[}trace \mbox{]} \mbox{[}31 \mbox{]} Execution Begin -\/\texorpdfstring{$>$}{>} \mbox{[}int \doxylink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}\mbox{]}~\newline
+i.\+e) \mbox{[}2023-\/04-\/14 13\+:17\+:05.\+041.\+354\mbox{]} \mbox{[}140613438010304\mbox{]} \mbox{[}trace\mbox{]} \mbox{[} 31\mbox{]} Execution Begin -\/\texorpdfstring{$>$}{>} \mbox{[}int \doxylink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()}\mbox{]}~\newline
 \mbox{[}Time stamp with milliseconds and microseconds\mbox{]} \mbox{[}thread-\/id\mbox{]} \mbox{[}priority\mbox{]} \mbox{[}line-\/number\mbox{]} Log message -\/\texorpdfstring{$>$}{>} \mbox{[}function\+\_\+name\mbox{]}
 
 {\bfseries{Example}}
 \begin{DoxyEnumerate}
 \item \doxylink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get()}-\/\texorpdfstring{$>$}{>}log(trace, this\+\_\+thread\+::get\+\_\+id(), {\bfseries{LINE}}, {\bfseries{PRETTY\+\_\+\+FUNCTION}}, \char`\"{}log message\char`\"{});
-\item \doxylink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get()}-\/\texorpdfstring{$>$}{>}log(trace, this\+\_\+thread\+::get\+\_\+id(), {\bfseries{LINE}}, {\bfseries{PRETTY\+\_\+\+FUNCTION}}, \char`\"{}sstudent added, id\+:\%d, name\+:\%s\char`\"{}, student\+Id, student\+Name);
+\item \doxylink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get()}-\/\texorpdfstring{$>$}{>}log(trace, this\+\_\+thread\+::get\+\_\+id(), {\bfseries{LINE}}, {\bfseries{PRETTY\+\_\+\+FUNCTION}}, \char`\"{}student added name\+: \char`\"{} + student\+Name);
 \end{DoxyEnumerate}
 
-Better to use macro {\ttfamily \doxylink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG()}} instead of this function.~\newline
-{\ttfamily \doxylink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG()}} takes care of passing all the static arguments(thread id, line number and function name) by itself.
+Better to use macro {\ttfamily \doxylink{logger_8h_aa198a75056749707fcc21d5e303ffdf9}{LOG()}} instead of this function.~\newline
+{\ttfamily \doxylink{logger_8h_aa198a75056749707fcc21d5e303ffdf9}{LOG()}} takes care of passing all the static arguments(thread id, line number and function name) by itself.
 
-{\bfseries{Above Examples with {\ttfamily \doxylink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG()}} macro}}
+{\bfseries{Above Examples with {\ttfamily \doxylink{logger_8h_aa198a75056749707fcc21d5e303ffdf9}{LOG()}} macro}}
 \begin{DoxyEnumerate}
-\item LOG(trace, \char`\"{}log message\char`\"{}, NULL);
-\item LOG(trace, \char`\"{}sstudent added, id\+:\%d, name\+:\%s\char`\"{}, student\+Id, student\+Name); 
+\item LOG(trace, \char`\"{}log message\char`\"{});
+\item LOG(trace, \char`\"{}student added name\+: \char`\"{} + student\+Name); 
 \end{DoxyEnumerate}\Hypertarget{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea}\label{classLogger_a8c0ca770cdc91ca9fc3015286568e1ea} 
 \index{Logger@{Logger}!operator=@{operator=}}
 \index{operator=@{operator=}!Logger@{Logger}}
@@ -333,11 +331,11 @@ is used to set log priority, to filter logs.
 
 
 \begin{DoxyParams}{Parameters}
-{\em priority} & is the new {\ttfamily Log\+Priority}to set. This method changes value of {\ttfamily Log\+Priority priority}.~\newline
-\doxylink{classLogger}{Logger} checks the {\ttfamily priority} before logging. \\
+{\em priority} & is the new {\ttfamily Log\+Priority}to set.\\
 \hline
 \end{DoxyParams}
-
+This method changes value of {\ttfamily Log\+Priority priority}.~\newline
+\doxylink{classLogger}{Logger} checks the {\ttfamily priority} before logging. 
 
 \doxysubsection{Member Data Documentation}
 \Hypertarget{classLogger_a9c80d0ec2b6530c821d2aa230293c532}\label{classLogger_a9c80d0ec2b6530c821d2aa230293c532} 
@@ -440,7 +438,7 @@ logger is a pointer to the singleton object of the class.
 
 It is used filter the log messages based on priority. 
 
-Before logging each log, {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{log()}} checks the priority of the log message is equal or higher than {\ttfamily priority}(member) or not.~\newline
+Before logging each log, {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{log()}} checks the priority of the log message is equal or higher than {\ttfamily priority}(member) or not.~\newline
 If the priority of the log message is lesser that this, then that log message will be skipped.~\newline
 {\itshape Default} value is {\ttfamily Log\+Priority\+::trace}. \Hypertarget{classLogger_a668ef12e44edddc179c09268715f480c}\label{classLogger_a668ef12e44edddc179c09268715f480c} 
 \index{Logger@{Logger}!timeStamp@{timeStamp}}

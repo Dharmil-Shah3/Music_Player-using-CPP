@@ -5,7 +5,9 @@
 {\ttfamily \#include $<$mutex$>$}\newline
 {\ttfamily \#include $<$thread$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
-Include dependency graph for logger.\+h\+:\nopagebreak
+{\ttfamily \#include $<$iomanip$>$}\newline
+Include dependency graph for logger.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,8 +29,8 @@ class \mbox{\hyperlink{classLogger}{Logger}}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG}}(priority,  message, ...)~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))
-\begin{DoxyCompactList}\small\item\em It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\#define \mbox{\hyperlink{logger_8h_aa198a75056749707fcc21d5e303ffdf9}{LOG}}(priority,  message)~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message))
+\begin{DoxyCompactList}\small\item\em It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log()}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -45,42 +47,33 @@ enum \mbox{\hyperlink{logger_8h_aa8b1c6568df4ee385e4d1d12f7153f02}{Log\+Priority
 
 
 \doxysubsection{Macro Definition Documentation}
-\Hypertarget{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}\label{logger_8h_af6e5e4b8e7d76867f7f11a9786011326} 
+\Hypertarget{logger_8h_aa198a75056749707fcc21d5e303ffdf9}\label{logger_8h_aa198a75056749707fcc21d5e303ffdf9} 
 \index{logger.h@{logger.h}!LOG@{LOG}}
 \index{LOG@{LOG}!logger.h@{logger.h}}
 \doxysubsubsection{\texorpdfstring{LOG}{LOG}}
-{\footnotesize\ttfamily \#define LOG(\begin{DoxyParamCaption}\item[{}]{priority,  }\item[{}]{message,  }\item[{}]{... }\end{DoxyParamCaption})~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message, \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+))}
+{\footnotesize\ttfamily \#define LOG(\begin{DoxyParamCaption}\item[{}]{priority,  }\item[{}]{message }\end{DoxyParamCaption})~(\mbox{\hyperlink{classLogger_ace01762bec46da925f0949b7ff1d3bf2}{Logger\+::get}}()-\/$>$ \mbox{\hyperlink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log}}(priority, std\+::this\+\_\+thread\+::get\+\_\+id(), \+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \+\_\+\+\_\+\+PRETTY\+\_\+\+FUNCTION\+\_\+\+\_\+, message))}
 
 
 
-It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}. 
+It is used for logging, and is a short hand of the {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log()}}. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em priority} & is the {\ttfamily Log\+Priority} of the log. \\
 \hline
-{\em message} & is the log message. \\
-\hline
-{\em ...} & is the variable arguments to go with the message (if any). Have to pass NULL if there is no argument.\\
+{\em message} & is the log message.\\
 \hline
 \end{DoxyParams}
-It is used as an alternative of {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}~\newline
-Main objective is, to pass static arguments like {\bfseries{thread id}}, {\bfseries{line number}} and {\bfseries{function name}} into {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}.~\newline
+It is used as an alternative of {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log()}}~\newline
+Main objective is, to automatically pass static arguments like {\bfseries{thread id}}, {\bfseries{line number}} and {\bfseries{function name}} into {\ttfamily \doxylink{classLogger_a2a6257127d551b26ba54edb9ddfe31f0}{Logger\+::log()}}.~\newline
 This macro internally calls the {\ttfamily log()} with all the necessary arguments passing by it self.~\newline
 So user have to pass only necessary parameters.
-
-There are 2 differences between {\ttfamily \doxylink{logger_8h_af6e5e4b8e7d76867f7f11a9786011326}{LOG()}} and {\ttfamily \doxylink{classLogger_ad24b3e72e63712513cf3b07cb6d4d6e0}{Logger\+::log()}}.~\newline
-
-\begin{DoxyEnumerate}
-\item Unlike {\ttfamily log()}, in {\ttfamily LOG}, if there is no extra argument after {\ttfamily message}, we have to pass {\bfseries{NULL}} explicitely.
-\item Unlike {\ttfamily log()}, in {\ttfamily LOG}, we don\textquotesingle{}t have to pass {\bfseries{thread id}}, {\bfseries{line number}} and {\bfseries{function name}} explicitely.
-\end{DoxyEnumerate}
 
 {\bfseries{Examples}}~\newline
 
 \begin{DoxyEnumerate}
-\item LOG(trace, \char`\"{}custome log 1\char`\"{}, NULL);
-\item LOG(debug, \char`\"{}object id \%d, object name \%s\char`\"{}, id, name); 
+\item LOG(trace, \char`\"{}custom log 1\char`\"{});
+\item LOG(debug, \char`\"{}\+Added student id\+: \char`\"{} +to\+\_\+string(student\+Id)+ \char`\"{}, name \char`\"{} + student\+Name); 
 \end{DoxyEnumerate}
 
 \doxysubsection{Enumeration Type Documentation}

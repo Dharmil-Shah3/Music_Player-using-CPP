@@ -10,7 +10,7 @@ var classLogger =
     [ "getPriority", "classLogger.html#ac04d4f4ea5f3c95337cba192a1d734ba", null ],
     [ "isConsoleOutputEnabled", "classLogger.html#a1974dfc8917afc783e9cc93fe26c68e7", null ],
     [ "isFileOutputEnabled", "classLogger.html#a417bccadad269d729c4157fac5e7f00a", null ],
-    [ "log", "classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0", null ],
+    [ "log", "classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0", null ],
     [ "operator=", "classLogger.html#a8c0ca770cdc91ca9fc3015286568e1ea", null ],
     [ "setFilename", "classLogger.html#a2d3843582fd2f314db30cf7372a49ab4", null ],
     [ "setPriority", "classLogger.html#ab14bd9c29dd7b0d49e0fd3561a36d019", null ],

@@ -6,29 +6,24 @@
 #include <mutex>    // to avoid race conditions in output.
 #include <thread>   // to use std::thread::id
 #include <sstream>  // to use 'ostringstream' to convert std::thread::id to std::string
-
+#include <iomanip>  // to use setw(), setfill() etc.
 
 /***************************************************************************************************************//**
   * @def LOG(priority, message, ...)
   * @brief It is used for logging, and is a short hand of the `Logger::log()`.
   * @param priority is the `LogPriority` of the log.
   * @param message is the log message.
-  * @param ... is the variable arguments to go with the message (if any). Have to pass NULL if there is no argument.
   *
   * It is used as an alternative of `Logger::log()`\n
-  * Main objective is, to pass static arguments like **thread id**, **line number** and **function name** into `Logger::log()`.\n
+  * Main objective is, to automatically pass static arguments like **thread id**, **line number** and **function name** into `Logger::log()`.\n
   * This macro internally calls the `log()` with all the necessary arguments passing by it self.\n
   * So user have to pass only necessary parameters.
   *
-  * There are 2 differences between `LOG()` and `Logger::log()`.\n
-  * 1. Unlike `log()`, in `LOG`, if there is no extra argument after `message`, we have to pass **NULL** explicitely.
-  * 2. Unlike `log()`, in `LOG`, we don't have to pass **thread id**, **line number** and **function name** explicitely.
-  *
   * **Examples**\n
-  * 1. LOG(trace, "custome log 1", NULL);
-  * 2. LOG(debug, "object id %d, object name %s", id, name);
+  * 1. LOG(trace, "custom log 1");
+  * 2. LOG(debug, "Added student id: " +to_string(studentId)+ ", name " + studentName);
   *****************************************************************************************************************/
-#define LOG(priority, message, ...) (Logger::get()-> Logger::log(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message, __VA_ARGS__))
+#define LOG(priority, message) (Logger::get()-> Logger::log(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message))
 
 
 /*****************************************************************//**
@@ -118,6 +113,7 @@ public:
     /**********************************************************//**
      * @brief is used to set log priority, to filter logs.
      * @param priority is the new `LogPriority`to set.
+     *
      * This method changes value of `LogPriority priority`.\n
      * [Logger](@ref Logger) checks the `priority` before logging.
      *************************************************************/
@@ -135,87 +131,31 @@ public:
      * @param threadId is id of the thread who called this function (generally taken care by macro `LOG`).
      * @param _line_number_ is the number of line on which the `log()` is called.
      * @param _function_name_ is the name of the function in which the `log()` is called.
-     * @param message to be displayed and/or saved.
-     * @param args are the arguments to bind into the log message, and it is optional.
+     * @param message to be displayed.
      *
      * This function checks the priority of the log message and compare it with member `priority`.\n
      * If priority of the log message is equal or higher than `priority`,
      * then log message will be displayed, else it will be skipped.\n
      * Format of the log message will be\n
-     * i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace  ] [31  ] Execution Begin -> [int main()]\n
+     * i.e) [2023-04-14 13:17:05.041.354] [140613438010304] [trace] [  31] Execution Begin -> [int main()]\n
      * [Time stamp with milliseconds and microseconds] [thread-id] [priority] [line-number] Log message -> [function_name]
      *
      * **Example**
      * 1. Logger::get()->log(trace, this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, "log message");
-     * 2. Logger::get()->log(trace, this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, "sstudent added, id:%d, name:%s", studentId, studentName);
+     * 2. Logger::get()->log(trace, this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, "student added name: " + studentName);
      *
      * Better to use macro `LOG()` instead of this function.\n
      * `LOG()` takes care of passing all the static arguments(thread id, line number and function name) by itself.
      *
      * **Above Examples with `LOG()` macro**
-     * 1. LOG(trace, "log message", NULL);
-     * 2. LOG(trace, "sstudent added, id:%d, name:%s", studentId, studentName);
+     * 1. LOG(trace, "log message");
+     * 2. LOG(trace, "student added name: " + studentName);
      *********************************************************************************************************************/
-    template <typename... Args>
     void log(const LogPriority &logPriority,
              const std::thread::id &threadId,
              const unsigned short _line_number_,
              const char* _function_name_,
-             const char *message,
-             const Args... args)
-    {
-        // Either consoleOutput or fileOutput must be true.
-        // And log priority also should be equal and greater than Logger's priority.
-        if((consoleOutput || fileOutput) && (logPriority >= this->priority))
-        {
-            std::string logType;
-            switch (logPriority) {
-                case trace:   logType="trace"; break;
-                case debug:   logType="debug"; break;
-                case info:    logType="info"; break;
-                case warning: logType="warning"; break;
-                case error:   logType="error"; break;
-                case fatal:   logType="fatal"; break;
-            }
-
-            // getting current date and time
-            currentTime = time(0);
-            timeStamp = localtime(&currentTime);
-
-            // getting milliseconds and microseconds for timestamp
-            using namespace std::chrono;
-            microseconds ms = duration_cast<microseconds>(system_clock::now().time_since_epoch());
-            unsigned long int milliseconds = ms.count()%1000000/1000;
-            unsigned long int microseconds = ms.count()%1000000%1000;
-
-            // lock mutex, and display the log message
-            if(consoleOutput){
-                std::lock_guard<std::mutex> lock(display_lock);
-                printf("[%4d-%02d-%02d %02d:%02d:%02d.%03ld.%03ld] [%ld] [%-7s] [%-4u] ",
-                       (timeStamp->tm_year+1900), (timeStamp->tm_mon+1), timeStamp->tm_mday,
-                       timeStamp->tm_hour, timeStamp->tm_min, timeStamp->tm_sec,
-                       milliseconds, microseconds, threadId, logType.c_str(), _line_number_
-                );
-                printf(message, args...);
-                printf(" -> [%s] \n", _function_name_);
-            }
-
-            // write logs into file, if enabled
-            if(fileOutput){
-                std::lock_guard<std::mutex> lock(file_lock);
-                if(file == 0){ // if file is not opened
-                    file = fopen(filename, "a");
-                }
-                fprintf(file, "[%4d-%02d-%02d %02d:%02d:%02d.%03ld.%03ld] [%ld] [%-7s] [%-4u] ",
-                       (timeStamp->tm_year+1900), (timeStamp->tm_mon+1), timeStamp->tm_mday,
-                       timeStamp->tm_hour, timeStamp->tm_min, timeStamp->tm_sec,
-                       milliseconds, microseconds, threadId, logType.c_str(), _line_number_
-                );
-                fprintf(file, message, args...);
-                fprintf(file, " -> [%s] \n", _function_name_);
-            }
-        }
-    }
+             const std::string &message);
 
 private:
 
@@ -254,11 +194,11 @@ private:
     /** @brief file is used to write logs into log file. */
     FILE *file;
 
-    /** @brief file_lock mutex is used to prevent the race condition to write logs into `file`. */
-    std::mutex file_lock;
-
     /** @brief display_lock used to prevent race condition while displaying logs into console. */
     std::mutex display_lock;
+
+    /** @brief file_lock mutex is used to prevent the race condition to write logs into `file`. */
+    std::mutex file_lock;
 
     /** @brief get_instance_lock is used to make `Logger::get()` thread safe, to prevent creation of more than one objects. */
     static std::mutex get_instance_lock;

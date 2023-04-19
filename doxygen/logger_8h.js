@@ -1,7 +1,7 @@
 var logger_8h =
 [
     [ "Logger", "classLogger.html", "classLogger" ],
-    [ "LOG", "logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326", null ],
+    [ "LOG", "logger_8h.html#aa198a75056749707fcc21d5e303ffdf9", null ],
     [ "LogPriority", "logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02", [
       [ "trace", "logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a36a3b17acbfb35380a47b3d88c9b8942", null ],
       [ "debug", "logger_8h.html#aa8b1c6568df4ee385e4d1d12f7153f02a5be0fd270d9cbf6a0b7445db855089da", null ],

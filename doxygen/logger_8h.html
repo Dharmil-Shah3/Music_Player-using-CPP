@@ -102,17 +102,19 @@ $(document).ready(function(){initNavTree('logger_8h.html',''); initResizable(); 
 <code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for logger.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="logger_8h__incl.png" border="0" usemap="#alogger_8h" alt=""/></div>
 <map name="alogger_8h" id="alogger_8h">
-<area shape="rect" title=" " alt="" coords="203,5,277,31"/>
+<area shape="rect" title=" " alt="" coords="247,5,321,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,85,104"/>
 <area shape="rect" title=" " alt="" coords="110,79,183,104"/>
 <area shape="rect" title=" " alt="" coords="208,79,272,104"/>
 <area shape="rect" title=" " alt="" coords="296,79,360,104"/>
 <area shape="rect" title=" " alt="" coords="384,79,459,104"/>
+<area shape="rect" title=" " alt="" coords="483,79,557,104"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -138,9 +140,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:af6e5e4b8e7d76867f7f11a9786011326"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326">LOG</a>(priority,  message, ...)&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message, __VA_ARGS__))</td></tr>
-<tr class="memdesc:af6e5e4b8e7d76867f7f11a9786011326"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.  <br /></td></tr>
-<tr class="separator:af6e5e4b8e7d76867f7f11a9786011326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa198a75056749707fcc21d5e303ffdf9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logger_8h.html#aa198a75056749707fcc21d5e303ffdf9">LOG</a>(priority,  message)&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message))</td></tr>
+<tr class="memdesc:aa198a75056749707fcc21d5e303ffdf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.  <br /></td></tr>
+<tr class="separator:aa198a75056749707fcc21d5e303ffdf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -158,8 +160,8 @@ Enumerations</h2></td></tr>
 <tr class="separator:aa8b1c6568df4ee385e4d1d12f7153f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="af6e5e4b8e7d76867f7f11a9786011326" name="af6e5e4b8e7d76867f7f11a9786011326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6e5e4b8e7d76867f7f11a9786011326">&#9670;&#160;</a></span>LOG</h2>
+<a id="aa198a75056749707fcc21d5e303ffdf9" name="aa198a75056749707fcc21d5e303ffdf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa198a75056749707fcc21d5e303ffdf9">&#9670;&#160;</a></span>LOG</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,44 +176,32 @@ Enumerations</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">message, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
+          <td class="paramname">message&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message, __VA_ARGS__))</td>
+          <td></td><td>&#160;&#160;&#160;(<a class="el" href="classLogger.html#ace01762bec46da925f0949b7ff1d3bf2">Logger::get</a>()-&gt; <a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0">Logger::log</a>(priority, std::this_thread::get_id(), __LINE__, __PRETTY_FUNCTION__, message))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>. </p>
+<p>It is used for logging, and is a short hand of the <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">priority</td><td>is the <code>LogPriority</code> of the log. </td></tr>
-    <tr><td class="paramname">message</td><td>is the log message. </td></tr>
-    <tr><td class="paramname">...</td><td>is the variable arguments to go with the message (if any). Have to pass NULL if there is no argument.</td></tr>
+    <tr><td class="paramname">message</td><td>is the log message.</td></tr>
   </table>
   </dd>
 </dl>
-<p>It is used as an alternative of <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code><br  />
-Main objective is, to pass static arguments like <b>thread id</b>, <b>line number</b> and <b>function name</b> into <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.<br  />
+<p>It is used as an alternative of <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code><br  />
+Main objective is, to automatically pass static arguments like <b>thread id</b>, <b>line number</b> and <b>function name</b> into <code><a class="el" href="classLogger.html#a2a6257127d551b26ba54edb9ddfe31f0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.<br  />
 This macro internally calls the <code>log()</code> with all the necessary arguments passing by it self.<br  />
 So user have to pass only necessary parameters.</p>
-<p>There are 2 differences between <code><a class="el" href="logger_8h.html#af6e5e4b8e7d76867f7f11a9786011326" title="It is used for logging, and is a short hand of the Logger::log().">LOG()</a></code> and <code><a class="el" href="classLogger.html#ad24b3e72e63712513cf3b07cb6d4d6e0" title="displays and/or saves(into file) logs with timestamp, thread-id, line-number and function-name.">Logger::log()</a></code>.<br  />
-</p><ol type="1">
-<li>Unlike <code>log()</code>, in <code>LOG</code>, if there is no extra argument after <code>message</code>, we have to pass <b>NULL</b> explicitely.</li>
-<li>Unlike <code>log()</code>, in <code>LOG</code>, we don't have to pass <b>thread id</b>, <b>line number</b> and <b>function name</b> explicitely.</li>
-</ol>
 <p><b>Examples</b><br  />
 </p><ol type="1">
-<li>LOG(trace, "custome log 1", NULL);</li>
-<li>LOG(debug, "object id %d, object name %s", id, name); </li>
+<li>LOG(trace, "custom log 1");</li>
+<li>LOG(debug, "Added student id: " +to_string(studentId)+ ", name " + studentName); </li>
 </ol>
 
 </div>
