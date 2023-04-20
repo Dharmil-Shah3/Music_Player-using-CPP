@@ -5,8 +5,7 @@
 #include <fstream>  // for file output
 #include <mutex>    // to avoid race conditions in output.
 #include <thread>   // to use std::thread::id
-#include <sstream>  // to use 'ostringstream' to convert std::thread::id to std::string
-#include <iomanip>  // to use setw(), setfill() etc.
+
 
 /***************************************************************************************************************//**
   * @def LOG(priority, message, ...)

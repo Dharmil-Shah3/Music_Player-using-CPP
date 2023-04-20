@@ -1,5 +1,8 @@
 #ignore all .bak (backup) files
 *.bak
 
+#ignore all the object files
+*.o
+
 #ignore other folders
 logger\ with\ separate\ error\ file\ and\ last\ 5\ logs\ before\ error/

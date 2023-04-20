@@ -1,6 +1,7 @@
 #include "logger.h"
 #include <cstring>  // for strcpy(), strlen() etc.
-
+#include <sstream>  // to use 'ostringstream' to convert std::thread::id to std::string
+#include <iomanip>  // to use setw(), setfill() etc.
 
 /* ========== CONSTRUCTOR - DESTRUCTOR ===========*/
 Logger::Logger(){

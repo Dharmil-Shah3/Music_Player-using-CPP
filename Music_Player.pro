@@ -5,7 +5,7 @@ CONFIG -= qt
 
 SOURCES += \
         displayplaylist.cpp \
-        logger.cpp \
+	logger.cpp\
         main.cpp \
         song.cpp
 
